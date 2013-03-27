@@ -1,0 +1,9 @@
+<% @categories.each do |category|%>
+<div class="hero-unit">
+  <div class="row">
+    <% category.info[:sub_categories].each do |sub_category| %>
+      <%= link_to sub_category.name, search_path(:event => "search_by_subcategory", :id => sub_category.id) %>
+    <% end %>
+  </div>
+</div>
+<% end %>

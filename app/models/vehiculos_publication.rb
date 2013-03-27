@@ -1,0 +1,3 @@
+class VehiculosPublication < Publication
+
+end

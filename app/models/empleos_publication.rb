@@ -1,0 +1,3 @@
+class EmpleosPublication < Publication
+
+end

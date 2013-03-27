@@ -1,0 +1,3 @@
+class CompraVentaPublication < Publication
+
+end

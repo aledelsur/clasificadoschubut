@@ -1,0 +1,10 @@
+<%= semantic_form_for @publication do |f| %>
+<h1>PASO 1 de 3</h1>
+  <h2>Seleccioná tu ciudad</h2>
+  <div class="field">
+    <%= f.input :city_id, :as => :select, :collection => @cities %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Continue" %>
+  </div>
+<% end %>

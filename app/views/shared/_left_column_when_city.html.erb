@@ -1,0 +1,21 @@
+<h3>Categorías</h3>
+<div class="accordion" id="accordion2">
+  <% @categories.each_with_index do |category, i|%>
+    <div class="accordion-group">
+      <div class="accordion-heading">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#<%= set_collapse_number(i) %>">
+          <%= category.info[:name] %>
+        </a>
+      </div>
+      <div id="<%= set_collapse_number(i) %>" class="accordion-body collapse">
+        <div class="accordion-inner">
+          <% category.info[:sub_categories].each do |sub_category| %>
+            <div>
+              <%= link_to sub_category.info[:name], search_path(:event => "search_by_subcategory", :id => sub_category.id) %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

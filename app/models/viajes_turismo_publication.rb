@@ -1,0 +1,3 @@
+class ViajesTurismoPublication < Publication
+
+end

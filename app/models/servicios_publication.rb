@@ -1,0 +1,3 @@
+class ServiciosPublication < Publication
+
+end

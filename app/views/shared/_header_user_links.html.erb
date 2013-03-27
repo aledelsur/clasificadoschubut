@@ -1,0 +1,13 @@
+<% if @user && @user.valid? %>
+  <div>
+    <%= link_to "Mi cuenta", edit_user_path(@user) %>
+    |
+    <%= link_to "Cerrar sesión", destroy_user_session_path, :method => :delete %>
+  </div>
+<% else %>
+  <div>
+    <%= link_to "Registrarme", new_user_registration_path %>
+    |
+    <%= link_to "Iniciar sesión", new_user_session_path %>
+  </div>
+<% end %>

@@ -1,0 +1,3 @@
+class ClasesTalleresPublication < Publication
+
+end

@@ -5,7 +5,21 @@ gem 'rails', '3.2.13'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
+gem 'mysql2', "0.3.12b4"
+gem "paperclip"
+gem 'will_paginate', '~> 3.0.0'
 gem 'sqlite3'
+
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-facebook', '1.4.0'
+gem 'oauth2'
+gem 'formtastic-bootstrap'
+gem 'thinking-sphinx', '2.0.10'
+gem 'breadcrumbs_on_rails'
+gem 'wicked'
+
+gem 'will_paginate-bootstrap'
 
 
 # Gems used only for assets and not required
@@ -18,6 +32,10 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
+
+  gem "therubyracer"
+  gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+  gem "twitter-bootstrap-rails"  
 end
 
 gem 'jquery-rails'

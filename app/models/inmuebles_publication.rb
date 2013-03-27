@@ -1,0 +1,3 @@
+class InmueblesPublication < Publication
+
+end

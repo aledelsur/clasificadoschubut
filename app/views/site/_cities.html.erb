@@ -1,0 +1,35 @@
+<h2>Ciudades Principales</h2>
+<div class="main-cities">
+  <div class="row">
+    <ul class="nav nav-pills">
+      <li><%= link_to "Trelew", search_path(:event => "search_by_city", :city => "trelew") %></li>
+      <li><%= link_to "Puerto Madryn", search_path(:event => "search_by_city", :city => "puerto_madryn") %></li>
+      <li><%= link_to "Comodoro Rivadavia", search_path(:event => "search_by_city", :city => "comodoro_rivadavia") %></li>
+    </ul>
+  </div>
+
+
+  <div class="row">
+    <ul class="nav nav-pills">
+      <li><%= link_to "Playa Unión", search_path(:event => "search_by_city", :city => "playa_union") %></li>
+      <li><%= link_to "Esquel", search_path(:event => "search_by_city", :city => "esquel") %></li>
+      <li><%= link_to "Rawson", search_path(:event => "search_by_city", :city => "rawson") %></li>
+    </ul>
+  </div>
+
+
+  <div class="row">
+    <ul class="nav nav-pills">
+      <li><%= link_to "Sarmiento", search_path(:event => "search_by_city", :city => "sarmiento") %></li>
+      <li><%= link_to "Lago Puelo", search_path(:event => "search_by_city", :city => "lago_puelo") %></li>
+      <li><%= link_to "Gaiman", search_path(:event => "search_by_city", :city => "gaiman") %></li>
+    </ul>
+  </div>
+
+</div>
+
+<div class="row">
+  <div class="span2">
+    <%= link_to "Ver más ciudades", "#" %>
+  </div>
+</div>

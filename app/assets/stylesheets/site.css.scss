@@ -1,0 +1,48 @@
+// Place all the styles related to the site controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.header{
+  overflow: hidden;
+  .logo{
+    float: left;
+    width: 20%;
+    img {width: 200px;}
+  }
+  .user-links{
+    float: right;
+  }
+}
+
+.content{
+  .cities{
+    .main-cities{
+      .row{width: 100%;}
+      ul {
+        margin-left: 20%;
+        li {margin-right: 5%; width: 170px;}
+      }
+    }
+  }
+
+  .categories{
+    
+  }
+
+  .show-publications{
+    .divider {border-top: 1px solid #9A9A9A;}
+    .row {padding: 1%;}
+    .image {width: 225px;}
+    .price{font-size: 30px; margin-left: 0; margin-top: 7%; text-align: center;}
+    .details{
+      margin-left: 0;
+      .title{font-size: 18px; font-weight: bold;}
+    }
+  }
+
+  .new-publication{
+    #publication_sub_category_id_input{display: none;}
+  }
+
+
+}
