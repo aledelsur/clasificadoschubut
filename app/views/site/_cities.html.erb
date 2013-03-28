@@ -30,6 +30,42 @@
 
 <div class="row">
   <div class="span2">
-    <%= link_to "Ver más ciudades", "#" %>
+    <%#= link_to "Ver más ciudades", "#" %>
+    <% @cities.each_slice(2) { |a, b| puts "#{a}, #{b}" } %>
+    <%# @cities.each_slice(130) do |city| %>
+    <div class="row">
+      <%# city.each do |c| %>
+        <!--ALEJANDRO-->
+      <% #end %>
+    </div>
+    <%# end %>
+  </div>
+</div>
+
+
+    
+
+
+
+<a href="#myModal" role="button" data-toggle="modal">Ver más ciudades</a>
+ 
+<!-- Modal -->
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Ver clasificados en la ciudad:</h3>
+  </div>
+  <div class="modal-body">
+    <% @cities.each_with_index.each_slice(4) do |(a, i), (b,j), (c,k)| %>
+      <div class="row">
+        <div class"all-cities-modal"><%= a.name %></div> 
+        <div class"all-cities-modal"><%= b.name %></div> 
+        <div class"all-cities-modal"><%= c.name %></div> 
+      </div>
+    <% end %>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <button class="btn btn-primary">Save changes</button>
   </div>
 </div>

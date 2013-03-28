@@ -2,7 +2,7 @@ class Publication < ActiveRecord::Base
   
   
   attr_accessible :title, :description, :city_id, :sub_category_id, :price, :i_am, :currency, :email, :phone,
-     :brand, :model, :year, :condition, :km, :color, :fuel, :sold
+     :brand, :model, :year, :condition, :km, :color, :fuel, :sold, :type, :status, :urgent
 
   belongs_to :sub_category
   belongs_to :city

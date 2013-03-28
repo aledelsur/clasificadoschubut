@@ -1,24 +1,32 @@
+
+<div class="row">
+  <div class="user-links">
+    <%= render :partial => "shared/header_user_links" %>
+  </div>
+</div>
+
 <div class="row">
   
-  <div class="span4">
+  <div class="span3">
     <div class="logo">
       <%= link_to (image_tag "logo1.jpg"), root_path %>
     </div>
   </div>
 
-  <div class="span8">
-    <div class="row">
-      <div class="user-links">
-        <%= render :partial => "shared/header_user_links" %>
-      </div>
-    </div>
-    <div class="row">
-      <div class="search">
-        <%= render :partial => "shared/header_search" %>
-      </div>
-    </div>
-    <%= link_to "Publicá tu clasificado GRATIS", new_publication_path, :class=>"btn btn-primary btn-success" %>
-  </div>
+  <div class="span9">
 
+    <div class="row well">
+      <div class="span6">
+        <div class="search">
+          <%= render :partial => "shared/header_search" %>
+        </div>
+      </div>
+      <div class="span3">
+        <%= link_to "Publicá tu clasificado GRATIS", new_publication_path, :class=>"btn btn-primary btn-success free-publication-btn" %>
+      </div>
+    </div>
+<!--<iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.google.com&amp;send=false&amp;layout=standard&amp;width=450&amp;show_faces=true&amp;font&amp;colorscheme=light&amp;action=like&amp;height=80&amp;appId=494722567257404" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:80px;" allowTransparency="true"></iframe>    -->
+
+  </div>
 
 </div>  

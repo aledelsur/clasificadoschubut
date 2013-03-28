@@ -1,8 +1,6 @@
-
-
 <%= semantic_form_for :search, :url => index_path(:event => "search_by_textfield") do |f| %>
   <%= f.inputs do %>
-    <%= f.input :words %>
+    <%= f.input :words, :placeholder => "Piano, Departamento, Auto...", :label => false %>
   <% end %>
-  <%= f.submit %>
+  <button type="submit" class="btn btn-primary search-submit">Buscar</button>
 <% end %>

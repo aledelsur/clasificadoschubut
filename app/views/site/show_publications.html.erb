@@ -17,10 +17,6 @@
         <div class="span3 image">
           <%= link_to(image_tag("logo1.jpg", :class=>"img-polaroid"), "#") %>
         </div>
-        <div class="span2 price">
-          <span><%= set_currency(publication.info[:currency]) %></span>
-          <span><%= publication.info[:price] %></span>
-        </div>
         <div class="span4 details">
           <div class="row title">
             <%= link_to(publication.info[:title], "#") %>
@@ -29,6 +25,12 @@
             <%= link_to(truncate(publication.info[:description], :length=>300), "#") %>
           </div>
         </div>
+
+        <div class="span2 price">
+          <span><%= set_currency(publication.info[:currency]) %></span>
+          <span><%= publication.info[:price] %></span>
+        </div>
+
       </div>
     <% end %>
 </div>

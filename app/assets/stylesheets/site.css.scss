@@ -6,16 +6,50 @@
   overflow: hidden;
   .logo{
     float: left;
-    width: 20%;
-    img {width: 200px;}
+    width: 100%;
   }
   .user-links{
     float: right;
+  }
+  .span9{
+    height: 60px;
+    margin-top: 60px;
+    .row.well{
+      height: 55px;
+      margin: 0;
+      padding: 6px;      
+      .span6{
+        margin: 0;
+        .search{
+          overflow: hidden;
+          form {overflow: hidden;}
+          .search-submit{
+            float: right; 
+            font-size: 24px; 
+            height: 55px;
+          }
+          .inputs{
+            float: left; 
+            width: 80%;
+            .controls{
+              input {font-size: 20px; height: 45px; width: 100%;}
+            }
+          }
+        }
+      }
+      .span3{margin: 0 0 0 15px;}
+    }
+  }
+  .free-publication-btn{
+    font-size: 19px;
+    height: 43px;
+    width: 90%;
   }
 }
 
 .content{
   .cities{
+    h2 {text-align: center;}
     .main-cities{
       .row{width: 100%;}
       ul {
@@ -23,6 +57,15 @@
         li {margin-right: 5%; width: 170px;}
       }
     }
+
+  }
+  .all-cities-modal{
+    float: left;
+    width: 180px;      
+  }
+
+  .modal-body{
+
   }
 
   .categories{
