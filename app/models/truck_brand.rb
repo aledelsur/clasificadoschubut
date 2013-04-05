@@ -1,0 +1,3 @@
+class TruckBrand < Brand
+
+end

@@ -1,0 +1,3 @@
+class CarBrand < Brand
+
+end

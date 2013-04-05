@@ -10,6 +10,9 @@ class PublicationStepsController < ApplicationController
     if @publication.sub_category_id
       @sub_category = SubCategory.where(:id=>@publication.sub_category_id).first
     end
+
+    #@sub_category.key == "autos_y_camionetas" ? 
+
     @categories = Category.all
     @current_step = "category" if params[:id] == "category"
     @current_step = "details" if params[:id] == "details"

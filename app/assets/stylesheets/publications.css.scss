@@ -104,7 +104,66 @@
             width: 65%;
           }
         }
-        
+        #publication_brand_input{
+          overflow: hidden;
+          label{float: left; width: 30%;}
+          .controls{
+            float: left; text-align: left; 
+            select{width: 100%;}
+          }    
+        }
+        #publication_model_input{
+          overflow: hidden;
+          label{float: left; width: 30%;}
+          .controls{
+            float: left; width: 60%; text-align: left;
+            input {width: 100%;}
+            width: 45%;
+          }
+        }
+        #publication_year_input{
+          overflow: hidden;
+          label{float: left; width: 30%;}
+          .controls{
+            float: left; text-align: left; 
+            select{width: 100%;}
+          }    
+        }
+        #publication_km_input{
+          overflow: hidden;
+          label{float: left; width: 30%;}
+          .controls{
+            float: left; width: 60%; text-align: left;
+            input {width: 100%;}
+            width: 45%;
+          }
+        }
+        #publication_fuel_input{
+          overflow: hidden;
+          label{float: left; width: 30%;}
+          .controls{
+            float: left; text-align: left; 
+            select{width: 100%;}
+          }    
+        }
+        #publication_condition_input{
+          overflow: hidden;
+          label{float: left; width: 30%;}
+          .controls{
+            float: left; width: 60%; text-align: left;
+            input {width: 100%;}
+            width: 45%;
+          }
+        }
+        #publication_color_input{
+          overflow: hidden;
+          label{float: left; width: 30%;}
+          .controls{
+            float: left; width: 60%; text-align: left;
+            input {width: 100%;}
+            width: 45%;
+          }
+        }
       }
     }
   }

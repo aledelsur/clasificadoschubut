@@ -16,7 +16,7 @@
         <%= f.input :price, :label=>false %>
       </div>
       <% if @publication && @publication.sub_category.category.key == "vehiculos_y_accesorios" %>
-        HOLA QUE TAL
+        <%= render :partial => "vehiculos_details", :locals=>{:form=>f} %>
       <% end %>
       <div class="description-rich">
         <%= f.label :description, "Descripción"%>
@@ -37,3 +37,22 @@
 
 
 
+<!-- 
+  # SI ES NAUTICA, UN SELECT QUE SE LLAME nautica_categoria y muestre las que estan en el seed la marca la ponen ellos.
+  # En casillas y casas rodantes la marca la ponen ellos
+  # En Motos y cuatriciclos las categorias van listadas en el seed
+  # En aviones y avionetas la marca la ponen ellos
+
+  NAUTICA CATEGORIAS
+  botes
+  canoas
+  cruceros
+  embarcaciones a vela
+  gomones
+  kayak
+  lanchas
+  motos de agua
+  semirígidos
+  otros
+
+-->

@@ -1,0 +1,3 @@
+class MotoBrand < Brand
+
+end
