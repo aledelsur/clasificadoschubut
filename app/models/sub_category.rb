@@ -4,7 +4,8 @@ class SubCategory < ActiveRecord::Base
 
   def info
   {
-    :name     => self.name,
+    :name           => self.name,
+    :category_name  => self.category.name,
   }
   end
 

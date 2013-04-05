@@ -9,28 +9,51 @@
     <%= render :partial => "shared/left_column_when_subcategory" %>
   <% end %>
 <% end %>
-
 <div class="show-publications">
     <% @publications.each do |publication| %>
-      <div class="divider"></div>
-      <div class="row">
-        <div class="span3 image">
-          <%= link_to(image_tag("logo1.jpg", :class=>"img-polaroid"), "#") %>
-        </div>
-        <div class="span4 details">
-          <div class="row title">
-            <%= link_to(publication.info[:title], "#") %>
+      <% if publication %>
+        <div class="divider"></div>
+        <div class="one-result">
+          <div class="image">
+            <%= link_to(image_tag("logo1.jpg", :class=>"img-polaroid"), "#") %>
           </div>
-          <div class="row">
-            <%= link_to(truncate(publication.info[:description], :length=>300), "#") %>
+          <div class="details">
+            <div class="title">
+              <%= link_to(publication.info[:title], "#") %>
+            </div>
+            <div class="description">
+              <%= link_to(truncate(publication.info[:description].html_safe, :length=>300), "#") %>
+            </div>
+            <div class="elapsed-time">
+                Última actualización <%= elapsed_time(publication.info[:created_at]) %>
+            </div>
           </div>
-        </div>
+          
+          <div class="price-column">
+            <div class="price">
+              <span><%= set_currency(publication.info[:currency]) %></span>
+              <span><%= publication.info[:price]  %></span>
+            </div>
+            <div class="city">
+              <span><%= publication.info[:city] %></span>
+            </div>
+            <div class="status">
+              <span><%= publication.info[:status].capitalize if publication.info[:status] %></span>
+            </div>
+            <% if publication.info[:type] == "VehiculosPublication" %>
+              <div class="status">
+                <span><%= publication.info[:km] %> km</span>
+              </div>
+            <% end %>
+            <div class="urgent">
+              <% if publication.info[:urgent] == true %>
+                <span class="label label-success">Vendo urgente</span>
+              <% end %>            
+            </div>
+            
+          </div>
 
-        <div class="span2 price">
-          <span><%= set_currency(publication.info[:currency]) %></span>
-          <span><%= publication.info[:price] %></span>
         </div>
-
-      </div>
+      <% end %>  
     <% end %>
 </div>

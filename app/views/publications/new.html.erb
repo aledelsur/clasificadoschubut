@@ -1,10 +1,12 @@
-<%= semantic_form_for @publication do |f| %>
-<h1>PASO 1 de 3</h1>
-  <h2>Seleccioná tu ciudad</h2>
-  <div class="field">
-    <%= f.input :city_id, :as => :select, :collection => @cities %>
+
+  <div class="select_city well">
+    <%= semantic_form_for @publication do |f| %>
+      <h2>Seleccioná tu ciudad</h2>
+      <div class="field">
+        <%= f.input :city_id, :as => :select, :collection => @cities, :label => false, :prompt => "- Seleccione -" %>
+      </div>
+      <div class="actions">
+        <%= f.submit "Continue", :class=>"step1-submit" %>
+      </div>
+    <% end %>
   </div>
-  <div class="actions">
-    <%= f.submit "Continue" %>
-  </div>
-<% end %>

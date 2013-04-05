@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.clear {clear: both;}
+
 .header{
   overflow: hidden;
   .logo{
@@ -57,6 +59,9 @@
         li {margin-right: 5%; width: 170px;}
       }
     }
+    .modal.all-cities-index{
+      margin-left: -30%; width: 805px;
+    }
 
   }
   .all-cities-modal{
@@ -70,21 +75,21 @@
 
   .categories{
     
-  }
-
-  .show-publications{
-    .divider {border-top: 1px solid #9A9A9A;}
-    .row {padding: 1%;}
-    .image {width: 225px;}
-    .price{font-size: 30px; margin-left: 0; margin-top: 7%; text-align: center;}
-    .details{
-      margin-left: 0;
-      .title{font-size: 18px; font-weight: bold;}
+    .category-title-index{
+      /*background-color: #EEE331;*/
+      border: 1px solid #CECEC8;
+      border-radius: 20px 20px 0 0;
+      text-align: center;
+      
+      h2 {margin: 0; font-weight: bold;}
     }
-  }
-
-  .new-publication{
-    #publication_sub_category_id_input{display: none;}
+    .category-title-index.compra_venta{ background-color: #FCF267;}
+    .category-title-index.inmuebles{ background-color: #995D40;}
+    .category-title-index.vehiculos_y_accesorios{ background-color: #336799;}
+    .category-title-index.empleo{ background-color: #249646;}
+    .category-title-index.viajes_y_turismo{ background-color: blue;}
+    .category-title-index.cursos_y_talleres{ background-color: green;}
+    .category-title-index.servicios{ background-color: orange;}
   }
 
 

@@ -1,0 +1,11 @@
+$(".one-step.first").html("<h3><%= @city_selected_name %></h3>");
+$(".one-step.second").addClass("current-step");
+$(".new-publication .container").html("<%= escape_javascript(render 'category.html.erb') %>");
+
+
+$('.new-publication-category').click(function(){
+  var sub = $(this).attr("sub_cat_id");
+  $("#publication_sub_category_id").val(sub);
+  $.post("/publications/new/to-details", $("#edit_publication_<%=@publication.id%>").serialize());
+  return false;
+});

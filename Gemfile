@@ -18,6 +18,7 @@ gem 'formtastic-bootstrap'
 gem 'thinking-sphinx', '2.0.10'
 gem 'breadcrumbs_on_rails'
 gem 'wicked'
+gem 'rich'
 
 gem 'will_paginate-bootstrap'
 

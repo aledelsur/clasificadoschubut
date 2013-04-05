@@ -159,3 +159,5 @@ servicios.sub_categories.find_or_create_by_key(:key => "transporte_y_mudanzas", 
 puts "Categories and Subcategories created"
 
 
+Publication.create(:city_id => 62, :sub_category_id=>4, :title=>"Cuatri Banshee 350 Yamaha", :description=>"Lorem Ipsum is simply dummy text of the printing an... Lorem Ipsum is simply dummy text of the printing an... Lorem Ipsum is simply dummy text of the printing an... Lorem Ipsum is simply dummy text of the printing an... Lorem Ipsum is simply dummy text of the printing an...", :type=>"VehiculosPublication")
+Publication.create(:city_id => 62, :sub_category_id=>4, :title=>"Raptor YFZ 700 ", :description=>"Lorem Ipsum is simply dummy text of the printing an... Lorem Ipsum is simply dummy text of the printing an... Lorem Ipsum is simply dummy text of the printing an... Lorem Ipsum is simply dummy text of the printing an... Lorem Ipsum is simply dummy text of the printing an...", :type=>"VehiculosPublication")

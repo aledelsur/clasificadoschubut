@@ -1,3 +1,138 @@
 // Place all the styles related to the publications controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+@import "mixins";
+
+.content{
+  .show-publications{
+    .divider {border-top: 1px solid #9A9A9A;}
+    .one-result{
+      overflow: hidden;
+      padding: 1%;
+      .image {float: left; width: 30%;}
+      .details{
+        float: left; margin-left: 2%; margin-top: 1%; width: 50%;
+        .title{font-size: 20px; font-weight: bold; margin-bottom: 2%;}
+        .description{
+          margin-bottom: 2%;
+          a{color:black;}
+          a:hover{text-decoration: none;}
+        }
+        .elapsed-time{color: grey;}
+          
+      }
+      .price-column{
+        float: right; margin-top: 4%; text-align: right; width: 18%;
+        .price{font-size: 23px; color: #3E78FD; margin-bottom: 4%;}
+      }
+    }
+  }
+
+
+}
+
+
+.content.new-publication{
+  margin-top: 3%;
+  #publication_sub_category_id_input{display: none;}
+
+  .select_city, .select_category, .put_details{ 
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 65%;
+  }
+
+  .put_details{
+    form{
+      .inputs{
+        #publication_title_input{
+          overflow: hidden;
+          label{float: left; width: 30%;}
+          .controls{
+            float: left; text-align: left; width: 65%;
+            input{width: 97%;}
+          }
+        }
+
+        .price-and-currency{
+          overflow: hidden;
+          label{float: left; width: 30%}
+          #publication_currency_input{
+            width: 17%; float: left;
+            .controls{
+              float: left; text-align: left;
+              select{width: 100%;}
+            }
+          }
+          #publication_price_input{
+            float: left;
+            .controls{
+              input{width: 92%;}
+            }
+          }
+        }
+
+        #publication_phone_input{
+          overflow: hidden;
+          label{float: left; width: 30%;}
+          .controls{
+            float: left; width: 60%; text-align: left;
+            input {width: 100%;}
+            width: 45%;
+          }
+        }
+
+        #publication_i_am_input{
+          overflow: hidden;
+          label{float: left; width: 30%;}
+          .controls{
+            float: left; text-align: left; 
+            select{width: 100%;}
+          }          
+        }
+        .description-rich{
+          overflow: hidden;
+          label{float: left; width: 30%;}
+          #publication_description_input{
+            float: left;
+            list-style: none outside none;
+            margin-bottom: 2%;
+            overflow: hidden;
+            width: 65%;
+          }
+        }
+        
+      }
+    }
+  }
+
+
+
+
+  form#new_publication{
+    select#publication_city_id{font-size: 20px;
+    height: 40px;
+    width: 314px;    }
+    
+  }
+
+  
+    .select_category{text-align: center; width: 65%;}
+  .steps{
+    overflow: hidden;
+    text-align: center;
+    margin-left: 8%;
+    margin-bottom: 10px;
+    .one-step{float: left; width: 30%; border: 1px solid; height: 57px;}
+    .one-step.first{border-radius: 25px 0 0 25px;}
+    .one-step.second{
+      p {font-size: 22px; font-weight: bold; margin-top: 5%;}
+    }
+    .one-step.last{border-radius: 0px 25px 25px 0px;}
+    .one-step.current-step{background-color: green;}
+  }
+
+}

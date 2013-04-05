@@ -23,6 +23,12 @@ class Publication < ActiveRecord::Base
     :description          => self.description,
     :price                => self.price,
     :currency             => self.currency,
+    :created_at           => self.created_at,
+    :status               => self.status,
+    :urgent               => self.urgent,
+    :city                 => self.city.name,
+    :type                 => self.type,
+    :km                   => self.km,
     #:first_image          => self.images.first if self.images,
 
   }
@@ -31,5 +37,10 @@ class Publication < ActiveRecord::Base
   ###############
   ############## make sure you have a database index on the type column
 
+  # def set_urgency
+  #   if urgent == true
+  #     "Vendo urgente"
+  #   end
+  # end
 
 end

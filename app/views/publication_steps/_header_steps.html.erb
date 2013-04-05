@@ -1,0 +1,9 @@
+<div class="one-step first <%= 'current-step' if @current_step == 'cities'%>">
+  <h3>1. Seleccioná tu Ciudad</h3>
+</div>
+<div class="one-step second<%= 'current-step' if @current_step == 'category'%>">
+  <h3>2. Seleccioná la categoría</h3>
+</div>
+<div class="one-step last <%= 'current-step' if @current_step == 'details'%>">
+  <h3>3. Contanos los detalles</h3>
+</div>

@@ -5,6 +5,7 @@ class SiteController < ApplicationController
   def index
     @categories = Category.all
     @cities = City.all
+    @last_publications = Publication.all
     #add_breadcrumb "index", index_path
   end
 

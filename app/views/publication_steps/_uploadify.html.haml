@@ -1,0 +1,3 @@
+= form_tag multifile_publication_images_path, :multipart => true do
+  = file_field nil, nil, :name =>:images, :multiple => "", :id => :multifile_uploader
+  = submit_tag "Aceptar"

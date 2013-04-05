@@ -14,6 +14,7 @@ class PublicationsController < ApplicationController
   def new
     @publication = Publication.new
     @cities = City.all
+    @current_step = "cities"
   end
 
 end

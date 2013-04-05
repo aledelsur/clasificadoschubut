@@ -1,7 +1,11 @@
 $(document).ready(function() {
-  $('.new-publication-category').click(function(){
-    var sub = $(this).attr("sub_cat_id");
-    $("#publication_sub_category_id").val(sub);
-    $('form').submit();
+
+  $('.step1-submit').click(function(){
+    var value = $("#publication_city_id").val()
+    if (value != ""){
+      $.post("/publications/new/to-first", $("#new_publication").serialize());
+    }
+    return false;
   });
-})
+
+});

@@ -2,7 +2,7 @@ module SiteHelper
   def set_currency(currency)
     if currency == "pesos"
       "$"
-    else
+    elsif currency == "dolares" 
       "U$D"
     end
   end

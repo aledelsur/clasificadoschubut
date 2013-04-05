@@ -13,7 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
-//= require_tree .
-
-
-
+//= require rich
+//= require jquery.uploadify
+//= require s3Slider
+//= require publications.js
+//= require site.js
