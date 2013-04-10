@@ -1,0 +1,19 @@
+<table class="table table-hover">
+  <caption>Caption</caption>
+    <thead>
+      <tr>
+        <th>Mis clasificados</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @my_publications.each do |publication| %>
+          <tr>
+            <td><%= publication.title %> </td>
+            <td><%= link_to "Editar", edit_publication_path(publication) %> | <%= link_to "Eliminar", "#" %></td>
+          </tr>
+      <% end %>
+    </tbody>
+    
+
+</table>

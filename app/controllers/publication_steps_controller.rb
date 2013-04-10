@@ -1,4 +1,5 @@
 class PublicationStepsController < ApplicationController
+  before_filter :application_values
   layout 'new_publication'
   
   include Wicked::Wizard
@@ -11,7 +12,17 @@ class PublicationStepsController < ApplicationController
       @sub_category = SubCategory.where(:id=>@publication.sub_category_id).first
     end
 
-    #@sub_category.key == "autos_y_camionetas" ? 
+    this_year = Date.today.year
+    @years = (this_year-100..this_year).sort {|a,b| b <=> a}
+
+    if @sub_category
+      @brands = case @sub_category.key 
+        when "autos_y_camionetas" then CarBrand.all
+        when "camiones_y_colectivos" then TruckBrand.all
+        when "motos_y_cuatriciclos" then MotoBrand.all
+        end
+      @nautica_sub_categories = @sub_category.sub_sub_categories if @sub_category.key == "nautica"
+    end
 
     @categories = Category.all
     @current_step = "category" if params[:id] == "category"

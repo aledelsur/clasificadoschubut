@@ -9,7 +9,7 @@
 <div class="hero-unit" style="padding: 0px; overflow: hidden;">
   <div class="subcategories-index" style="margin-left: 8%; overflow: hidden;">
     <% category.info[:sub_categories].each do |sub_category| %>
-      <p style="width: 185px; float: left; font-size: 15px; margin: 0;"><%= link_to sub_category.name, search_path(:event => "search_by_subcategory", :id => sub_category.id), :style=>"font-size: 13px;" %></p>
+      <p style="width: 185px; float: left; font-size: 15px; margin: 0;"><%= link_to sub_category.name, search_path(:event => "search_by_subcategory", :id => sub_category.id, :index=>true), :style=>"font-size: 13px;" %></p>
     <% end %>
   </div>
 </div>

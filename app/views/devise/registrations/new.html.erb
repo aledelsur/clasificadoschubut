@@ -1,22 +1,22 @@
-<div class="row">
+<div class="row well sign-up">
 
   <div class="span5">
 
-    <h2>Sign up</h2>
+    <h2>Registrate!</h2>
 
     <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :multipart => true }) do |f| %>
       <%= devise_error_messages! %>
 
-      <div><%= f.label :email %><br />
+      <div><%= f.label :email, "Email" %>
       <%= f.email_field :email, :autofocus => true %></div>
 
-      <div><%= f.label :password %><br />
+      <div><%= f.label :password, "Contraseña" %>
       <%= f.password_field :password %></div>
 
-      <div><%= f.label :password_confirmation %><br />
+      <div><%= f.label :password_confirmation, "Confirmar contraseña" %>
       <%= f.password_field :password_confirmation %></div>
 
-      <div><%= f.submit "Sign up" %></div>
+      <div><%= f.submit "Aceptar", :class=>"btn btn-success" %></div>
     <% end %>
 
     <%= render "devise/shared/links" %>
@@ -24,8 +24,8 @@
 
   </div>
 
-  <div class="span4">
-    <a href="/auth/facebook" class="btn btn-primary btn-large">Iniciar sesión con Facebook <i class="icon-white icon-thumbs-up"></i>
+  <div class="span3">
+    <a href="/auth/facebook" class="btn btn-primary btn-large">Iniciar sesión con Facebook
     </a>
   </div>
 </div>

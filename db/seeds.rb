@@ -103,9 +103,22 @@ vehiculos_y_accesorios.sub_categories.find_or_create_by_key(:key => "autos_y_cam
 vehiculos_y_accesorios.sub_categories.find_or_create_by_key(:key => "camiones_y_colectivos", :name => "Camiones y Colectivos")
 vehiculos_y_accesorios.sub_categories.find_or_create_by_key(:key => "casillas_y_casas_rodantes", :name => "Casillas y Casas Rodantes")
 vehiculos_y_accesorios.sub_categories.find_or_create_by_key(:key => "motos_y_cuatriciclos", :name => "Motos y Cuatriciclos")
-vehiculos_y_accesorios.sub_categories.find_or_create_by_key(:key => "nautica", :name => "Náutica")
+
+nautica_sub_category = vehiculos_y_accesorios.sub_categories.find_or_create_by_key(:key => "nautica", :name => "Náutica")
+nautica_sub_category.sub_sub_categories.find_or_create_by_key(:key => "botes", :name => "Botes")
+nautica_sub_category.sub_sub_categories.find_or_create_by_key(:key => "canoas", :name => "Canoas")
+nautica_sub_category.sub_sub_categories.find_or_create_by_key(:key => "cruceros", :name => "Cruceros")
+nautica_sub_category.sub_sub_categories.find_or_create_by_key(:key => "embarcaciones_a_vela", :name => "Embarcaciones a vela")
+nautica_sub_category.sub_sub_categories.find_or_create_by_key(:key => "gomones", :name => "Gomones")
+nautica_sub_category.sub_sub_categories.find_or_create_by_key(:key => "kayak", :name => "Kayak")
+nautica_sub_category.sub_sub_categories.find_or_create_by_key(:key => "lanchas", :name => "Lanchas")
+nautica_sub_category.sub_sub_categories.find_or_create_by_key(:key => "motos_de_agua", :name => "Motos de agua")
+nautica_sub_category.sub_sub_categories.find_or_create_by_key(:key => "semirigidos", :name => "Semirígidos")
+nautica_sub_category.sub_sub_categories.find_or_create_by_key(:key => "otra_categoria", :name => "Otra categoría")
+
 vehiculos_y_accesorios.sub_categories.find_or_create_by_key(:key => "aviones_y_avionetas", :name => "Aviones y Avionetas")
 vehiculos_y_accesorios.sub_categories.find_or_create_by_key(:key => "otras_categorias", :name => "Otras Categorías")
+
 
 
 empleo = Category.find_or_create_by_key(:key => "empleo", :name => "Empleo")
@@ -155,7 +168,10 @@ servicios.sub_categories.find_or_create_by_key(:key => "reparaciones", :name => 
 servicios.sub_categories.find_or_create_by_key(:key => "salud_y_belleza", :name => "Salud y Belleza")
 servicios.sub_categories.find_or_create_by_key(:key => "transporte_y_mudanzas", :name => "Transporte y Mudanzas")
 
-puts "Categories and Subcategories created"
+puts "Categories, Subcategories and SubSubcategories created"
+
+
+
 
 CarBrand.find_or_create_by_key(:key=>"acura", :name=>"Acura")
 CarBrand.find_or_create_by_key(:key=>"alfa_romeo", :name=>"Alfa Romeo")
@@ -345,7 +361,7 @@ MotoBrand.find_or_create_by_key(:key=>"otra_marca", :name=>"Otra marca")
 
 
 
-puts "CarBrands created"
+puts "Brands created"
 
 #Publication.create(:city_id => 62, :sub_category_id=>4, :title=>"Cuatri Banshee 350 Yamaha", :description=>"Lorem Ipsum is simply dummy text of the printing an... Lorem Ipsum is simply dummy text of the printing an... Lorem Ipsum is simply dummy text of the printing an... Lorem Ipsum is simply dummy text of the printing an... Lorem Ipsum is simply dummy text of the printing an...", :type=>"VehiculosPublication")
 #Publication.create(:city_id => 62, :sub_category_id=>4, :title=>"Raptor YFZ 700 ", :description=>"Lorem Ipsum is simply dummy text of the printing an... Lorem Ipsum is simply dummy text of the printing an... Lorem Ipsum is simply dummy text of the printing an... Lorem Ipsum is simply dummy text of the printing an... Lorem Ipsum is simply dummy text of the printing an...", :type=>"VehiculosPublication")

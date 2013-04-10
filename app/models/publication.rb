@@ -2,10 +2,14 @@ class Publication < ActiveRecord::Base
   
   
   attr_accessible :title, :description, :city_id, :sub_category_id, :price, :i_am, :currency, :email, :phone,
-     :brand, :model, :year, :condition, :km, :color, :fuel, :sold, :type, :status, :urgent
+     :brand, :model, :year, :condition, :km, :color, :fuel, :sold, :type, :status, :urgent, :sub_sub_category_id, :user_id
+
+  #validates_presence_of :title
 
   belongs_to :sub_category
   belongs_to :city
+  belongs_to :user
+  
   has_many :images
 
   define_index do

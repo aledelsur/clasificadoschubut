@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   def application_values
     @user = current_user
-    #ActionMailer::Base.default_url_options[:host] = 'localhost:3000'
+    ActionMailer::Base.default_url_options[:host] = 'localhost:3000'
   end
 
   def site_values

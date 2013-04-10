@@ -1,3 +1,25 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.edit-user-information{
+  #user_first_name_input, #user_last_name_input, #user_address_input, #user_phone_input{
+    overflow: hidden;
+    label{float: left; width: 30%;}
+    .controls{
+      float: left; width: 60%; text-align: left;
+      input {width: 100%;}
+      width: 45%;
+    }
+  }
+
+  #user_current_password_input, #user_password_input, #user_password_confirmation_input{
+    overflow: hidden;
+    label{float: left; width: 30%;}
+    .controls{
+      float: left; width: 60%; text-align: left;
+      input {width: 50%;}
+      width: 45%;
+    }
+  }
+}

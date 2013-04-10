@@ -1,0 +1,5 @@
+  <%= form.input :model, :label=>"Modelo" %>
+  <%= form.input :year, :label=>"Año", :as => :select, :collection=>years %>
+  <%= form.input :color, :label=>"Color" %>
+  <%= form.input :km, :label=>"Km" %>
+  <%= form.input :fuel, :label=>"Combustible", :as => :select, :collection=>[["Nafta","nafta"],["Diesel","diesel"],["Nafta/GNC","nafta_gnc"],["Eléctrico/Híbrido","hibrido_electrico"]] %>

@@ -1,0 +1,7 @@
+<p>Hola <%= @resource.email %>!</p>
+
+<p> Tu cuenta en Chubut Clasificados ha sido bloqueada dado una gran cantidad de intentos fallidos de iniciar sesión.</p>
+
+<p>Para desbloquear tu cuenta hace click en el siguiente link:</p>
+
+<p><%= link_to 'Desbloquear mi cuenta', unlock_url(@resource, :unlock_token => @resource.unlock_token) %></p>

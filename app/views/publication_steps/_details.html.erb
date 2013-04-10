@@ -9,22 +9,23 @@
 
     <%= f.semantic_errors %>
     <%= f.inputs do %>
-      <%= f.input :title, :label=>"Título", :input_html => { :class => 'alejandro'} %>
+      <%= f.input :title, :label=>"Título", :as=>:email, :required=>true %>
       <div class="price-and-currency">
         <%= f.label :price, "Precio" %>
         <%= f.input :currency, :collection => [["Pesos","pesos"], ["Dólares","dolares"]], :label=>false, :prompt=>" - Seleccione -"%>
         <%= f.input :price, :label=>false %>
       </div>
       <% if @publication && @publication.sub_category.category.key == "vehiculos_y_accesorios" %>
-        <%= render :partial => "vehiculos_details", :locals=>{:form=>f} %>
+        <%= render :partial => "publication_steps/vehiculos_details", :locals=>{:form=>f, :sub_category_key => @publication.sub_category.key, :brands => @brands, :nautica_sub_categories => @nautica_sub_categories, :years => @years} %>
       <% end %>
       <div class="description-rich">
         <%= f.label :description, "Descripción"%>
         <%= f.input :description, :as => :rich, :label=>false%>
       </div>
       <%= f.input :condition, :label=>"Condición", :as => :radio, :collection=>[["Nuevo","nuevo"], ["Usado","usado"]] %>
-      <%= f.input :i_am, :collection => ["Particular", "Empresa"], :label=>"Soy", :prompt=>" - Seleccione -" %>
-      <%= f.input :phone, :label=>"Teléfono" %>
+      <%= f.input :i_am, :as => :select, :collection => [["Particular","particular"], ["Empresa","empresa"]], :label=>"Soy", :prompt=>" - Seleccione -" %>
+      <%= f.input :phone, :label=>"Teléfono", :as=>:phone %>
+      <%= f.input :user_id, :as => :hidden, :value => @user.id %>
     <% end %>
     <%= f.actions do %>
       <%= f.submit %>
@@ -35,24 +36,3 @@
 
 </div>
 
-
-
-<!-- 
-  # SI ES NAUTICA, UN SELECT QUE SE LLAME nautica_categoria y muestre las que estan en el seed la marca la ponen ellos.
-  # En casillas y casas rodantes la marca la ponen ellos
-  # En Motos y cuatriciclos las categorias van listadas en el seed
-  # En aviones y avionetas la marca la ponen ellos
-
-  NAUTICA CATEGORIAS
-  botes
-  canoas
-  cruceros
-  embarcaciones a vela
-  gomones
-  kayak
-  lanchas
-  motos de agua
-  semirígidos
-  otros
-
--->

@@ -1,0 +1,6 @@
+<h2>¡Bienvenido a Chubut Clasificados!</h2>
+<p>Hola <%= @email %>!</p>
+
+<p>Para finalizar el proceso de registro y comenzar a publicar tus clasificados es necesario que confirmes tu cuenta a través del siguiente link:</p>
+
+<p><%= link_to 'Confirmar mi cuenta', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token) %></p>

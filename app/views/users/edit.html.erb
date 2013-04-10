@@ -1,27 +1,34 @@
-<%= semantic_form_for @user, :url => user_path(:event => "basic_info") do |f| %>
-  <%= f.semantic_errors %>
-  <%= f.inputs :name => "Información básica" do %>
-    <%= f.input :first_name %>
-    <%= f.input :last_name %>
-    <%= f.input :address %>
-    <%= f.input :phone %>
-  <% end %>
+<div class="edit-user-information">
 
-  <%= f.actions do %>
-    <%= f.action :submit, :as => :button %>
-  <% end %>
-<% end %>
+  <div class="row well">
+    
+    <%= semantic_form_for @user, :url => user_path(:event => "basic_info") do |f| %>
+      <%= f.semantic_errors %>
+      <%= f.inputs :name => "Información básica" do %>
+        <%= f.input :first_name, :label=>"Nombre" %>
+        <%= f.input :last_name, :label=>"Apellido" %>
+        <%= f.input :address, :label=>"Dirección" %>
+        <%= f.input :phone, :label=>"Teléfono" %>
+      <% end %>
 
+        <%= f.submit "Aceptar", :class=>"btn btn-success" %>
+    <% end %>
 
-<%= semantic_form_for @user, :url => user_path(:event => "change_password") do |f| %>
-  <%= f.semantic_errors %>
-  <%= f.inputs :name => "Modificar contraseña" do %>
-    <%= f.input :current_password %>
-    <%= f.input :password %>
-    <%= f.input :password_confirmation %>
-  <% end %>
+  </div>
 
-  <%= f.actions do %>
-    <%= f.action :submit, :as => :button %>
-  <% end %>
-<% end %>
+  <div class="row well">
+
+    <%= semantic_form_for @user, :url => user_path(:event => "change_password") do |f| %>
+      <%= f.semantic_errors %>
+      <%= f.inputs :name => "Modificar contraseña" do %>
+        <%= f.input :current_password, :label=>"Contraseña actual" %>
+        <%= f.input :password, :label=>"Nueva contraseña" %>
+        <%= f.input :password_confirmation, :label=>"Confirmar nueva contraseña" %>
+      <% end %>
+
+        <%= f.submit "Aceptar", :class=>"btn btn-success" %>
+    <% end %>
+
+  </div>
+
+</div>

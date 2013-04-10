@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130405210346) do
+ActiveRecord::Schema.define(:version => 20130408180717) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(:version => 20130405210346) do
     t.integer  "city_id"
     t.integer  "sub_category_id"
     t.string   "title"
+    t.float    "price"
     t.string   "i_am"
     t.text     "description"
     t.string   "currency"
@@ -81,12 +82,13 @@ ActiveRecord::Schema.define(:version => 20130405210346) do
     t.string   "color"
     t.string   "fuel"
     t.boolean  "sold"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
     t.string   "type"
     t.string   "status"
     t.boolean  "urgent"
-    t.float    "price"
+    t.integer  "sub_sub_category_id"
+    t.integer  "user_id"
   end
 
   create_table "rich_rich_files", :force => true do |t|
@@ -108,6 +110,14 @@ ActiveRecord::Schema.define(:version => 20130405210346) do
     t.string   "key"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "sub_sub_categories", :force => true do |t|
+    t.integer  "sub_category_id"
+    t.string   "name"
+    t.string   "key"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "users", :force => true do |t|

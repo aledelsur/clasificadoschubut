@@ -11,11 +11,11 @@
               <%= category.info[:name] %>
             </a>
           </div>
-          <div id="<%= set_collapse_number(i) %>" class="accordion-body collapse">
+          <div id="<%= set_collapse_number(i) %>" class="accordion-body collapse accordion-sub-categories">
             <div class="accordion-inner">
               <% category.info[:sub_categories].each do |sub_category| %>
                 <div>
-                  <%= link_to sub_category.info[:name], "#", :class=>"new-publication-category", :sub_cat_id => sub_category.id %>
+                  <p style="width: 185px; float: left; font-size: 15px; margin: 0;"><%= link_to sub_category.info[:name], "#", :class=>"new-publication-category", :sub_cat_id => sub_category.id, :style=>"font-size: 13px;" %></p>
                 </div>
               <% end %>
             </div>

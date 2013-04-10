@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
+  
   def edit
+    render "edit", :layout => "my_account"
   end
 
   def update
@@ -7,7 +9,7 @@ class UsersController < ApplicationController
       user = User.find(params[:id])
       user.update_attributes(params[:user])
       if user.save
-        flash[:notice] = "Tus datos fueron actualizados correctamente."
+        flash[:notice] = "Tus datos fueron modificados correctamente."
         redirect_to root_path
       else
         flash[:error] = "Hay un problema"
@@ -20,9 +22,12 @@ class UsersController < ApplicationController
         if user.update_with_password(params[:user])
           sign_in(user, :bypass => true)
         end
-        flash[:notice] = "Successfully updated User."
+        flash[:notice] = "Tus datos fueron modificados correctamente."
+        ClasificadosMailer.change_password(:user=>@user).deliver
         redirect_to root_path
       else
+        # encoding: UTF-8
+        flash[:error] = "Tu contrasena actual no es correcta o las contrasenas nuevas no coinciden ."
         render :action => 'edit'
       end    
     end

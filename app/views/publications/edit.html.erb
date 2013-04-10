@@ -1,0 +1,35 @@
+  <div class="edit-publication">
+    <div class="edit_details well">
+      <%= semantic_form_for @publication, url: publication_path(@publication) do |f| %>
+        <h2>Editar publicación</h2>
+        <!-- ########################################### -->
+        <!-- ########## PARA VALIDAR EL PRECIO ######### -->
+        <!-- <input type="text" pattern="\d+(\.\d{2})?"> -->
+        <!-- ########################################### -->
+
+        <%= f.semantic_errors %>
+        <%= f.inputs do %>
+          <%= f.input :title, :label=>"Título", :as=>:email, :required=>true %>
+          <div class="price-and-currency">
+            <%= f.label :price, "Precio" %>
+            <%= f.input :currency, :collection => [["Pesos","pesos"], ["Dólares","dolares"]], :label=>false, :prompt=>" - Seleccione -"%>
+            <%= f.input :price, :label=>false %>
+          </div>
+          <% if @publication && @publication.sub_category.category.key == "vehiculos_y_accesorios" %>
+            <%= render :partial => "publication_steps/vehiculos_details", :locals=>{:form=>f, :sub_category_key => @publication.sub_category.key, :brands => @brands, :nautica_sub_categories => @nautica_sub_categories, :years => @years} %>
+          <% end %>
+          <div class="description-rich">
+            <%= f.label :description, "Descripción"%>
+            <%= f.input :description, :as => :rich, :label=>false %>
+          </div>
+          <%= f.input :condition, :label=>"Condición", :as => :radio, :collection=>[["Nuevo","nuevo"], ["Usado","usado"]] %>
+          <%= f.input :i_am, :as => :select, :collection => [["Particular","particular"], ["Empresa","empresa"]], :label=>"Soy", :prompt=>" - Seleccione -" %>
+          <%= f.input :phone, :label=>"Teléfono", :as=>:phone %>
+          <%= f.input :user_id, :as => :hidden, :value => @user.id %>
+        <% end %>
+        <%= f.actions do %>
+          <%= f.submit %>
+        <% end %>
+      <% end %>
+  </div> 
+</div>  

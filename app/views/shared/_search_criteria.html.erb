@@ -1,5 +1,9 @@
-<div class="row">
-  <div class="span9">
-    <%= render_breadcrumbs %>
+<% if @event == "search_by_textfield" %>
+  
+<% else %>
+  <div class="row">
+    <div class="span9">
+      <%= render_breadcrumbs %>
+    </div>
   </div>
-</div>
+<% end %>

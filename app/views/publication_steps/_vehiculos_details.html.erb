@@ -1,6 +1,9 @@
-<%= form.input :brand, :label=>"Marca", :as => :select %>
-<%= form.input :model, :label=>"Modelo" %>
-<%= form.input :year, :label=>"Año", :as => :select %>
-<%= form.input :color, :label=>"Color" %>
-<%= form.input :km, :label=>"Km" %>
-<%= form.input :fuel, :label=>"Combustible", :as => :select, :collection=>[["Nafta","nafta"],["Diesel","diesel"],["Nafta/GNC","nafta_gnc"],["Eléctrico/Híbrido","hibrido_electrico"]] %>
+<% if sub_category_key == "autos_y_camionetas" || sub_category_key == "camiones_y_colectivos" || sub_category_key == "motos_y_cuatriciclos" %>
+  <%= form.input :brand, :label=>"Marca", :as => :select, :collection=>brands, :prompt => "- Seleccione -" %>
+<% elsif sub_category_key == "nautica" %>
+  <%= form.input :sub_sub_category_id, :label=>"Categoría", :as => :select, :collection =>nautica_sub_categories, :prompt => "- Seleccione -" %>
+  <%= form.input :brand, :label=>"Marca" %>
+<% else %> <!-- Casillas y casas rodantes O Aviones y avionetas O Otras categorías-->
+  <%= form.input :brand, :label=>"Marca" %>
+<% end %>
+<%= render :partial => "publication_steps/vehiculos_common_details", :locals=>{:form=>form, :years => years} %>
