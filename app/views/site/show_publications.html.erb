@@ -3,11 +3,13 @@
 <% end %>
 
 <% content_for :left_column do %>
-  <% if (@event == "search_by_city" && params[:index] == "true") || (@event == "search_by_subcategory" && params[:index] == "false") %>
-    <%= render :partial => "shared/left_column_show_categories" %>
-  <% elsif @event == "search_by_subcategory" && params[:index] == "true" || (@event == "search_by_city" && params[:index] == "false") %>
-    <%= render :partial => "shared/left_column_show_cities" %>
-  <% end %>
+  <div class="left-column">
+    <% if (@event == "search_by_city" && params[:index] == "true") || (@event == "search_by_subcategory" && params[:index] == "false") %>
+      <%= render :partial => "shared/left_column_show_categories" %>
+    <% elsif (@event == "search_by_subcategory" && params[:index] == "true") || (@event == "search_by_city" && params[:index] == "false") || (@event == "search_by_textfield") %>
+      <%= render :partial => "shared/left_column_show_cities" %>
+    <% end %>
+  </div>
 <% end %>
 <div class="show-publications">
     <% @publications.each do |publication| %>
@@ -22,7 +24,7 @@
               <%= link_to(publication.info[:title], "#") %>
             </div>
             <div class="description">
-              <%= link_to(truncate(publication.info[:description].html_safe, :length=>300), "#")  if publication.info[:description]%>
+              <%= link_to(truncate(safe(publication.info[:description]), :length=>300), "#")  if publication.info[:description]%>
             </div>
             <div class="elapsed-time">
                 Última actualización <%= elapsed_time(publication.info[:created_at]) %>
@@ -37,6 +39,7 @@
             <div class="city">
               <span><%= publication.info[:city] %></span>
             </div>
+            <%= publication.sub_category.name %>
             <div class="status">
               <span><%= publication.info[:status].capitalize if publication.info[:status] %></span>
             </div>

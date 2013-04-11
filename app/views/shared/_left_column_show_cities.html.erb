@@ -1,3 +1,71 @@
-<% @all_cities.each do |city| %>
-  <%= link_to city.name, search_path(:event => "search_by_city", :city => city.key, :index=>false) %>
-<% end %>
+<h3>Ciudades principales</h3>
+<ul class="main-cities">
+  <li>
+    <%= link_to "Trelew", search_path(:event => "search_by_city", :city => "trelew", :index=>false) %>
+  </li>
+  <li>
+    <%= link_to "Puerto Madryn", search_path(:event => "search_by_city", :city => "puerto_madryn", :index=>false) %>
+  </li>
+  <li>
+    <%= link_to "Comodoro Rivadavia", search_path(:event => "search_by_city", :city => "comodoro_rivadavia", :index=>false) %>
+  </li>
+  <li>
+    <%= link_to "Rada Tilly", search_path(:event => "search_by_city", :city => "rada_tilly", :index=>false) %>
+  </li>
+  <li>
+    <%= link_to "Rawson", search_path(:event => "search_by_city", :city => "rawson", :index=>false) %>
+  </li>
+  <li>
+    <%= link_to "Playa Unión", search_path(:event => "search_by_city", :city => "playa_union", :index=>false) %>
+  </li>
+  <li>
+    <%= link_to "Esquel", search_path(:event => "search_by_city", :city => "esquel", :index=>false) %>
+  </li>
+  <li>
+    <%= link_to "Gaiman", search_path(:event => "search_by_city", :city => "gaiman", :index=>false) %>
+  </li>
+  <li>  
+    <%= link_to "Sarmiento", search_path(:event => "search_by_city", :city => "sarmiento", :index=>false) %>
+  </li>
+  <li>
+    <%= link_to "Lago Puelo", search_path(:event => "search_by_city", :city => "lago_puelo", :index=>false) %>
+  </li>
+  <li>
+    <%= link_to "Cholila", search_path(:event => "search_by_city", :city => "cholila", :index=>false) %>
+  </li>
+  <li>
+    <%= link_to "Epuyén", search_path(:event => "search_by_city", :city => "epuyen", :index=>false) %>
+  </li>
+  <li>
+    <%= link_to "Puerto Pirámides", search_path(:event => "search_by_city", :city => "puerto_piramides", :index=>false) %>
+  </li>
+  <li>
+    <%= link_to "Trevelin", search_path(:event => "search_by_city", :city => "trevelin", :index=>false) %>
+  </li>
+  <li>
+    <%= link_to "Dolavon", search_path(:event => "search_by_city", :city => "dolavon", :index=>false) %>
+  </li>
+  <li>
+    <%= link_to "Camarones", search_path(:event => "search_by_city", :city => "camarones", :index=>false) %>
+  </li>
+  <li>
+    <a href="#myModal" role="button" data-toggle="modal" style="font-weight: bold;">+ Ver todas</a>
+  </li>
+</ul>
+
+ 
+<!-- Modal -->
+<div id="myModal" class="modal hide fade all-cities-left-column" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Ver clasificados en:</h3>
+  </div>
+  <div class="modal-body">
+    
+    <% @all_cities.each do |city| %>
+      <p style="width: 185px; float: left; font-size: 15px; margin: 0;"><%= link_to city.name, search_path(:event => "search_by_city", :city => city.key, :index=>false), :style=>"font-size: 13px;" %></p>
+    <% end %>
+  </div>
+  <div class="modal-footer">
+  </div>
+</div>

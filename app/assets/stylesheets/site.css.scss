@@ -42,6 +42,12 @@
       .span3{margin: 0 0 0 15px;}
     }
   }
+  .results-for-keyword{
+    font-size: 19px;
+    margin-bottom: 1%;
+    margin-left: 26%;
+    span {font-weight: bold;}
+  }
   .free-publication-btn{
     font-size: 19px;
     height: 43px;
@@ -60,15 +66,17 @@
         li {width: 170px;}
       }
     }
-    .modal.all-cities-index{
-      margin-left: -30%; width: 805px;
-    }
+    
 
   }
-  .all-cities-modal{
-    float: left;
-    width: 180px;      
+  .modal.all-cities-index, .modal.all-cities-left-column{
+      margin-left: -30%; width: 805px;
   }
+
+  /*.all-cities-modal{
+    float: left;
+    width: 180px;    
+  }*/
 
   .modal-body{
 
@@ -91,6 +99,12 @@
     .category-title-index.viajes_y_turismo{ background-color: blue;}
     .category-title-index.cursos_y_talleres{ background-color: green;}
     .category-title-index.servicios{ background-color: orange;}
+  }
+
+  .left-column{
+    ul.main-cities{
+      list-style: none;
+    }
   }
 
 }

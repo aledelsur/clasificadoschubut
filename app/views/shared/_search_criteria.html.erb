@@ -1,5 +1,12 @@
-<% if @event == "search_by_textfield" %>
-  
+<% if @event == "search_by_textfield" || (@event == "search_by_city" && @in_city)%>
+  <div class="row results-for-keyword">
+    Resultados para "
+    <% if @in_city %>
+      <span><%= @keyword_search %></span> " en <span><%= @city.name %></span>: <span>(<%= @publications.size %>)</span>
+    <% else %>
+      <span><%= @keyword_search %></span> ": <span>(<%= @publications.size %>)</span>
+    <% end %>
+  </div>
 <% else %>
   <div class="row">
     <div class="span9">

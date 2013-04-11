@@ -15,10 +15,10 @@ class Publication < ActiveRecord::Base
   define_index do
     indexes title#, :sortable => true
     indexes description
-    indexes city_id
-    indexes sub_category_id
+    #indexes city_id
+    #indexes sub_category_id
 
-    has created_at, updated_at
+    has city_id, sub_category_id
   end  
 
   def info

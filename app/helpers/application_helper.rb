@@ -1,4 +1,5 @@
 module ApplicationHelper
+  require "cgi"
 
   def elapsed_time(old_time) 
     val = Time.now - old_time
@@ -27,5 +28,11 @@ module ApplicationHelper
     end
     result
   end
+
+  def safe(content)
+    #plain_text = strip_tags(html_input)
+    "#{ CGI::unescapeHTML(content) }".html_safe
+  end
+
 
 end
