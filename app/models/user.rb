@@ -41,6 +41,9 @@ class User < ActiveRecord::Base
     avatar = open(url)
   end  
 
+  def logged_with_social?
+    !self.authentications.empty?
+  end
 
 private
 

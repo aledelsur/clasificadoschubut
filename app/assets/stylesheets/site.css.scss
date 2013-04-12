@@ -50,16 +50,25 @@
   }
   .free-publication-btn{
     font-size: 19px;
-    height: 43px;
+    height: 44px;
     width: 90%;
   }
 }
 
 .content{
   .cities{
-    h2 {text-align: center;}
+    h2 {text-align: center; font-family: 'Crafty Girls', cursive; margin-bottom: 3%;}
     .main-cities{
       .row{width: 100%;}
+      .row.more-cities-index-link{
+        ul{
+          border: 1px solid white;
+          border-radius: 9px 9px 9px 9px;
+          margin: 0 auto 0 4%;
+          width: 100%;
+          li{width: 100%;}
+        }
+      }
       ul {
         margin-left: 10%;
         text-align: center;
@@ -69,6 +78,21 @@
     
 
   }
+  .how-to-publicate{
+    margin-top: 5%;
+    ul{
+      list-style: none;
+      li p{font-size: 15px; font-weight: bold;}
+    }
+  }
+  .how-to-buy{
+    margin-top: 15%;
+    ul{
+      list-style: none;
+      li p{font-size: 15px; font-weight: bold;}
+    }
+  }
+
   .modal.all-cities-index, .modal.all-cities-left-column{
       margin-left: -30%; width: 805px;
   }
@@ -92,18 +116,35 @@
       
       h2 {margin: 0; font-weight: bold;}
     }
+    .category-title-index{
+      h2{
+        small{color:white; font-weight: bold;}
+      }
+    }
     .category-title-index.compra_venta{ background-color: #FCF267;}
     .category-title-index.inmuebles{ background-color: #995D40;}
-    .category-title-index.vehiculos_y_accesorios{ background-color: #336799;}
-    .category-title-index.empleo{ background-color: #249646;}
-    .category-title-index.viajes_y_turismo{ background-color: blue;}
-    .category-title-index.cursos_y_talleres{ background-color: green;}
-    .category-title-index.servicios{ background-color: orange;}
+    .category-title-index.vehiculos_y_accesorios{ background-color: #7FE87F;}
+    .category-title-index.empleo{ background-color: #FF7C83;}
+    .category-title-index.viajes_y_turismo{ background-color: #336799;}
+    .category-title-index.cursos_y_talleres{ background-color: #C57EFE;}
+    .category-title-index.servicios{ background-color: #FFD651;}
   }
 
   .left-column{
     ul.main-cities{
       list-style: none;
+    }
+  }
+
+  .contact{
+    text-align: center;
+    form{
+      .field{
+        textarea{height: 120px; width: 55%;}
+      }
+      .actions{
+
+      }
     }
   }
 
@@ -123,4 +164,12 @@
   label{float: left; width: 35%;}
   .span5{border-right: 1px solid #E5E3E3;}
   .span3{margin-left: 7%; margin-top: 15%;}
+}
+footer{
+  background-color: #3C3C3B; height: 200px;
+  .footer-content{
+    color: white;
+    margin: auto; padding-top: 7%; width: 50%;
+    a{color: white;}
+  }
 }

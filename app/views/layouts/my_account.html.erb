@@ -45,14 +45,13 @@
                   </div>
                   <div class="span9">
                     <ul class="nav nav-tabs">
-                      <li class="active">
+                      <li class="<%= 'active' if controller.action_name == 'edit' %>">
                         <%= link_to "Datos personales", edit_user_path(@user) %>
                       </li>
-                      <li>
+                      <li class="<%= 'active' if controller.action_name == 'index' %>">
                         <%= link_to "Mis publicaciones", publications_path %>
                       </li>
                     </ul>
-
                     <%= yield %>
                     
                   </div><!--/span-->
@@ -62,12 +61,12 @@
         </div><!--/row-->
       </div>
 
-      <footer>
-        <p>&copy; Company 2013</p>
-      </footer>
 
     </div> <!-- /container -->
 
+    <footer>
+      <%= render :partial => "shared/footer" %>
+    </footer>
     <!-- Javascripts
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

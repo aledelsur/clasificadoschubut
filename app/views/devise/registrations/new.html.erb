@@ -5,7 +5,11 @@
     <h2>Registrate!</h2>
 
     <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :multipart => true }) do |f| %>
-      <%= devise_error_messages! %>
+      <%#= devise_error_messages! %>
+
+      <%# if resource.errors[:email].present? %>
+        <!--El email ya se encuentra registrado en nuestra base de datos.-->
+      <%#end%>
 
       <div><%= f.label :email, "Email" %>
       <%= f.email_field :email, :autofocus => true %></div>

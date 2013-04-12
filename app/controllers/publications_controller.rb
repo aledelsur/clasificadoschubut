@@ -23,7 +23,7 @@ class PublicationsController < ApplicationController
   end
 
   def update
-    raise params.inspect
+    raise "Params: publications_controller "+params.inspect
     publication = Publication.find(params[:id])
     publication.update_attributes(params[:publication])
     if publication.save
@@ -50,6 +50,16 @@ class PublicationsController < ApplicationController
     @cities = City.all
     @current_step = "cities"
     render "new", :layout => 'new_publication'
+  end
+
+  def destroy
+    @publication = Publication.find params[:id]
+    if @publication.destroy
+      flash[:notice] = "Se ha eliminado correctamente."
+    else
+      flash[:error] = "Ha ocurrido un error."
+    end
+    redirect_to publications_path
   end
 
 end

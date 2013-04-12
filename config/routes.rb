@@ -14,12 +14,24 @@ Clasificadoschubut::Application.routes.draw do
   root :to => "site#index"
   match '/auth/failure' => "site#index"
 
-  match '/:event', to: "site#index", as: "index"
+  match '/contact', to: "site#contact", as: "contact"
+  match '/contact/send-email', to: "site#send_contact_email", as: "contact_email"
+
   match '/search/:event', to: "site#search", as: "search"
 
   match '/publications/new/to-first', to: "publications#create"
   match '/publications/new/to-categories', to: "publication_steps#show"
   match '/publications/new/to-details', to: "publication_steps#update"
+
+
+
+
+
+
+
+
+
+  match '/:event', to: "site#index", as: "index"
 
   #match '/update_password/:id', to: "users#update_password", as: "update_password"
 

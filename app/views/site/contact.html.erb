@@ -1,0 +1,24 @@
+<div class="row well contact">
+  <h3>Contactate con nosotros!</h3>
+  <p>Envianos tu consulta.</p>
+  </br>
+  <%= form_tag contact_email_path do %>
+    <div class="field">
+      <label>Nombre</label>
+      <%= text_field_tag :name %>
+    </div>
+    <div class="field">
+      <label>Email</label>
+      <%= text_field_tag :email %>
+    </div>
+    <div class="field">
+      <label>Tu consulta</label>
+      <%= text_area_tag :question %>
+    </div>
+    <div class="actions">
+      <%= submit_tag "Enviar", :class=>"btn btn-primary" %>
+    </div>
+  <% end %>
+
+
+</div>

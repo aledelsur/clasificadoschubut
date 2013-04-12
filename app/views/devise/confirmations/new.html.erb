@@ -1,12 +1,17 @@
-<h2>Resend confirmation instructions</h2>
+<div class="row well">
 
-<%= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f| %>
-  <%= devise_error_messages! %>
+  <h2>¿No pudiste confirmar tu cuenta?</h2>
+  <p>No te preocupes. Te volveremos a enviar las instrucciones para que confirmes la cuenta.</p>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+  <%= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f| %>
+    <%= devise_error_messages! %>
 
-  <div><%= f.submit "Resend confirmation instructions" %></div>
-<% end %>
+    <div><%= f.label :email %><br />
+    <%= f.email_field :email, :autofocus => true %></div>
 
-<%= render "devise/shared/links" %>
+    <div><%= f.submit "Aceptar", :class=>"btn btn-primary" %></div>
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+
+</div>

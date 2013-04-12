@@ -76,6 +76,14 @@ class SiteController < ApplicationController
   end
 
 
+  def contact
+  end
+
+  def send_contact_email
+    ClasificadosMailer.contact(params).deliver
+    flash[:notice] = "Gracias por tu consulta! Te responderemos a la brevedad."
+    redirect_to root_path
+  end
 
   
 end

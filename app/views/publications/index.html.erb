@@ -1,19 +1,26 @@
-<table class="table table-hover">
-  <caption>Caption</caption>
-    <thead>
-      <tr>
-        <th>Mis clasificados</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @my_publications.each do |publication| %>
-          <tr>
-            <td><%= publication.title %> </td>
-            <td><%= link_to "Editar", edit_publication_path(publication) %> | <%= link_to "Eliminar", "#" %></td>
-          </tr>
-      <% end %>
-    </tbody>
-    
+<div class="well my-publications">
 
-</table>
+  <% if @my_publications.empty? %>
+    <p>Aún no has creado ningún clasificado. Te invitamos a crearlo gratis y llegar a toda nuestra provincia!</p>
+  <% else %>
+    <table class="table table-hover">
+      <!--<caption><h3>Mis Publicaciones</h3></caption>-->
+        <thead>
+          <tr>
+            <th>Título</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @my_publications.each do |publication| %>
+              <tr>
+                <td><%= publication.title %> </td>
+                <td><%= link_to "Editar", edit_publication_path(publication) %> | <%= link_to "Eliminar", publication_path(publication), :method=>:delete, :confirm=>"¿Querés eliminar esta publicación?" %></td>
+              </tr>
+          <% end %>
+        </tbody>
+
+    </table>
+  <% end %>
+
+</div>

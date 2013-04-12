@@ -16,19 +16,23 @@
 
   </div>
 
-  <div class="row well">
+  <% unless @user.logged_with_social? %>
 
-    <%= semantic_form_for @user, :url => user_path(:event => "change_password") do |f| %>
-      <%= f.semantic_errors %>
-      <%= f.inputs :name => "Modificar contraseña" do %>
-        <%= f.input :current_password, :label=>"Contraseña actual" %>
-        <%= f.input :password, :label=>"Nueva contraseña" %>
-        <%= f.input :password_confirmation, :label=>"Confirmar nueva contraseña" %>
+    <div class="row well">
+
+      <%= semantic_form_for @user, :url => user_path(:event => "change_password") do |f| %>
+        <%= f.semantic_errors %>
+        <%= f.inputs :name => "Modificar contraseña" do %>
+          <%= f.input :current_password, :label=>"Contraseña actual" %>
+          <%= f.input :password, :label=>"Nueva contraseña" %>
+          <%= f.input :password_confirmation, :label=>"Confirmar nueva contraseña" %>
+        <% end %>
+
+          <%= f.submit "Aceptar", :class=>"btn btn-success" %>
       <% end %>
 
-        <%= f.submit "Aceptar", :class=>"btn btn-success" %>
-    <% end %>
+    </div>
 
-  </div>
+  <% end %>
 
 </div>
