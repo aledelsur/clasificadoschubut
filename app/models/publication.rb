@@ -33,6 +33,7 @@ class Publication < ActiveRecord::Base
     :city                 => self.city.name,
     :type                 => self.type,
     :km                   => self.km,
+    :i_am                 => self.i_am,
     #:first_image          => self.images.first if self.images,
 
   }

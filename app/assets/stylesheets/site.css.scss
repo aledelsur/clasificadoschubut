@@ -1,6 +1,4 @@
-// Place all the styles related to the site controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "mixins";
 
 .clear {clear: both;}
 
@@ -90,6 +88,48 @@
     ul{
       list-style: none;
       li p{font-size: 15px; font-weight: bold;}
+    }
+  }
+
+  .show-one-publication{
+    @include borders-show-one-publication;
+    margin: auto;
+    overflow: hidden;
+    width: 80%;
+    .title{
+      @include border-btm-show-one-publication;
+      font-size: 16px;
+      font-weight: bold;
+      padding-bottom: 1%;
+      padding-top: 1%;
+      text-align: center;
+    }
+    .left{
+      @include border-right-show-one-publication; float: left; width: 70%;
+      .images{
+        .current{
+          @include borders-show-one-publication; margin: 2%;
+          img {width: 200px;}
+        }
+        .others{
+          @include borders-show-one-publication;
+          height: 60px;
+          margin: auto;
+          width: 80%;
+          img{margin: 2px; width: 44px;}
+        }
+      }
+      .description{
+        @include borders-show-one-publication; margin: 2%;
+      }
+      .contact-seller{
+        
+      }
+    }
+    .right{
+      float: left;
+      padding-left: 3%;
+      width: 26%;
     }
   }
 

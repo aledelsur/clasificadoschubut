@@ -1,5 +1,5 @@
 class SiteController < ApplicationController
-  before_filter :authenticate_user!, :except => [:index, :search]
+  before_filter :authenticate_user!, :except => [:index, :search, :show_one_publication]
   before_filter :site_values
 
   def index
@@ -75,6 +75,10 @@ class SiteController < ApplicationController
     render "show_publications"
   end
 
+  def show_one_publication
+    @publication = Publication.find(params[:id])
+    render :layout => "show_publication"
+  end
 
   def contact
   end

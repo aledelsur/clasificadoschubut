@@ -4,7 +4,7 @@ class PublicationsController < ApplicationController
 
   def index
     @my_publications = Publication.where('user_id = ?', @user.id)
-    render "index", :layout => "my_account"
+    render :layout => "my_account"
   end
 
   def edit
@@ -19,7 +19,7 @@ class PublicationsController < ApplicationController
         when "motos_y_cuatriciclos" then MotoBrand.all
         end
     @nautica_sub_categories = @sub_category.sub_sub_categories if @sub_category.key == "nautica"
-    render "edit", :layout => "my_account"
+    render :layout => "my_account"
   end
 
   def update

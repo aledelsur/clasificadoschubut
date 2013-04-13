@@ -1,0 +1,35 @@
+<div class="title"><%= @publication.info[:title] %></div>
+<div class="left">
+  <div class="images">
+    <div class="current">
+      <%= image_tag "rails.png" %>
+    </div>
+    <div class="others">
+      <%= image_tag "rails.png" %>
+    </div>
+  </div>
+  <div class="description">
+    <%= @publication.info[:description] %>
+  </div>
+  <div class="contact-seller">
+    <%= link_to "Contactar al vendedor", "#", :class=>"btn btn-primary" %>
+  </div>
+</div>
+<div class="right">
+  <div class="main-details">
+    <p><%= @publication.info[:currency] %></p>
+    <p><%= @publication.info[:price] %></p>
+    <p><%= @publication.info[:city] %></p>
+    <p><%= @publication.info[:condition] %></p>
+    <p><%= @publication.info[:i_am] %></p>
+  </div>
+  <% if @publication.info[:type] == "VehiculosPublication" %>
+    <div class="main-details">
+      <p><%= @publication.info[:currency] %></p>
+      <p><%= @publication.info[:price] %></p>
+      <p><%= @publication.info[:city] %></p>
+      <p><%= @publication.info[:condition] %></p>
+      <p><%= @publication.info[:i_am] %></p>
+    </div>
+  <% end %>
+</div>
