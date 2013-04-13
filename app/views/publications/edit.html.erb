@@ -9,7 +9,7 @@
 
         <%= f.semantic_errors %>
         <%= f.inputs do %>
-          <%= f.input :title, :label=>"Título", :as=>:email, :required=>true %>
+          <%= f.input :title, :label=>"Título", :required=>true %>
           <div class="price-and-currency">
             <%= f.label :price, "Precio" %>
             <%= f.input :currency, :collection => [["Pesos","pesos"], ["Dólares","dolares"]], :label=>false, :prompt=>" - Seleccione -"%>

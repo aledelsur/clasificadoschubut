@@ -5,8 +5,8 @@
     <%= semantic_form_for @user, :url => user_path(:event => "basic_info") do |f| %>
       <%= f.semantic_errors %>
       <%= f.inputs :name => "Información básica" do %>
-        <%= f.input :first_name, :label=>"Nombre" %>
-        <%= f.input :last_name, :label=>"Apellido" %>
+        <%= f.input :email, :label=>"Email", :input_html => { :disabled => true } %>
+        <%= f.input :name, :label=>"Nombre y Apellido" %>
         <%= f.input :address, :label=>"Dirección" %>
         <%= f.input :phone, :label=>"Teléfono" %>
       <% end %>

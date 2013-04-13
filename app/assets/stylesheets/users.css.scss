@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .edit-user-information{
-  #user_first_name_input, #user_last_name_input, #user_address_input, #user_phone_input{
+  #user_email_input, #user_name_input, #user_address_input, #user_phone_input{
     overflow: hidden;
     label{float: left; width: 30%;}
     .controls{

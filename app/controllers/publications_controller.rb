@@ -55,7 +55,7 @@ class PublicationsController < ApplicationController
   def destroy
     @publication = Publication.find params[:id]
     if @publication.destroy
-      flash[:notice] = "Se ha eliminado correctamente."
+      flash[:notice] = "La publicaci&oacute;n se ha eliminado correctamente."
     else
       flash[:error] = "Ha ocurrido un error."
     end

@@ -9,7 +9,8 @@ class UsersController < ApplicationController
       user = User.find(params[:id])
       user.update_attributes(params[:user])
       if user.save
-        flash[:notice] = "Tus datos fueron modificados correctamente."
+        flash[:notice] = "Tus datos fueron modificados correctamente"
+
         redirect_to edit_user_path(user)
       else
         flash[:error] = "Hay un problema"
@@ -22,11 +23,11 @@ class UsersController < ApplicationController
         if user.update_with_password(params[:user])
           sign_in(user, :bypass => true)
         end
-        flash[:notice] = %Q[Tus datos fueron modificados correctamente. Para entrar con tu nueva clave haz click <a href="#{new_user_session_path}">aqui.</a>]
+        flash[:notice] = %Q[Tus datos fueron modificados correctamente. Para entrar con tu nueva contrase&ntilde;a haz click <a href="#{new_user_session_path}">aqu&iacute;.</a>]
         ClasificadosMailer.change_password(:user=>@user).deliver
         redirect_to root_path
       else
-        flash[:error] = "Tu contrasena actual no es correcta o las contrasenas nuevas no coinciden ."
+        flash[:error] = "Tu contrase&ntilde;a actual no es correcta o las contrase&ntilde;as nuevas no coinciden."
         render :action => 'edit'
       end    
     end
@@ -46,5 +47,7 @@ class UsersController < ApplicationController
       render :action => 'edit'
     end    
   end
+
+
 
 end

@@ -15,6 +15,5 @@
 //= require twitter/bootstrap
 //= require rich
 //= require jquery.uploadify
-//= require s3Slider
 //= require publications.js
 //= require site.js

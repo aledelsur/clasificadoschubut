@@ -6,7 +6,7 @@ class SiteController < ApplicationController
     @categories = Category.all
     @cities = City.all
     @last_publications = Publication.all
-    @publication = Publication.new
+    #@publication = Publication.new
 
     session[:subcategory_visited] = nil
     session[:city_visited] = nil
@@ -71,7 +71,7 @@ class SiteController < ApplicationController
       add_breadcrumb sub_category.category.name, "#"
       add_breadcrumb sub_category.name, "#"
     end
-    #flash[:error] = "No hemos encontrado resultados." if @publications.empty?
+    flash[:warning] = "Te recordamos que Chubut Clasificados es una p&aacute;gina nueva. Pronto encontrar&aacute;s lo que est&aacute;s buscando!" if @publications.empty?
     render "show_publications"
   end
 
@@ -89,5 +89,11 @@ class SiteController < ApplicationController
     redirect_to root_path
   end
 
+  def oauth_failure
+    #THIS ACTIONS IS DOING NOTHING. NEVER ENTERS HERE. I could delete it, but I won't do it because
+    # in the initializer omniauth.rb I am calling this action. If I put this action in the :except
+    # of AuthenticateUser! it also never entering here.
+    redirect_to root_path
+  end
   
 end

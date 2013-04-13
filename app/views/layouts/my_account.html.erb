@@ -4,6 +4,12 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name='title' content='Clasificados Gratis en Chubut | Chubut Clasificados' />
+    <meta name="keywords" content="chubut clasificados, chubut, clasificados, clasificados chubut, clasificados en chubut, compra venta chubut, gratis, avisos gratis, clasificados gratis, anuncios gratis, avisos, anuncios, anuncios en chubut, clasificados en trelew, clasificados en puerto madryn, puerto madryn, comodoro rivadavia, playa union">
+    <meta name="description" content="chubut clasificados gratis anuncios avisos compra venta, donde comprar y vender en chubut, Portal de anuncios clasificados gratis en Puerto Madryn, Trelew, Gaiman, Rawson, Playa Unión, Dolavon, Puerto Pirámides. Alquileres temporarios, ventas, compras, turismo, viajes y turismo, cursos y talleres, inmuebles, automotores, empleo, servicios, terrenos, vehiculos, automóviles, vehiculos y accesorios.">
+    <META name="robots" content="INDEX,FOLLOW">
+    
     <title><%= content_for?(:title) ? yield(:title) : "Clasificadoschubut" %></title>
     <%= csrf_meta_tags %>
 
@@ -71,6 +77,8 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag "jquery.lazyload" %>
+    <%= javascript_include_tag "jquery-cycle.js" %>
 
   </body>
 </html>

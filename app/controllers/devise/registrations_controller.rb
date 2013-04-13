@@ -27,9 +27,9 @@ class Devise::RegistrationsController < DeviseController
       if email_error && email_error.first == "can't be blank"
         flash[:error] = "Debe completar el campo Email."
       elsif email_error && email_error.first == "has already been taken"
-        flash[:error] = "El email ya es usado por otra persona."
+        flash[:error] = "El email ya est&aacute; siendo usado por otra persona."
       elsif password_error && password_error.first == "is too short (minimum is 8 characters)"
-        flash[:error] = "La contrasena debe tener al menos 8 caracteres."
+        flash[:error] = "La contrase&ntilde;a debe tener al menos 8 caracteres."
       elsif password_error && password_error.first == "can't be blank"
       end
       clean_up_passwords resource

@@ -13,7 +13,7 @@
   }
   .span9{
     height: 60px;
-    margin-top: 60px;
+    margin-top: 4%;
     .row.well{
       height: 55px;
       margin: 0;
@@ -40,6 +40,7 @@
       .span3{margin: 0 0 0 15px;}
     }
   }
+  .span9.breadc{margin-top: 0;}
   .results-for-keyword{
     font-size: 19px;
     margin-bottom: 1%;
@@ -75,6 +76,44 @@
     }
     
 
+  }
+  .last-publications{
+    margin-top: 11%;
+    p.lbl{font-weight: bold; text-align: center; margin-bottom: 0;}
+    .navs-slider{
+     height: 25px;
+    overflow: hidden;
+    position: relative;
+    top: 123px;
+    width: 100%;
+      a#nav-slider-left-prev{ float: left; }
+      a#nav-slider-left-next{ float: right; }
+      img.prev, img.next{width: 10px;}
+    }
+    #slider-left{
+      width: 230px;
+      margin: auto;
+      ul.thumbnails{
+        width: 100%;
+        margin-left: 0;
+        li{
+          margin: 0;
+          .thumbnail{
+            width: 96%;
+            p.city{border-bottom: 1px solid #E5E3E3; margin: 0; padding-bottom: 1%; text-align: center; font-weight: bold; font-size: 17px;}
+            p{text-align: center; font-weight: bold;}
+            p.price{font-size: 20px; color:grey;}
+            .navs{
+              margin: 1% auto auto;
+              overflow: hidden;
+              a.image{
+                img{border: 1px solid; width: 99%;}
+              }
+            }
+          }
+        }
+      }
+    }
   }
   .how-to-publicate{
     margin-top: 5%;
@@ -213,3 +252,4 @@ footer{
     a{color: white;}
   }
 }
+
