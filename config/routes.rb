@@ -1,5 +1,8 @@
 Clasificadoschubut::Application.routes.draw do
   
+  match '/publication_steps/multifile-upload' => "publication_steps#multifile_upload"
+  match '/publication_steps/multifile-publication-images-upload' => "publication_steps#multifile_publication_images_upload", as: "multifile_publication_images"
+  
   root :to => "site#index"
   
   ActiveAdmin.routes(self)
@@ -14,8 +17,7 @@ Clasificadoschubut::Application.routes.draw do
   resources :publications
   resources :publication_steps
 
-  match '/publication_steps/multifile-upload' => "publication_steps#multifile_upload"
-  match '/publication_steps/multifile-publication-images-upload' => "publication_steps#multifile_publication_images_upload", as: "multifile_publication_images"  
+    
   
   match '/auth/:provider/callback' => 'authentications#create'
   

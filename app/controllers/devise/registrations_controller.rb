@@ -20,6 +20,7 @@ class Devise::RegistrationsController < DeviseController
         respond_with resource, :location => after_inactive_sign_up_path_for(resource)
       end
     else
+      #ESTA ROMPIENDO CUANDO CREO UN USUARIO NUEVO. Googlear capaz es un problema de rutas.
       #raise resource.errors.messages.inspect
       email_error = resource.errors.messages[:email]
       password_error = resource.errors.messages[:password]
@@ -31,6 +32,7 @@ class Devise::RegistrationsController < DeviseController
       elsif password_error && password_error.first == "is too short (minimum is 8 characters)"
         flash[:error] = "La contrase&ntilde;a debe tener al menos 8 caracteres."
       elsif password_error && password_error.first == "can't be blank"
+        flash[:error] = "Debe ingresar una contrase&ntilde;a."
       end
       clean_up_passwords resource
       respond_with resource

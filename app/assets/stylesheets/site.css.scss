@@ -186,20 +186,34 @@
   }
 
   .categories{
-    
-    .category-title-index{
-      /*background-color: #EEE331;*/
-      border: 1px solid #CECEC8;
-      border-radius: 20px 20px 0 0;
-      text-align: center;
-      
-      h2 {margin: 0; font-weight: bold;}
-    }
-    .category-title-index{
-      h2{
-        small{color:white; font-weight: bold;}
+    .one-category{
+      overflow: hidden;
+      .left{
+        float: left;
+        width: 30%;
+        h2.compra_venta{ margin-top: 23%;}
+        h2.inmuebles{}
+        h2.vehiculos_y_accesorios{ margin-top: 6%;}
+        h2.empleo{ margin-top: 23%;}
+        h2.viajes_y_turismo{}
+        h2.cursos_y_talleres{}
+        h2.servicios{ margin-top: 6%;}
+      }
+      .hero-unit{padding: 14px; line-height: 19px;}
+      .right{
+        float: right;
+        width: 65%;
+      }
+      .subcategories-index{
+        p{
+          width: 185px; float: left; font-size: 15px; margin: 0;
+          a{font-size: 13px;}
+        }
       }
     }
+    
+
+
     .category-title-index.compra_venta{ background-color: #FCF267;}
     .category-title-index.inmuebles{ background-color: #995D40;}
     .category-title-index.vehiculos_y_accesorios{ background-color: #7FE87F;}
