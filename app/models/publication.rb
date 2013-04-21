@@ -10,15 +10,17 @@ class Publication < ActiveRecord::Base
   belongs_to :city
   belongs_to :user
   
-  has_many :images
+  has_many :images, :dependent => :destroy
 
   define_index do
-    indexes title#, :sortable => true
+    indexes title, :sortable => true
     indexes description
     #indexes city_id
     #indexes sub_category_id
 
     has city_id, sub_category_id
+    
+    set_property :delta => true
   end  
 
   def info
@@ -39,8 +41,16 @@ class Publication < ActiveRecord::Base
   }
   end
 
+
+  def self.last_publications
+    Publication.all
+  end
+
+
   ###############
   ############## make sure you have a database index on the type column
+
+
 
   # def set_urgency
   #   if urgent == true

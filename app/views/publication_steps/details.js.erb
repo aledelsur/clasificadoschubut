@@ -1,26 +1,19 @@
-
-<% key = Rails.application.config.session_options[:key] %>
-$(document).ready(function() {
-  $(function() {
-      var upload_params = {
-        '<%=key%>' : '<%=cookies[key]%>',
-        '<%=request_forgery_protection_token%>' : '<%=form_authenticity_token%>',
-        '_http_accept': 'application/javascript',
-        'formData'      : {    
-          'auth_token': '<%=form_authenticity_token%>'
-        },
-      };
-      $("#multifile-uploader").uploadify({
-          height        : 30,
-          swf           : '/uploadify.swf',
-          uploader      : '/publication_steps/multifile-publication-images-upload',
-          'method'   : 'get',
-          formData      : upload_params,
-          width         : 120
-      });
-  });
-});
-
 $(".one-step.second").html("<p><%= @sub_category.info[:category_name] %> > <%= @sub_category.info[:name] %></p>");
 $(".one-step.last").addClass("current-step");
+$(".one-step.second").removeClass("current-step");
+$(".one-step.second").addClass("previous-step");
 $(".new-publication .container").html("<%= escape_javascript(render 'details.html.erb') %>");
+$('.description_area').wysihtml5({
+  "font-styles": false,
+  "link": false,
+  "image": false
+});
+  
+$('.back-to-category').click(function(){
+  var city_id = $('#publication_city_id').val();
+  $(".one-step.last").removeClass("current-step");
+  $.post("/publications/new/to-categories", {city_id:city_id, back:true} );
+  $("html, body").animate({ scrollTop: 0 }, "fast");
+  $(".one-step.second").html("<h3>2. Seleccioná la categoría</h3>")
+  return false;
+});

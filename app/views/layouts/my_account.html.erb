@@ -19,6 +19,8 @@
     <![endif]-->
 
     <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= stylesheet_link_tag "prettify" %>
+    <%= stylesheet_link_tag "bootstrap-wysihtml5" %>
 
     <%= favicon_link_tag 'images/apple-touch-icon-144x144-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144' %>
 
@@ -48,13 +50,16 @@
                 <div class="row">
                   <div class="span3">
                     <%= yield :left_column %>
+                      <% if @last_publications.any? %> 
+                        <%= render :partial => 'shared/last_publications_left', :locals => { :last_publications => @last_publications} %> 
+                      <% end %>
                   </div>
                   <div class="span9">
                     <ul class="nav nav-tabs">
-                      <li class="<%= 'active' if controller.action_name == 'edit' %>">
+                      <li class="<%= 'active' if controller.controller_name == 'users' && controller.action_name == 'edit' %>">
                         <%= link_to "Datos personales", edit_user_path(@user) %>
                       </li>
-                      <li class="<%= 'active' if controller.action_name == 'index' %>">
+                      <li class="<%= 'active' if controller.controller_name == 'publications' && controller.action_name == 'index' || controller.controller_name == 'publications' && controller.action_name == 'edit' %>">
                         <%= link_to "Mis publicaciones", publications_path %>
                       </li>
                     </ul>
@@ -77,8 +82,13 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <%= javascript_include_tag "application" %>
-    <%= javascript_include_tag "jquery.lazyload" %>
     <%= javascript_include_tag "jquery-cycle.js" %>
+    <%= javascript_include_tag "wysihtml5-0.3.0" %>
+    <%= javascript_include_tag "prettify" %>
+    <%= javascript_include_tag "bootstrap-wysihtml5" %>
+    <%= javascript_include_tag "site" %>
+    <%= javascript_include_tag "my_account" %>
+
 
   </body>
 </html>

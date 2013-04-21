@@ -40,6 +40,7 @@
       .span3{margin: 0 0 0 15px;}
     }
   }
+  .new-publication-header-text{margin-left: 18%; margin-top: 5%;}
   .span9.breadc{margin-top: 0;}
   .results-for-keyword{
     font-size: 19px;
@@ -265,5 +266,8 @@ footer{
     margin: auto; padding-top: 7%; width: 50%;
     a{color: white;}
   }
+}
+#error_explanation{
+  h2{font-size: 15px;}
 }
 

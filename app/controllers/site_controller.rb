@@ -18,12 +18,13 @@ class SiteController < ApplicationController
   ### http://pat.github.io/thinking-sphinx/searching.html#conditions
 
   def search
+    #raise params.inspect
+    #raise session.inspect
     @event = params[:event]
     @categories = Category.all #must be here because it is used in both events
     @all_cities = City.all #must be here because it is used in both events
 
     if @event == "search_by_textfield"
-      #MULTIPLE SEARCHES http://stackoverflow.com/questions/1273479/multiple-keyword-search-using-thinking-sphinx-rails-plugin
       @keyword_search = params[:search][:words]
       @publications = Publication.search @keyword_search
       session[:keyword_search] = @keyword_search
@@ -44,12 +45,16 @@ class SiteController < ApplicationController
       end
 
       if @keyword_search
-        @publications = Publication.search @keyword_search, :with => {:city_id => @city.id}
+        @publications = Publication.search @keyword_search, :with => {:city_id => @city.id}#, :order=>:title
+        session[:city_id] = @city.id
         @in_city = true
       elsif sub_category # When first select a sub category in the index page, and then change the city on the left
-        @publications = Publication.search :with => {:city_id => @city.id, :sub_category_id => sub_category.id}
+        @publications = Publication.search :with => {:city_id => @city.id, :sub_category_id => sub_category.id}#, :order=>"title"
+        session[:city_id] = @city.id
+        session[:subcategory_id] = sub_category.id
       else # When first select a city in the index page
-        @publications = Publication.search :with => {:city_id => @city.id}
+        @publications = Publication.search  :with => {:city_id => @city.id}
+        session[:city_id] = @city.id
       end
 
     elsif @event == "search_by_subcategory"

@@ -1,4 +1,3 @@
-
   <div class="select_city well">
     <%= semantic_form_for @publication do |f| %>
       <h2>Seleccioná tu ciudad</h2>
@@ -6,7 +5,11 @@
         <%= f.input :city_id, :as => :select, :collection => @cities, :label => false, :prompt => "- Seleccione -" %>
       </div>
       <div class="actions">
-        <%= f.submit "Continue", :class=>"step1-submit" %>
+        <%= f.submit "Continuar", :class=>"step1-submit btn btn-primary" %>
       </div>
     <% end %>
   </div>
+
+
+
+

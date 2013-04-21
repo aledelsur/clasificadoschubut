@@ -42,7 +42,7 @@
 .content.new-publication, .edit-publication{
   margin-top: 3%;
   #publication_sub_category_id_input{display: none;}
-
+  .container{margin-bottom: 6%;}
   .select_city, .select_category, .put_details{ 
     margin-left: auto;
     margin-right: auto;
@@ -59,7 +59,10 @@
   .edit_details{
    width: 100%; 
   }
+  .put_details{width:65%;}
+  .edit_details{width:95%;}
   .put_details, .edit_details{
+    text-align: center;
     form{
       .inputs{
         #publication_title_input, #compra_venta_publication_title_input, #vehiculos_publication_title_input, #inmuebles_publication_title_input, #cursos_talleres_publication_title_input, #servicios_publication_title_input, #viajes_turismo_publication_title_input{
@@ -99,6 +102,27 @@
           }
         }
 
+        #publication_email_input, #compra_venta_publication_email_input, #vehiculos_publication_email_input, #inmuebles_publication_email_input, #cursos_talleres_publication_email_input, #servicios_publication_email_input, #viajes_turismo_publication_email_input, #empleos_publication_email_input{
+         overflow: hidden;
+          label{float: left; width: 30%;}
+          .controls{
+            float: left; width: 60%; text-align: left;
+            input {width: 100%;}
+            width: 45%;
+          } 
+        }
+
+        .urgent{
+          overflow: hidden;
+          label{float: left; width: 30%;} 
+          #publication_urgent_input, #compra_venta_publication_urgent_input, #vehiculos_publication_urgent_input, #inmuebles_publication_urgent_input, #cursos_talleres_publication_urgent_input, #servicios_publication_urgent_input, #viajes_turismo_publication_urgent_input, #empleos_publication_urgent_input{
+            float: left;
+            label.control-label{display: none;}
+          }
+        }
+        
+        
+
         #publication_i_am_input, #compra_venta_publication_i_am_input, #vehiculos_publication_i_am_input, #inmuebles_publication_i_am_input, #cursos_talleres_publication_i_am_input, #servicios_publication_i_am_input, #viajes_turismo_publication_i_am_input, #empleos_publication_i_am_input{
           overflow: hidden;
           label{float: left; width: 30%;}
@@ -112,11 +136,14 @@
           label{float: left; width: 30%;}
 
           #publication_description_input, #compra_venta_publication_description_input, #vehiculos_publication_description_input, #inmuebles_publication_description_input, #cursos_talleres_publication_description_input, #servicios_publication_description_input, #viajes_turismo_publication_description_input, #empleos_publication_description_input{
-            float: left;
+            float: left;                  
             list-style: none outside none;
             margin-bottom: 2%;
             overflow: hidden;
             width: 65%;
+            .controls{
+              .wysihtml5-sandbox{width: 97% !important; height: 225px !important;} /* no esta funcionando*/
+            }
           }
         }
         #publication_sub_sub_category_id_input{
@@ -169,11 +196,12 @@
             select{width: 100%;}
           }    
         }
-        #publication_condition_input, #vehiculos_publication_condition_input{
+        #publication_condition_input, #compra_venta_publication_condition_input, #vehiculos_publication_condition_input, #inmuebles_publication_condition_input, #cursos_talleres_publication_condition_input, #servicios_publication_condition_input, #viajes_turismo_publication_condition_input, #empleos_publication_condition_input{
           overflow: hidden;
           label{float: left; width: 30%;}
           .controls{
             float: left; width: 60%; text-align: left;
+            label{margin-left: 6%; padding: 0;}
             input {width: 100%;}
             width: 45%;
           }
@@ -195,26 +223,25 @@
 
 
   form#new_publication{
-    select#publication_city_id{font-size: 20px;
-    height: 40px;
-    width: 314px;    }
+    select#publication_city_id{font-size: 20px; height: 40px; width: 314px; text-align: center;}
     
   }
 
   
-    .select_category{text-align: center; width: 65%;}
+  .select_category{text-align: center; width: 65%;}
   .steps{
     overflow: hidden;
     text-align: center;
     margin-left: 8%;
-    margin-bottom: 10px;
-    .one-step{float: left; width: 30%; border: 1px solid; height: 57px;}
+    margin-bottom: 3%;
+    .one-step{float: left; width: 30%; border: 1px solid #E5E3E3; height: 57px;}
     .one-step.first{border-radius: 25px 0 0 25px;}
     .one-step.second{
       p {font-size: 22px; font-weight: bold; margin-top: 5%;}
     }
     .one-step.last{border-radius: 0px 25px 25px 0px;}
-    .one-step.current-step{background-color: green;}
+    .previous-step{background-color: #449945; border: 1px solid #E5E3E3;}
+    .one-step.current-step{background-color: #449945; border: 1px solid;}
   }
 
 }

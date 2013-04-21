@@ -7,6 +7,9 @@ class PublicationStepsController < ApplicationController
   
   def show
     @publication = Publication.find(session[:publication_id])
+    if params[:back] # Only when I am in details step and goes back.
+      @publication.city_id = params[:city_id]
+    end
     @city_selected_name = City.where(:id=>@publication.city_id).first.name
     if @publication.sub_category_id
       @sub_category = SubCategory.where(:id=>@publication.sub_category_id).first
@@ -36,6 +39,7 @@ class PublicationStepsController < ApplicationController
   end
 
   def update
+
     @publication = Publication.find(session[:publication_id])
     @sub_category = @publication.sub_category_id ? SubCategory.where(:id=>@publication.sub_category_id).first : SubCategory.where(:id=>params[:publication][:sub_category_id]).first
     if step == "category".to_sym
@@ -63,39 +67,7 @@ class PublicationStepsController < ApplicationController
 
 
 
-  def upload_asset(params)
-    file = params[:Filedata]
-    mime_type = MIME::Types.type_for(file.original_filename).first
-    file.content_type = "#{mime_type}"
-    m = yield(file, mime_type)
-    fkey = file.original_filename
-    resp = {}
-    if m.save
-      resp[:id] = m.id.to_s
-      resp[:url]= m.image.url(:small)
-    else
-      resp[:errors] = m.errors.messages
-    end
-    
-    return resp
-  end
 
-  def multifile_publication_images_upload
-    upload_asset params do |file, mime_type|
-      image = Image.new(image: file, image_content_type: mime_type.to_s)
-      image.image_content_type = mime_type.to_s
-      image
-    end
-  end
-
-  def multifile_upload
-    publication = Publication.find(params[:publication_id])
-    upload_asset params do |file, mime_type|
-      image = Image.new(image: file, publication: publication, image_content_type: mime_type.to_s)
-      image.image_content_type = mime_type.to_s
-      image
-    end
-  end  
 
 
 end

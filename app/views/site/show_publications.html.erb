@@ -40,7 +40,13 @@
             </div>
             
             <div class="price-column">
-              <span class="label label-important">Urgente</span>
+
+              <div class="urgent">
+                <% if publication.info[:urgent] == true %>
+                  <span class="label label-success">Vendo urgente</span>
+                <% end %>            
+              </div>
+
               <div class="price">
                 <span><%= set_currency(publication.info[:currency]) %></span>
                 <span><%= publication.info[:price]  %></span>
@@ -57,11 +63,6 @@
                   <span><%= publication.info[:km] %> km</span>
                 </div>
               <% end %>
-              <div class="urgent">
-                <% if publication.info[:urgent] == true %>
-                  <span class="label label-success">Vendo urgente</span>
-                <% end %>            
-              </div>
               
             </div>
 

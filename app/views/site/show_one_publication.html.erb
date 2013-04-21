@@ -9,7 +9,7 @@
     </div>
   </div>
   <div class="description">
-    <%= @publication.info[:description] %>
+    <%= safe(@publication.info[:description]) %>
   </div>
   <div class="contact-seller">
     <%= link_to "Contactar al vendedor", "#", :class=>"btn btn-primary" %>

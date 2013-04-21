@@ -1,6 +1,6 @@
 class PublicationsController < ApplicationController
   before_filter :authenticate_user!
-  
+  layout 'new_publication'
 
   def index
     @my_publications = Publication.where('user_id = ?', @user.id)
@@ -47,9 +47,10 @@ class PublicationsController < ApplicationController
 
   def new
     @publication = Publication.new
+    #@publication = Publication.new(:include => :publication)
     @cities = City.all
     @current_step = "cities"
-    render "new", :layout => 'new_publication'
+    #@image = Image.find(params[:id], :include => :publication)
   end
 
   def destroy
@@ -61,5 +62,40 @@ class PublicationsController < ApplicationController
     end
     redirect_to publications_path
   end
+
+  def upload_asset(params)
+    file = params[:Filedata]
+    mime_type = MIME::Types.type_for(file.original_filename).first
+    file.content_type = "#{mime_type}"
+    m = yield(file, mime_type)
+    fkey = file.original_filename
+    resp = {}
+    if m.save
+      resp[:id] = m.id.to_s
+      resp[:url]= m.image.url(:small)
+    else
+      resp[:errors] = m.errors.messages
+    end
+    
+    return resp
+  end
+
+  def multifile_publication_images_upload
+    raise "multifile_publication_images_upload"
+    upload_asset params do |file, mime_type|
+      image = Image.new(image: file, image_content_type: mime_type.to_s)
+      image.image_content_type = mime_type.to_s
+      image
+    end
+  end
+
+  def multifile_upload
+    publication = Publication.find(params[:publication_id])
+    upload_asset params do |file, mime_type|
+      image = Image.new(image: file, publication: publication, image_content_type: mime_type.to_s)
+      image.image_content_type = mime_type.to_s
+      image
+    end
+  end    
 
 end

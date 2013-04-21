@@ -1,14 +1,11 @@
 Clasificadoschubut::Application.routes.draw do
-  
-  match '/publication_steps/multifile-upload' => "publication_steps#multifile_upload"
-  match '/publication_steps/multifile-publication-images-upload' => "publication_steps#multifile_publication_images_upload", as: "multifile_publication_images"
+
+  resources :images  
   
   root :to => "site#index"
   
   ActiveAdmin.routes(self)
   devise_for :admin_users, ActiveAdmin::Devise.config
-
-  mount Rich::Engine => '/rich', :as => 'rich'
 
   devise_for :users
   ActiveAdmin.routes(self)

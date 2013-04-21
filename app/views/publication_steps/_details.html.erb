@@ -1,7 +1,7 @@
 <div class="put_details well">
 
   <%= semantic_form_for @publication, url: wizard_path do |f| %>
-    <h2>Completá la información</h2>
+    <h2>Completá los detalles</h2>
     <!-- ########################################### -->
     <!-- ########## PARA VALIDAR EL PRECIO ######### -->
     <!-- <input type="text" pattern="\d+(\.\d{2})?"> -->
@@ -9,7 +9,7 @@
 
     <%= f.semantic_errors %>
     <%= f.inputs do %>
-      <%= f.input :title, :label=>"Título", :as=>:email, :required=>true %>
+      <%= f.input :title, :label=>"Título", :required=>true %>
       <div class="price-and-currency">
         <%= f.label :price, "Precio" %>
         <%= f.input :currency, :collection => [["Pesos","pesos"], ["Dólares","dolares"]], :label=>false, :prompt=>" - Seleccione -"%>
@@ -20,19 +20,26 @@
       <% end %>
       <div class="description-rich">
         <%= f.label :description, "Descripción"%>
-        <%= f.input :description, :as => :rich, :label=>false%>
+        <%= f.input :description, :label=>false, :input_html => { :class=>"description_area" }%>
       </div>
+      <%= f.input :email, :label=>"Email", :input_html => { :value => @user.email } %>
       <%= f.input :condition, :label=>"Condición", :as => :radio, :collection=>[["Nuevo","nuevo"], ["Usado","usado"]] %>
       <%= f.input :i_am, :as => :select, :collection => [["Particular","particular"], ["Empresa","empresa"]], :label=>"Soy", :prompt=>" - Seleccione -" %>
       <%= f.input :phone, :label=>"Teléfono", :as=>:phone %>
+      <div class="urgent">
+        <%= f.label :urgent, "¿Necesitás venderlo urgente?" %>
+        <%= f.input :urgent, :as => :boolean, :label=>"Si"%>
+      </div>
       <%= f.input :user_id, :as => :hidden, :value => @user.id %>
+      <%= f.input :city_id, :as => :hidden, :value => @publication.city_id %>
     <% end %>
     <%= f.actions do %>
-      <%= f.submit %>
+      <%= link_to "Volver", "#", :class=>"back-to-category btn btn-primary" %>
+      <%= f.submit "Finalizar", :class=>"btn btn-primary" %>
     <% end %>
   <% end %>
 
-  <input type='file' name='file_upload' id='multifile-uploader' />
+  <!--<input type='file' name='file_upload' id='multifile-uploader' />-->
 
 </div>
 

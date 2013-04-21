@@ -1,5 +1,5 @@
 $(document).ready(function() {
-
+  
   $('.step1-submit').click(function(){
     var value = $("#publication_city_id").val()
     if (value != ""){

@@ -1,4 +1,6 @@
 $(".one-step.first").html("<h3><%= @city_selected_name %></h3>");
+$(".one-step.first").removeClass("current-step");
+$(".one-step.first").addClass("previous-step");
 $(".one-step.second").addClass("current-step");
 $(".new-publication .container").html("<%= escape_javascript(render 'category.html.erb') %>");
 
@@ -9,3 +11,4 @@ $('.new-publication-category').click(function(){
   $.post("/publications/new/to-details", $("#edit_publication_<%=@publication.id%>").serialize());
   return false;
 });
+

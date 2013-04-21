@@ -6,11 +6,12 @@ gem 'rails', '3.2.13'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'mysql2', "0.3.12b4"
-gem "paperclip"
-gem 'will_paginate', '~> 3.0.0'
+gem "paperclip", "~> 2.5.0"
+gem "will_paginate", "3.0.3"
 gem 'sqlite3'
 
 gem 'devise'
+gem 'activeadmin'
 gem 'omniauth'
 gem 'omniauth-facebook', '1.4.0'
 gem 'oauth2'
@@ -19,6 +20,8 @@ gem 'thinking-sphinx', '2.0.10'
 gem 'breadcrumbs_on_rails'
 gem 'wicked'
 gem 'rich'
+gem "bootstrap-wysihtml5-rails"
+gem 'mime-types', :require => 'mime/types'
 
 gem 'will_paginate-bootstrap'
 

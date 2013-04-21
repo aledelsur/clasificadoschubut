@@ -1,6 +1,6 @@
 <div class="edit-user-information">
 
-  <div class="row well">
+  <div class="well">
     
     <%= semantic_form_for @user, :url => user_path(:event => "basic_info") do |f| %>
       <%= f.semantic_errors %>
@@ -18,7 +18,7 @@
 
   <% unless @user.logged_with_social? %>
 
-    <div class="row well">
+    <div class="well">
 
       <%= semantic_form_for @user, :url => user_path(:event => "change_password") do |f| %>
         <%= f.semantic_errors %>
