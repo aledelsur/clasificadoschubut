@@ -21,10 +21,6 @@ class User < ActiveRecord::Base
 
 
 
-  has_attached_file :avatar,
-    :styles => {
-      :small=> "150x150#"}
-
 
   # def apply_omniauth(omniauth)
   #   authentications.build(:provider => omniauth['provider'], :uid => omniauth['uid'])

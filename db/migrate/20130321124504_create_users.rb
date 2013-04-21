@@ -6,7 +6,6 @@ class CreateUsers < ActiveRecord::Migration
       t.string :last_name
       t.string :address
       t.string :phone
-      t.attachment :avatar
       t.string :provider
       t.string :uid
       t.string :oauth_token
