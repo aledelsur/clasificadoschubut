@@ -24,6 +24,7 @@ Clasificadoschubut::Application.routes.draw do
   match '/contact/send-email', to: "site#send_contact_email", as: "contact_email"
 
   match '/search/:event', to: "site#search", as: "search"
+  match '/order/:sort', to: "site#order", as: "order"
 
   match '/publications/new/to-first', to: "publications#create"
   match '/publications/new/to-categories', to: "publication_steps#show"

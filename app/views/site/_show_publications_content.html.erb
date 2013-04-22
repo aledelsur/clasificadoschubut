@@ -1,0 +1,64 @@
+
+
+<% if publications.empty? %>
+
+  <p>Aún no registramos resultados para tu búsqueda.</p>
+
+<% else %>
+
+  <% publications.each do |publication| %>
+    <% if publication %>
+      <div class="divider"></div>
+      <div class="one-result">
+        <div class="image">
+          <%= link_to(image_tag("ballena.jpg", :class=>"img-polaroid"), show_one_publication_path(publication)) %>
+        </div>
+        <div class="details">
+          <div class="title">
+            <%= link_to(publication.info[:title], show_one_publication_path(publication)) %>
+          </div>
+          <div class="description">
+            <%= link_to(truncate(safe(publication.info[:description]), :length=>300), show_one_publication_path(publication))  if publication.info[:description]%>
+          </div>
+          <div class="elapsed-time">
+              Última actualización <%= elapsed_time(publication.info[:created_at]) %>
+          </div>
+        </div>
+        
+        <div class="price-column">
+
+          <div class="urgent">
+            <% if publication.info[:urgent] == true %>
+              <span class="label label-success">Vendo urgente</span>
+            <% end %>            
+          </div>
+
+          <div class="price">
+            <span><%= set_currency(publication.info[:currency]) %></span>
+            <span><%= publication.info[:price]  %></span>
+          </div>
+          <div class="city">
+            <span><%= publication.info[:city] %></span>
+          </div>
+          <%= publication.sub_category.name %>
+          <div class="status">
+            <span><%= publication.info[:status].capitalize if publication.info[:status] %></span>
+          </div>
+          <% if publication.info[:type] == "VehiculosPublication" %>
+            <div class="status">
+              <span><%= publication.info[:km] %> km</span>
+            </div>
+          <% end %>
+          
+        </div>
+
+      </div>
+    <% end %>  
+  <% end %>
+
+  <div id="paginator">
+    <%= paginate publications, :remote => true %>
+  </div>
+
+<% end %>
+

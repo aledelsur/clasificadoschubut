@@ -15,7 +15,17 @@
       <%= render_breadcrumbs %>
     </div>
   </div>
+
 <% end %>
-<%= link_to "Mayor precio", search_path(:sort=>"high_price") %>
-<%= link_to "Menor precio", :sort=>"less_price"%>
-<%= link_to "Fecha", :sort=>"date"%>
+  <% if @publications.any? %>
+    <div class="sort-options">
+      <div class="span9">
+        Ordenar por:
+        <%= link_to "Menor precio", "#", :class=>"sort", :type=>"less-price" %>
+        |
+        <%= link_to "Mayor precio", "#", :class=>"sort", :type=>"high-price"  %>
+        |
+        <%= link_to "Más reciente", "#", :class=>"sort", :type=>"date"  %>
+      </div>
+    </div>
+  <% end%>

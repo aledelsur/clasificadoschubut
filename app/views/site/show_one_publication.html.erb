@@ -1,13 +1,44 @@
 <div class="title"><%= @publication.info[:title] %></div>
 <div class="left">
+
+    <div class="navs-slider">
+      <a id="nav-slider-left-prev" href="#"><</a>
+      <a id="nav-slider-left-next" href="#">></a>
+    </div>
+
   <div class="images">
     <div class="current">
-      <%= image_tag "rails.png" %>
+      <div id="slider-left">
+        <%# @publication.images.each do |image| %>
+        <% 1.times.each_with_index do |time, index| %>
+        
+            <ul class="thumbnails">
+              <li class="">
+                <div class="thumbnail" href="#">
+                  <div class="navs">
+                    <% if index == 0 %> 
+                      <%= image_tag("image1.jpg", :class=>"current-image", :id=>"big-"+index) %>
+                    <% else %>
+                      <%= image_tag("image1.jpg", :class=>"big not-current-image", :id=>"big-"+index) %>
+                    <% end %>
+                  </div>
+                </div>
+              </li>
+            </ul>
+
+        <% end %>
+      </div>
     </div>
+
     <div class="others">
-      <%= image_tag "rails.png" %>
+      <% 4.times.each_with_index do |time, index| %>
+        <%= link_to(image_tag("image1.jpg"), "#", :class=>"other-image", :id=>"#{index}") %>
+      <% end %>
     </div>
+
   </div>
+  
+    
   <div class="description">
     <%= safe(@publication.info[:description]) %>
   </div>

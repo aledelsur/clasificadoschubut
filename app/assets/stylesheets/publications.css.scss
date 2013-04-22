@@ -28,6 +28,7 @@
         .price{font-size: 23px; color: #3E78FD; margin-bottom: 4%;}
       }
     }
+    .pagination{text-align: center;}
   }
 
   .my-publications{
@@ -230,10 +231,12 @@
   
   .select_category{text-align: center; width: 65%;}
   .steps{
-    overflow: hidden;
-    text-align: center;
-    margin-left: 8%;
+    height: 68px;
     margin-bottom: 3%;
+    margin-left: 8%;
+    overflow: hidden;
+    padding-left: 1%;
+    text-align: center;
     .one-step{float: left; width: 30%; border: 1px solid #E5E3E3; height: 57px;}
     .one-step.first{border-radius: 25px 0 0 25px;}
     .one-step.second{
@@ -241,7 +244,7 @@
     }
     .one-step.last{border-radius: 0px 25px 25px 0px;}
     .previous-step{background-color: #449945; border: 1px solid #E5E3E3;}
-    .one-step.current-step{background-color: #449945; border: 1px solid;}
+    .one-step.current-step{background-color: #449945; border: 1px solid; box-shadow: 0 3px 7px #888888;}
   }
 
 }
