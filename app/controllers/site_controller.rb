@@ -107,10 +107,23 @@ class SiteController < ApplicationController
   end
 
   def send_contact_email
-    ClasificadosMailer.contact(params).deliver
-    flash[:notice] = "Gracias por tu consulta! Te responderemos a la brevedad."
-    redirect_to root_path
+    if params[:to] == "seller"
+      params[:owner_product_email] = @user.email
+      ClasificadosMailer.contact_seller(params).deliver
+      flash[:notice] = "Tu consulta fu&eacute; enviada correctamente."
+      redirect_to root_path
+    else
+      ClasificadosMailer.contact(params).deliver
+      flash[:notice] = "Gracias por tu consulta! Te responderemos a la brevedad."
+      redirect_to root_path
+    end
   end
+
+  # def send_contact_email
+  #   ClasificadosMailer.contact(params).deliver
+  #   flash[:notice] = "Gracias por tu consulta! Te responderemos a la brevedad."
+  #   redirect_to root_path
+  # end  
 
   def oauth_failure
     #THIS ACTIONS IS DOING NOTHING. NEVER ENTERS HERE. I could delete it, but I won't do it because

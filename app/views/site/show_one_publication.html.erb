@@ -1,10 +1,10 @@
 <div class="title"><%= @publication.info[:title] %></div>
 <div class="left">
 
-    <div class="navs-slider">
+    <!--<div class="navs-slider">
       <a id="nav-slider-left-prev" href="#"><</a>
       <a id="nav-slider-left-next" href="#">></a>
-    </div>
+    </div>-->
 
   <div class="images">
     <div class="current">
@@ -17,9 +17,9 @@
                 <div class="thumbnail" href="#">
                   <div class="navs">
                     <% if index == 0 %> 
-                      <%= image_tag("image1.jpg", :class=>"current-image", :id=>"big-"+index) %>
+                      <%= image_tag("image1.jpg", :class=>"current-image", :id=>"big-#{index}") %>
                     <% else %>
-                      <%= image_tag("image1.jpg", :class=>"big not-current-image", :id=>"big-"+index) %>
+                      <%= image_tag("image1.jpg", :class=>"big not-current-image", :id=>"big-#{index}") %>
                     <% end %>
                   </div>
                 </div>
@@ -43,16 +43,61 @@
     <%= safe(@publication.info[:description]) %>
   </div>
   <div class="contact-seller">
-    <%= link_to "Contactar al vendedor", "#", :class=>"btn btn-primary" %>
+    <%= link_to "Contactar al vendedor", "#", :class=>"btn btn-primary contact-seller-btn" %>
+    <div class="contact-seller-options">
+      <div class="by-phone well">
+        <h3>Por teléfono</h3>
+        <div class="content">
+          <p><b><%= @publication.info[:user_name].nil? ? @publication.info[:user_email] : @publication.info[:user_name] %></b></p>
+          <h3><%= @publication.info[:phone].nil? ? "---" : @publication.info[:phone] %></h3>
+        </div>
+      </div>
+      <div class="by-email">
+        <div class="contact-seller-form well">
+        <h3>Por email</h3>
+        
+          </br>
+          <%= form_tag contact_email_path(:to=>"seller") do %>
+            <div class="field">
+              <label>Tu nombre</label>
+              <%= text_field_tag :name %>
+            </div>
+            <div class="field">
+              <label>Tu email</label>
+              <%= text_field_tag :email %>
+            </div>
+            <div class="field">
+              <label>Consulta</label>
+              <%= text_area_tag :question %>
+            </div>
+            <div class="actions">
+              <%= submit_tag "Enviar", :class=>"btn btn-primary" %>
+            </div>
+          <% end %>
+
+
+        </div>
+
+
+      </div>
+    </div>
   </div>
+
 </div>
+
 <div class="right">
   <div class="main-details">
-    <p><%= @publication.info[:currency] %></p>
-    <p><%= @publication.info[:price] %></p>
-    <p><%= @publication.info[:city] %></p>
-    <p><%= @publication.info[:condition] %></p>
-    <p><%= @publication.info[:i_am] %></p>
+    <h3>
+      <%= set_currency(@publication.info[:currency]) %>
+      <%= @publication.info[:price] %>
+    </h3>
+    <% if @publication.info[:urgent] == true %>
+      <p class="label label-success">Vendo urgente</p>
+    <% end %>   
+    <p><b><%= @publication.info[:condition] %></b></p>
+    <p><b><%= @publication.info[:city] %></b></p>
+    <p><b><%= @publication.info[:i_am] %></b></p>
+    <p><b>Fecha de publicación:</b> <%= elapsed_time(@publication.info[:created_at]) %></p>
   </div>
   <% if @publication.info[:type] == "VehiculosPublication" %>
     <div class="main-details">

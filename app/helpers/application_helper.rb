@@ -23,7 +23,7 @@ module ApplicationHelper
         result = "hace aproximadamente #{hours.to_s} horas"
       end
     else
-      result = old_time.strftime("%B %d %Y, a las %H:%M %p")
+      result = old_time.strftime("%B %d %Y, a las %H:%M")
       
     end
     result

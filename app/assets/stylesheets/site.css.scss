@@ -143,7 +143,7 @@
 
   .show-one-publication{
     @include borders-show-one-publication;
-    margin: auto;
+    margin: auto auto 10%;
     overflow: hidden;
     width: 80%;
     .title{
@@ -179,10 +179,32 @@
         }
       }
       .description{
-        @include borders-show-one-publication; margin: 2%;
+        @include borders-show-one-publication; margin: 2%; padding: 2%;
       }
       .contact-seller{
-        
+        text-align: center;
+        a{width: 92%;}
+        .contact-seller-options{
+          display: none;
+          overflow: hidden;
+          .by-phone{
+            float: left; margin: 2% 1% 1% 2%; padding: 10px; width: 42%;
+            .content{margin-bottom: 46%; margin-top: 30%;}
+          }
+          .by-email{
+            float: left; margin: 2% 2% 2% 1%; width: 48%;
+            .contact-seller-form.well{padding: 10px;}
+            .contact-seller-form{
+              .field{
+                overflow: hidden;
+                label{float: left; margin-top: 2%; text-align: left; width: 26%;}
+                input{float: left; width: 69%;}
+                textarea{width: 68%; height: 100px;}
+              }
+              .actions{width: 75%;}
+            }
+          }
+        }
       }
     }
     .right{

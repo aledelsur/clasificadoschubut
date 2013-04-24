@@ -12,6 +12,8 @@ class Publication < ActiveRecord::Base
   
   has_many :images, :dependent => :destroy
 
+  #validates_presence_of :title, :description, :price, :i_am, :currency, :email, :condition
+
   define_index do
     indexes title, :sortable => true
     indexes description
@@ -35,7 +37,11 @@ class Publication < ActiveRecord::Base
     :city                 => self.city.name,
     :type                 => self.type,
     :km                   => self.km,
-    :i_am                 => self.i_am,
+    :i_am                 => self.i_am.capitalize,
+    :condition            => self.condition.capitalize,
+    :user_name            => self.user.name,
+    :user_email           => self.user.email,
+    :phone                => self.phone,
     #:first_image          => self.images.first if self.images,
 
   }
@@ -45,6 +51,7 @@ class Publication < ActiveRecord::Base
   def self.last_publications
     Publication.all
   end
+
 
 
   ###############

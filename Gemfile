@@ -7,7 +7,6 @@ gem 'rails', '3.2.13'
 
 gem 'mysql2', "0.3.12b4"
 gem "paperclip", "~> 2.5.0"
-gem "will_paginate", "3.0.3"
 gem 'sqlite3'
 
 gem 'devise'
@@ -19,11 +18,12 @@ gem 'formtastic-bootstrap'
 gem 'thinking-sphinx', '2.0.10'
 gem 'breadcrumbs_on_rails'
 gem 'wicked'
-gem 'rich'
 gem "bootstrap-wysihtml5-rails"
+gem 'kaminari'
+gem 'kaminari-bootstrap'
 gem 'mime-types', :require => 'mime/types'
 
-gem 'will_paginate-bootstrap'
+
 
 
 # Gems used only for assets and not required
