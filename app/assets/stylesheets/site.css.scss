@@ -118,7 +118,7 @@
               margin: 1% auto auto;
               overflow: hidden;
               a.image{
-                img{border: 1px solid; width: 99%;}
+                img{width: 99%;}
               }
             }
           }
@@ -147,7 +147,7 @@
     overflow: hidden;
     width: 80%;
     .title{
-      @include border-btm-show-one-publication;
+      border-bottom: 1px solid #E5E3E3;
       font-size: 16px;
       font-weight: bold;
       padding-bottom: 1%;
@@ -155,16 +155,20 @@
       text-align: center;
     }
     .left{
-      @include border-right-show-one-publication; float: left; width: 70%;
+      float: left; width: 70%;
       .images{
-        .not-current-image{display: none;}
         .current{
           /*@include borders-show-one-publication;*/ margin: 2%;
-          #slider-left{
-            width: 625px;
+          #slider-left-publication{
+            height: 360px;
+            position: relative;
+            width: 660px;
             ul.thumbnails{
               .thumbnail{
                 width: 620px;
+                .navs{
+                  img{height: 350px; width: 619px;}
+                }
               }
             }
             
@@ -172,10 +176,19 @@
         }
         .others{
           @include borders-show-one-publication;
-          height: 60px;
-          margin: auto;
-          width: 80%;
-          img{margin: 2px; width: 100px;}
+          height: 55px; margin: auto; width: 72%; text-align: center;
+          .navs-slider{
+            a#nav-slider-prev{ 
+              float: left; 
+              img{width: 25px;}
+            }
+            a#nav-slider-next{ 
+              float: right;
+              img{width: 26px;}
+            }
+            img{ height: 50px; margin: 2px; width: 60px; }
+
+          }
         }
       }
       .description{
@@ -211,6 +224,15 @@
       float: left;
       padding-left: 3%;
       width: 26%;
+      .main-details{
+        margin-bottom: 12%;
+      }
+      .vehiculos-details{
+        border-bottom: 1px solid #E5E3E3; border-top: 1px solid #E5E3E3; padding-bottom: 9%; padding-top: 12%;
+        p{
+          label{float: left; width: 36%;}
+        }
+      }
     }
   }
 

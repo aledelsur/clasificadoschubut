@@ -7,6 +7,7 @@ class Publication < ActiveRecord::Base
   #validates_presence_of :title
 
   belongs_to :sub_category
+  belongs_to :sub_sub_category
   belongs_to :city
   belongs_to :user
   
@@ -35,13 +36,20 @@ class Publication < ActiveRecord::Base
     :status               => self.status,
     :urgent               => self.urgent,
     :city                 => self.city.name,
-    :type                 => self.type,
+    :brand                => self.brand,
+    :model                => self.model,
+    :year                 => self.year,
     :km                   => self.km,
+    :fuel                 => self.fuel.capitalize,
+    :color                => self.color,
+    :type                 => self.type,
     :i_am                 => self.i_am.capitalize,
     :condition            => self.condition.capitalize,
     :user_name            => self.user.name,
     :user_email           => self.user.email,
     :phone                => self.phone,
+    :sub_category         => self.sub_category.name,
+    :sub_sub_category     => self.sub_sub_category.name,
     #:first_image          => self.images.first if self.images,
 
   }
@@ -50,6 +58,10 @@ class Publication < ActiveRecord::Base
 
   def self.last_publications
     Publication.all
+  end
+
+  def has_subcategory?
+    !self.sub_sub_category.nil?
   end
 
 

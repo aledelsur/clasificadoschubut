@@ -9,23 +9,31 @@ $(document).ready(function() {
       pause:   1
   });
 
+  $('#slider-left-publication').cycle({ 
+      fx:    'fade',
+      speed:  'fast', 
+      timeout: 6000, 
+      next:   '#nav-slider-next', 
+      prev:   '#nav-slider-prev',
+      pause:   1
+  });
+
+
   $('.sort').click(function(){
     var type = $(this).attr("type");
     $.post("/order/"+type);
     return false;
   });
 
-  $('.other-image').hover(function(){
-    var image_id_to_show = $(this).attr("id");
-    var image_to_hide = $('.current-image');
-    image_to_hide.removeClass('.current-image');
-    image_to_hide.addClass('.not-current-image');
-    //image_to_hide.hide();
 
-    var image_to_show = $('#big-'+image_id_to_show);
-
+  $('.other-image').mouseover(function() {
+    var src = $(this).children().attr("src");    
+    $(".current-image").fadeOut('fast', function() {
+      $(this).attr("src",src).fadeIn('slow');
+    });
     return false;
   });
+
 
   $('.contact-seller-btn').click(function(){
     $('.contact-seller-options').show();

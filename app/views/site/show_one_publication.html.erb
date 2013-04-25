@@ -8,19 +8,15 @@
 
   <div class="images">
     <div class="current">
-      <div id="slider-left">
+      <div id="slider-left-publication">
         <%# @publication.images.each do |image| %>
-        <% 1.times.each_with_index do |time, index| %>
+        <% 5.times.each_with_index do |time, index| %>
         
             <ul class="thumbnails">
               <li class="">
                 <div class="thumbnail" href="#">
                   <div class="navs">
-                    <% if index == 0 %> 
-                      <%= image_tag("image1.jpg", :class=>"current-image", :id=>"big-#{index}") %>
-                    <% else %>
-                      <%= image_tag("image1.jpg", :class=>"big not-current-image", :id=>"big-#{index}") %>
-                    <% end %>
+                    <%= image_tag("image1.jpg", :class=>"current-image") %>
                   </div>
                 </div>
               </li>
@@ -31,9 +27,22 @@
     </div>
 
     <div class="others">
-      <% 4.times.each_with_index do |time, index| %>
-        <%= link_to(image_tag("image1.jpg"), "#", :class=>"other-image", :id=>"#{index}") %>
-      <% end %>
+      
+      <div class="navs-slider">
+        <a id="nav-slider-prev" href="#"><%=image_tag "nav-prev.png", :class=>"prev"%></a>
+
+          <% 4.times.each_with_index do |time, index| %>
+            <% if index == 1 %>
+              <%= link_to(image_tag("arcoiris.jpeg"), "#", :class=>"other-image", :id=>"#{index}") %>
+            <% else %>
+              <%= link_to(image_tag("image1.jpg"), "#", :class=>"other-image", :id=>"#{index}") %>
+            <% end %>
+          <% end %>
+
+        <a id="nav-slider-next" href="#"><%=image_tag "nav-next.png", :class=>"next"%></a>
+      </div>
+
+      
     </div>
 
   </div>
@@ -93,19 +102,24 @@
     </h3>
     <% if @publication.info[:urgent] == true %>
       <p class="label label-success">Vendo urgente</p>
-    <% end %>   
+    <% end %>
     <p><b><%= @publication.info[:condition] %></b></p>
     <p><b><%= @publication.info[:city] %></b></p>
     <p><b><%= @publication.info[:i_am] %></b></p>
     <p><b>Fecha de publicación:</b> <%= elapsed_time(@publication.info[:created_at]) %></p>
   </div>
   <% if @publication.info[:type] == "VehiculosPublication" %>
-    <div class="main-details">
-      <p><%= @publication.info[:currency] %></p>
-      <p><%= @publication.info[:price] %></p>
-      <p><%= @publication.info[:city] %></p>
-      <p><%= @publication.info[:condition] %></p>
-      <p><%= @publication.info[:i_am] %></p>
+
+    <div class="vehiculos-details">
+      <% if @publication.has_subcategory? %>
+        <p><label>Categoría: </label><b><%= @publication.info[:sub_sub_category] %></b></p>
+      <% end %>
+      <p><label>Marca: </label><b><%= @publication.info[:brand] %></b></p>
+      <p><label>Modelo: </label><b><%= @publication.info[:model] %></b></p>
+      <p><label>Año: </label><b><%= @publication.info[:year] %></b></p>
+      <p><label>Km: </label><b><%= @publication.info[:km] %></b></p>
+      <p><label>Combustible: </label><b><%= @publication.info[:fuel] %></b></p>
+      <p><label>Color: </label><b><%= @publication.info[:color] %></b></p>
     </div>
   <% end %>
 </div>

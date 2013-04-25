@@ -17,7 +17,7 @@
             <div class="thumbnail" href="#">
               <p class="city"><%= publication.info[:city] %></p>
               <div class="navs">
-                <%= link_to(image_tag("ballena.jpg"), show_one_publication_path(publication), :class=>"image") %>
+                <%= link_to(image_tag("arcoiris.jpeg"), show_one_publication_path(publication), :class=>"image") %>
               </div>
               <p><%= link_to publication.info[:title], show_one_publication_path(publication) %></p>
               <p class="price"><%= set_currency(publication.info[:currency]) %><%= publication.info[:price] %></p>
