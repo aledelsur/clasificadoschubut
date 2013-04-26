@@ -5,7 +5,8 @@ class SiteController < ApplicationController
   def index
     @categories = Category.all
     @cities = City.all
-    @last_publications = Publication.all
+    @last_publications = Publication.last_publications
+    #raise @last_publications.inspect
     #@publication = Publication.new
 
     session[:subcategory_visited] = nil

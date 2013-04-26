@@ -98,7 +98,8 @@
   <div class="main-details">
     <h3>
       <%= set_currency(@publication.info[:currency]) %>
-      <%= @publication.info[:price] %>
+      <%#= @publication.info[:price] %>
+      <%= @publication.price%>
     </h3>
     <% if @publication.info[:urgent] == true %>
       <p class="label label-success">Vendo urgente</p>

@@ -40,35 +40,35 @@ class Publication < ActiveRecord::Base
     :model                => self.model,
     :year                 => self.year,
     :km                   => self.km,
-    :fuel                 => self.fuel.capitalize,
+    :fuel                 => self.fuel,
     :color                => self.color,
     :type                 => self.type,
-    :i_am                 => self.i_am.capitalize,
-    :condition            => self.condition.capitalize,
+    :i_am                 => self.i_am,
+    :condition            => self.condition,
     :user_name            => self.user.name,
     :user_email           => self.user.email,
     :phone                => self.phone,
-    :sub_category         => self.sub_category.name,
-    :sub_sub_category     => self.sub_sub_category.name,
-    #:first_image          => self.images.first if self.images,
-
+    :sub_category         => self.sub_category.name,    
+    :sub_sub_category     => sub_sub_category,
   }
   end
+    #:first_image          => self.images.first if self.images,
 
 
   def self.last_publications
-    Publication.all
+    Publication.order("created_at DESC").limit(10)
   end
 
   def has_subcategory?
     !self.sub_sub_category.nil?
   end
 
-
-
   ###############
   ############## make sure you have a database index on the type column
 
+  def sub_sub_category
+    self.sub_category.name if self.sub_category
+  end
 
 
   # def set_urgency
