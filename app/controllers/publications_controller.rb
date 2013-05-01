@@ -1,5 +1,5 @@
 class PublicationsController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :except => [:show]
   layout 'new_publication'
 
   def index
@@ -22,6 +22,11 @@ class PublicationsController < ApplicationController
     render :layout => "my_account"
   end
 
+  def show
+    @publication = Publication.find(params[:id])
+    render :layout => "show_publication"
+  end
+
   def update
     raise "Params: publications_controller "+params.inspect
     publication = Publication.find(params[:id])
@@ -34,6 +39,7 @@ class PublicationsController < ApplicationController
       render :edit
     end
   end
+
 
   def create
     @publication = Publication.new(params[:publication])
@@ -53,6 +59,7 @@ class PublicationsController < ApplicationController
     @current_step = "cities"
     #@image = Image.find(params[:id], :include => :publication)
   end
+
 
   def destroy
     @publication = Publication.find params[:id]

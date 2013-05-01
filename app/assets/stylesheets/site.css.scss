@@ -179,14 +179,14 @@
           @include borders-show-one-publication;
           height: 55px; margin: auto; width: 72%; text-align: center;
           .navs-slider{
-            a#nav-slider-prev{ 
+            /*a#nav-slider-prev{ 
               float: left; 
               img{width: 25px;}
             }
             a#nav-slider-next{ 
               float: right;
               img{width: 26px;}
-            }
+            }*/
             img{ height: 50px; margin: 2px; width: 60px; }
 
           }

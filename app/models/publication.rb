@@ -1,6 +1,7 @@
 class Publication < ActiveRecord::Base
   
-
+  extend FriendlyId
+  friendly_id :title, use: :slugged
 
   #scope :quit_incomplete_publications, lambda{where("title <> ?", nil)}  
   

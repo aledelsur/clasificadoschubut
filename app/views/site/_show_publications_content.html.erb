@@ -11,14 +11,14 @@
       <div class="divider"></div>
       <div class="one-result">
         <div class="image">
-          <%= link_to(image_tag("arcoiris.jpeg", :class=>"img-polaroid"), show_one_publication_path(publication)) %>
+          <%= link_to(image_tag("arcoiris.jpeg", :class=>"img-polaroid"), publication_path(publication)) %>
         </div>
         <div class="details">
           <div class="title">
-            <%= link_to(publication.info[:title], show_one_publication_path(publication)) %>
+            <%= link_to(publication.info[:title], publication_path(publication)) %>
           </div>
           <div class="description">
-            <%= link_to(truncate(safe(publication.info[:description]), :length=>300), show_one_publication_path(publication))  if publication.info[:description]%>
+            <%= link_to(truncate(safe(publication.info[:description]), :length=>300), publication_path(publication))  if publication.info[:description]%>
           </div>
           <div class="elapsed-time">
               Última actualización <%= elapsed_time(publication.info[:created_at]) %>

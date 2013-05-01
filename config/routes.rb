@@ -30,8 +30,6 @@ Clasificadoschubut::Application.routes.draw do
   match '/publications/new/to-categories', to: "publication_steps#show"
   match '/publications/new/to-details', to: "publication_steps#update"
 
-  match '/show-publication/:id', to: "site#show_one_publication", as: "show_one_publication"
-
   match '/mark-as-sold', to: "publications#mark_as_sold", as: "mark_as_sold"
 
   match '/:event', to: "site#index", as: "index"

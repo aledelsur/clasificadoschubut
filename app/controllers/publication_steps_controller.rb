@@ -34,7 +34,7 @@ class PublicationStepsController < ApplicationController
 
     respond_to do |format|
       format.js { render_wizard }
-      format.html {redirect_to root_path}
+      format.html {redirect_to publication_path(@publication)}
     end
   end
 

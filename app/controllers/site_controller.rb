@@ -93,17 +93,11 @@ class SiteController < ApplicationController
     elsif params[:sort] == "date"
       publications = session[:search].sort {|a, b| b.created_at <=> a.created_at}
     end
-    #raise params[:page].inspect
-    #@publications = publications.page(params[:page]).per(2)
+    
     @publications = Kaminari.paginate_array(publications).page(1).per(2)
     respond_to do |format|
       format.js {}
     end
-  end
-
-  def show_one_publication
-    @publication = Publication.find(params[:id])
-    render :layout => "show_publication"
   end
 
   def contact

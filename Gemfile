@@ -22,6 +22,7 @@ gem "bootstrap-wysihtml5-rails"
 gem 'kaminari'
 gem 'kaminari-bootstrap'
 gem 'mime-types', :require => 'mime/types'
+gem 'friendly_id'
 
 
 
