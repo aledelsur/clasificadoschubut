@@ -323,7 +323,7 @@
   .span3{margin-left: 7%; margin-top: 15%;}
 }
 footer{
-  background-color: #3C3C3B; height: 200px;
+  background-color: #3C3C3B; height: 200px; margin-top: 10%;
   .footer-content{
     color: white;
     margin: auto; padding-top: 7%; width: 50%;
@@ -333,4 +333,6 @@ footer{
 #error_explanation{
   h2{font-size: 15px;}
 }
+
+.welcome{ padding: 1% 5%; text-align: center; }
 

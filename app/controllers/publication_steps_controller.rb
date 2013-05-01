@@ -53,6 +53,8 @@ class PublicationStepsController < ApplicationController
         when "servicios" then "ServiciosPublication"
         end      
     end
+    params[:publication][:status] = step
+    params[:publication][:status] = 'active' if step == steps.last
 
     if step == "details".to_sym
       params[:publication][:type] = session[:publication_type]
@@ -60,7 +62,6 @@ class PublicationStepsController < ApplicationController
     
        
     @publication.attributes = params[:publication]
-
     render_wizard @publication
   end    
 

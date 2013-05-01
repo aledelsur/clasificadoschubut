@@ -37,6 +37,7 @@ class PublicationsController < ApplicationController
 
   def create
     @publication = Publication.new(params[:publication])
+    #params[:product][:status] = 'active' if step == steps.last
     if @publication.save
       session[:publication_id] = @publication.id
       redirect_to publication_steps_path
@@ -61,6 +62,18 @@ class PublicationsController < ApplicationController
       flash[:error] = "Ha ocurrido un error."
     end
     redirect_to publications_path
+  end
+
+  def mark_as_sold
+    @publication = Publication.find params[:id]
+    if params[:option] == "do" 
+      @publication.sold = true
+      @message = "El producto se ha marcado como vendido."
+    else
+      @publication.sold = false
+      @message = "El producto se ha vuelto a publicar."
+    end
+    @publication.save
   end
 
   def upload_asset(params)

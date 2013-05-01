@@ -1,10 +1,20 @@
+
+<div class="flash-message-sold alert alert-success">
+
+</div>
+
 <div class="well my-publications">
 
   <% if @my_publications.empty? %>
-    <p>Aún no has creado ningún clasificado. Te invitamos a crearlo gratis y llegar a toda nuestra provincia!</p>
+    <p>Aún no has creado ningún clasificado. Te invitamos a crearlo GRATIS desde <%=link_to "aquí", new_publication_path %> y llegar a toda nuestra provincia.</p>
   <% else %>
+
     <table class="table table-hover">
-      <!--<caption><h3>Mis Publicaciones</h3></caption>-->
+      <caption>
+        <span class="green">En verde:</span> <span> Articulos actualmente publicados en Chubut Clasificados.</span>
+        </br>
+        <span class="red">En rojo:</span> <span> Articulos vendidos. Ya no están publicados en Chubut Clasificados.</span>
+      </caption>
         <thead>
           <tr>
             <th>Título</th>
@@ -13,9 +23,8 @@
         </thead>
         <tbody>
           <% @my_publications.each do |publication| %>
-              <tr>
-                <td><%= publication.title %> </td>
-                <td><%= link_to "Editar", edit_publication_path(publication) %> | <%= link_to "Eliminar", publication_path(publication), :method=>:delete, :confirm=>"¿Querés eliminar esta publicación?" %></td>
+              <tr id="tr-<%=publication.id%>" class="<%= publication.sold? ? 'error' : 'success' %>">
+                <%= render :partial => "mark_as_sold_change_row", :locals=>{:publication=>publication} %>
               </tr>
           <% end %>
         </tbody>

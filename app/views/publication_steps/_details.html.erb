@@ -9,23 +9,64 @@
 
     <%= f.semantic_errors %>
     <%= f.inputs do %>
-      <%= f.input :title, :label=>"Título", :required=>true %>
+      <div class="title-row">
+        <div class="left">
+          <%= f.input :title, :label=>"Título", :input_html => {:class=>"title-input-field"} %>
+        </div>
+        <div class="right ok-field-title"><%= image_tag "ok-field2.png" %></div>
+        <div class="right wrong-field-title">Campo requerido.</div>
+      </div>
       <div class="price-and-currency">
-        <%= f.label :price, "Precio" %>
-        <%= f.input :currency, :collection => [["Pesos","pesos"], ["Dólares","dolares"]], :label=>false, :prompt=>" - Seleccione -"%>
-        <%= f.input :price, :label=>false %>
+        <div class="left">
+          <%= f.label :price, "Precio" %>
+          <%= f.input :currency, :collection => [["Pesos","pesos"], ["Dólares","dolares"]], :label=>false, :include_blank => false%>
+          <%= f.input :price, :label=>false, :input_html => {:class=>"price-input-field"} %>
+        </div>
+        <div class="right ok-field-price-currency"><%= image_tag "ok-field2.png" %></div>
+        <div class="right wrong-field-price-currency">Campo requerido.</div>
       </div>
       <% if @publication && @publication.sub_category.category.key == "vehiculos_y_accesorios" %>
         <%= render :partial => "publication_steps/vehiculos_details", :locals=>{:form=>f, :sub_category_key => @publication.sub_category.key, :brands => @brands, :nautica_sub_categories => @nautica_sub_categories, :years => @years} %>
       <% end %>
+
       <div class="description-rich">
-        <%= f.label :description, "Descripción"%>
-        <%= f.input :description, :label=>false, :input_html => { :class=>"description_area" }%>
+        <div class="left">
+          <%= f.label :description, "Descripción"%>
+          <%= f.input :description, :label=>false, :input_html => { :class=>"description_area" }%>
+        </div>
+        <div class="right ok-field-description"><%= image_tag "ok-field2.png" %></div>
+        <div class="right wrong-field-description">Campo requerido.</div>
       </div>
-      <%= f.input :email, :label=>"Email", :input_html => { :value => @user.email } %>
-      <%= f.input :condition, :label=>"Condición", :as => :radio, :collection=>[["Nuevo","nuevo"], ["Usado","usado"]] %>
-      <%= f.input :i_am, :as => :select, :collection => [["Particular","particular"], ["Empresa","empresa"]], :label=>"Soy", :prompt=>" - Seleccione -" %>
-      <%= f.input :phone, :label=>"Teléfono", :as=>:phone %>
+
+      <div class="email-row">
+        <div class="left">
+          <%= f.input :email, :label=>"Email", :input_html => { :value => @user.email, :class=>"email-input-field" } %>
+        </div>
+        <div class="right ok-field-email"><%= image_tag "ok-field2.png" %></div>
+        <div class="right wrong-field-email">Campo requerido.</div>
+        <div class="right wrong-field-email-format">Formato inválido.</div>
+      </div>
+
+      
+      <div class="condition-row">
+        <div class="left">
+          <%= f.input :condition, :label=>"Condición", :as => :radio, :collection=>[["Nuevo","nuevo"], ["Usado","usado"]], :input_html => { :class=>"condition-input-field" } %>
+        </div>
+        <div class="right ok-field-condition"><%= image_tag "ok-field2.png" %></div>
+        <div class="right wrong-field-condition">Campo requerido.</div>
+        
+      </div>
+
+      <%= f.input :i_am, :as => :select, :collection => [["Particular","particular"], ["Empresa","empresa"]], :label=>"Soy", :include_blank => false %>
+
+
+      <div class="phone-row">
+        <div class="left">
+          <%= f.input :phone, :label=>"Teléfono" %>
+        </div>
+      </div>
+
+      
       <div class="urgent">
         <%= f.label :urgent, "¿Necesitás venderlo urgente?" %>
         <%= f.input :urgent, :as => :boolean, :label=>"Si"%>
@@ -35,8 +76,10 @@
     <% end %>
     <%= f.actions do %>
       <%= link_to "Volver", "#", :class=>"back-to-category btn btn-primary" %>
-      <%= f.submit "Finalizar", :class=>"btn btn-primary" %>
+      <%= f.submit "Finalizar", :class=>"btn btn-primary submit-form" %>
+
     <% end %>
+      <div class="not-all-fields-completed">Falta completar campos obligatorios.</div>
   <% end %>
 
   <!--<input type='file' name='file_upload' id='multifile-uploader' />-->

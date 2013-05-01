@@ -42,7 +42,7 @@
           </div>
           <%= publication.sub_category.name %>
           <div class="status">
-            <span><%= publication.info[:status].capitalize if publication.info[:status] %></span>
+            <span><%= publication.info[:condition].capitalize if publication.info[:condition] %></span>
           </div>
           <% if publication.info[:type] == "VehiculosPublication" %>
             <div class="status">

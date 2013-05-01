@@ -1,0 +1,20 @@
+<% if publication.sold? %>
+  
+  <td class="title"><%= publication.title %> </td>
+  <td class="actions">
+    <%= link_to "Editar", edit_publication_path(publication) %>
+    |
+    <%= link_to "Eliminar", publication_path(publication), :method=>:delete, :confirm=>"¿Querés eliminar esta publicación?" %>
+    |
+      <%= link_to "Volver a publicar", "#", :class=>"mark-sold-publication", :id=>publication.id, :option=>"undo" %></td>
+<% else %>
+
+  <td class="title"><%= publication.title %> </td>
+  <td class="actions">
+    <%= link_to "Editar", edit_publication_path(publication) %>
+    |
+    <%= link_to "Eliminar", publication_path(publication), :method=>:delete, :confirm=>"¿Querés eliminar esta publicación?" %>
+    |
+      <%= link_to "Marcar como vendido", "#", :class=>"mark-sold-publication", :id=>publication.id, :option=>"do" %></td>
+
+<% end %>

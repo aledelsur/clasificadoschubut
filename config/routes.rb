@@ -8,7 +8,7 @@ Clasificadoschubut::Application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
 
   devise_for :users
-  ActiveAdmin.routes(self)
+  #ActiveAdmin.routes(self)
 
   resources :users, :only => [:edit, :update]
   resources :publications
@@ -32,11 +32,7 @@ Clasificadoschubut::Application.routes.draw do
 
   match '/show-publication/:id', to: "site#show_one_publication", as: "show_one_publication"
 
-
-
-
-
-
+  match '/mark-as-sold', to: "publications#mark_as_sold", as: "mark_as_sold"
 
   match '/:event', to: "site#index", as: "index"
 

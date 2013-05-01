@@ -1,0 +1,18 @@
+.required-field{
+  color: #C94028;
+  input, iframe{border: 1px solid #C94028;}
+}
+.border-rich{
+  border: 1px solid #C94028;
+  border-radius: 4px;
+}
+.ok-field-title, .ok-field-price-currency, .ok-field-email, .ok-field-description, .ok-field-condition, .ok-field-i_am, .ok-field-urgent{
+  display: none;
+}
+.wrong-field-title, .wrong-field-price-currency, .wrong-field-email, .wrong-field-email-format, .wrong-field-description, .wrong-field-condition, .wrong-field-i_am, .wrong-field-urgent{
+  display: none;
+}
+.not-all-fields-completed{
+  display: none;
+  color: #C94028;
+}

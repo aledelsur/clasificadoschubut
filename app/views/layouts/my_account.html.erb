@@ -21,6 +21,7 @@
     <%= stylesheet_link_tag "application", :media => "all" %>
     <%= stylesheet_link_tag "prettify" %>
     <%= stylesheet_link_tag "bootstrap-wysihtml5" %>
+    <%= stylesheet_link_tag "validations" %>
 
     <%= favicon_link_tag 'images/apple-touch-icon-144x144-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144' %>
 
@@ -34,7 +35,7 @@
   </head>
   <body>
 
-
+    <%= render :partial => "shared/welcome"%>
 
     <div class="container">
       <div class="header">
@@ -60,7 +61,7 @@
                         <%= link_to "Datos personales", edit_user_path(@user) %>
                       </li>
                       <li class="<%= 'active' if controller.controller_name == 'publications' && controller.action_name == 'index' || controller.controller_name == 'publications' && controller.action_name == 'edit' %>">
-                        <%= link_to "Mis publicaciones", publications_path %>
+                        <%= link_to "Mis clasificados", publications_path %>
                       </li>
                     </ul>
                     <%= yield %>
@@ -88,6 +89,8 @@
     <%= javascript_include_tag "bootstrap-wysihtml5" %>
     <%= javascript_include_tag "site" %>
     <%= javascript_include_tag "my_account" %>
+    <%= javascript_include_tag "validations" %>
+ 
 
 
   </body>

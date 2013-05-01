@@ -8,6 +8,11 @@ $(document).ready(function() {
     return false;
   });
 
+  $('.description_area').wysihtml5({
+    "link": false,
+    "image": false
+  });
+
   
 
 });

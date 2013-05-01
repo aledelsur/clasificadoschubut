@@ -1,24 +1,9 @@
-$(".one-step.second").html("<p><%= @sub_category.info[:category_name] %> > <%= @sub_category.info[:name] %></p>");
-$(".one-step.last").addClass("current-step");
-$(".one-step.second").removeClass("current-step");
-$(".one-step.second").addClass("previous-step");
-$(".new-publication .container").html("<%= escape_javascript(render 'details.html.erb') %>");
-
-$('.back-to-category').click(function(){
-  var city_id = $('#publication_city_id').val();
-  $(".one-step.last").removeClass("current-step");
-  $.post("/publications/new/to-categories", {city_id:city_id, back:true} );
-  $("html, body").animate({ scrollTop: 0 }, "fast");
-  $(".one-step.second").html("<h3>2. Seleccioná la categoría</h3>")
-  return false;
-});
-
-
+$(document).ready(function() {
 
 
 /////////////////////////////////////
 /////////////////////////////////////
-// START FORM VALIDATIONS - THIS IS THE SAME CODE FOUND IN validations.js //
+// START FORM VALIDATIONS - THIS IS THE SAME CODE FOUND IN details.js.erb //
 /////////////////////////////////////
 /////////////////////////////////////
 
@@ -235,37 +220,4 @@ function ok_condition(){
 
 
 
-/////////////////////////////////////
-/////////////////////////////////////
-// FINISH VALIDATIONS //
-/////////////////////////////////////
-/////////////////////////////////////
-
-
-
-
-
-// $("#publication_price").keypress(function(event) {
-//   //http://www.elcodigoascii.com.ar/
-//   if ( event.which == 44 ) {
-//      return false;
-//    }
-// });
-
-// $("#publication_price").keydown(function(event) {
-//     // Allow: COMA, backspace, delete, tab, escape, and enter
-//     if ( event.keyCode == 188 || event.keyCode == 46 || event.keyCode == 8 || event.keyCode == 9 || event.keyCode == 27 || event.keyCode == 13 || 
-//          // Allow: Ctrl+A
-//         (event.keyCode == 65 && event.ctrlKey === true) || 
-//          // Allow: home, end, left, right
-//         (event.keyCode >= 35 && event.keyCode <= 39)) {
-//              // let it happen, don't do anything
-//              return;
-//     }
-//     else {
-//         // Ensure that it is a number and stop the keypress
-//         if (event.shiftKey || (event.keyCode < 48 || event.keyCode > 57) && (event.keyCode < 96 || event.keyCode > 105 )) {
-//             event.preventDefault(); 
-//         }   
-//     }
-// });
+});

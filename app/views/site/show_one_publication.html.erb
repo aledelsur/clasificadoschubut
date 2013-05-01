@@ -58,7 +58,7 @@
         <h3>Por teléfono</h3>
         <div class="content">
           <p><b><%= @publication.info[:user_name].nil? ? @publication.info[:user_email] : @publication.info[:user_name] %></b></p>
-          <h3><%= @publication.info[:phone].nil? ? "---" : @publication.info[:phone] %></h3>
+          <h3><%= @publication.info[:phone].nil? || @publication.info[:phone] == "" ? "(No disponible)" : @publication.info[:phone] %></h3>
         </div>
       </div>
       <div class="by-email">

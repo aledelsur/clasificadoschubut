@@ -1,0 +1,18 @@
+$(".flash-message-sold").html("<%=@message%>").show();
+$("#tr-<%=@publication.id%>").html("<%= escape_javascript(render(:partial => 'mark_as_sold_change_row.html.erb', :locals => {:publication => @publication})) %>")
+<% if @publication.sold? %>
+  $("#tr-<%=@publication.id%>").removeClass("success");
+  $("#tr-<%=@publication.id%>").addClass("error");
+<% else %>
+  $("#tr-<%=@publication.id%>").removeClass("error");
+  $("#tr-<%=@publication.id%>").addClass("success");
+<% end %>
+
+$('.mark-sold-publication').click(function(){
+  var id = $(this).attr("id");
+  var option = $(this).attr("option");
+  $.post("/mark-as-sold", {id:id, option:option});
+  return false;
+});
+
+

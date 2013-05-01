@@ -11,7 +11,7 @@
     <META name="robots" content="INDEX,FOLLOW">        
 
     <title><%= content_for?(:title) ? yield(:title) : "Clasificadoschubut" %></title>
-    <%= csrf_meta_tags %>
+    
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
     <!--[if lt IE 9]>
@@ -21,6 +21,7 @@
     <%= stylesheet_link_tag "application", :media => "all" %>
     <%= stylesheet_link_tag "prettify" %>
     <%= stylesheet_link_tag "bootstrap-wysihtml5" %>
+    <%= stylesheet_link_tag "validations" %>
     
 
     <%= favicon_link_tag 'images/apple-touch-icon-144x144-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144' %>
@@ -35,7 +36,7 @@
   </head>
   <body>
 
-
+    <%= render :partial => "shared/welcome"%>
 
     <div class="container">
       <div class="header">
@@ -71,5 +72,6 @@
     <%= javascript_include_tag "bootstrap-wysihtml5" %>
     <%= javascript_include_tag "publications" %>
 
+    <%= csrf_meta_tags %>
   </body>
 </html>

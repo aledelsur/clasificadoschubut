@@ -33,12 +33,24 @@
 
   .my-publications{
     height: 300px;
+    clear: both;
     p {font-weight: bold; text-align: center;}
+    caption{
+      margin-left: 10%;
+      text-align: left;
+      span{font-style: italic;}
+      span.green{color: green; text-decoration: underline;}
+      span.red{color: red; text-decoration: underline;}
+    }
+    tbody{
+      td.title{width: 66%;}
+    }
   }
 
 
 }
-
+.flash-message-sold{ display: none; }
+.flash-message-sold.alert{width: 94%; }
 
 .content.new-publication, .edit-publication{
   margin-top: 3%;
@@ -66,26 +78,47 @@
     text-align: center;
     form{
       .inputs{
-        #publication_title_input, #compra_venta_publication_title_input, #vehiculos_publication_title_input, #inmuebles_publication_title_input, #cursos_talleres_publication_title_input, #servicios_publication_title_input, #viajes_turismo_publication_title_input{
+        .title-row{
           overflow: hidden;
-          label{float: left; width: 30%;}
-          .controls{
-            float: left; text-align: left; width: 65%;
-            input{width: 97%;}
+          .left{
+            width: 83%; float: left;
+            /*#publication_title_input, #compra_venta_publication_title_input, #vehiculos_publication_title_input, #inmuebles_publication_title_input, #cursos_talleres_publication_title_input, #servicios_publication_title_input, #viajes_turismo_publication_title_input{*/
+              #publication_title_input, .publication_title_input{
+              overflow: hidden;
+              label{float: left; width: 25%;}
+              .controls{
+                float: left; text-align: left; width: 75%;
+                input{width: 97%;}
+              }
+            }
+          }
+          .right{
+            float:left; float: left; text-align: center; width: 17%;
+            img{width: 29px;}
           }
         }
 
         .price-and-currency{
           overflow: hidden;
-          label{float: left; width: 30%}
-          #publication_currency_input, #compra_venta_publication_currency_input, #vehiculos_publication_currency_input, #inmuebles_publication_currency_input, #cursos_talleres_publication_currency_input, #servicios_publication_currency_input, #viajes_turismo_publication_currency_input, #empleos_publication_currency_input{
-            width: 17%; float: left;
-            .controls{
-              float: left; text-align: left;
-              select{width: 100%;}
+          .left{
+            width: 83%; float: left;
+            label{float: left; width: 25%}
+            /*#publication_currency_input, #compra_venta_publication_currency_input, #vehiculos_publication_currency_input, #inmuebles_publication_currency_input, #cursos_talleres_publication_currency_input, #servicios_publication_currency_input, #viajes_turismo_publication_currency_input, #empleos_publication_currency_input{*/
+              #publication_currency_input, .publication_currency_input{
+              width: 17%; float: left;
+              .controls{
+                float: left; text-align: left;
+                select{width: 100%;}
+              }
             }
           }
-          #publication_price_input, #compra_venta_publication_price_input, #vehiculos_publication_price_input, #inmuebles_publication_price_input, #cursos_talleres_publication_price_input, #servicios_publication_price_input, #viajes_turismo_publication_price_input, #empleos_publication_price_input{
+          .right{
+            float:left; float: left; text-align: center; width: 17%;
+            img{width: 29px;}
+          }
+
+          /*#publication_price_input, #compra_venta_publication_price_input, #vehiculos_publication_price_input, #inmuebles_publication_price_input, #cursos_talleres_publication_price_input, #servicios_publication_price_input, #viajes_turismo_publication_price_input, #empleos_publication_price_input{*/
+          #publication_price_input, .publication_price_input{
             float: left;
             .controls{
               input{width: 92%;}
@@ -93,30 +126,55 @@
           }
         }
 
-        #publication_phone_input, #compra_venta_publication_phone_input, #vehiculos_publication_phone_input, #inmuebles_publication_phone_input, #cursos_talleres_publication_phone_input, #servicios_publication_phone_input, #viajes_turismo_publication_phone_input, #empleos_publication_phone_input{
+        /*#publication_phone_input, #compra_venta_publication_phone_input, #vehiculos_publication_phone_input, #inmuebles_publication_phone_input, #cursos_talleres_publication_phone_input, #servicios_publication_phone_input, #viajes_turismo_publication_phone_input, #empleos_publication_phone_input{*/
+        .phone-row{
           overflow: hidden;
-          label{float: left; width: 30%;}
-          .controls{
-            float: left; width: 60%; text-align: left;
-            input {width: 100%;}
-            width: 45%;
-          }
-        }
+          .left{
+            width: 83%; float: left;        
 
-        #publication_email_input, #compra_venta_publication_email_input, #vehiculos_publication_email_input, #inmuebles_publication_email_input, #cursos_talleres_publication_email_input, #servicios_publication_email_input, #viajes_turismo_publication_email_input, #empleos_publication_email_input{
-         overflow: hidden;
-          label{float: left; width: 30%;}
-          .controls{
-            float: left; width: 60%; text-align: left;
-            input {width: 100%;}
-            width: 45%;
-          } 
-        }
+            #publication_phone_input, .publication_phone_input{
+              overflow: hidden;
+              label{float: left; width: 25%;}
+              .controls{
+                float: left; width: 60%; text-align: left;
+                input {width: 100%;}
+                width: 45%;
+              }
+            }
+          }
+          .right{
+            float:left; float: left; text-align: center; width: 17%;
+            img{width: 29px;}
+          }
+        }          
+
+        /*#publication_email_input, #compra_venta_publication_email_input, #vehiculos_publication_email_input, #inmuebles_publication_email_input, #cursos_talleres_publication_email_input, #servicios_publication_email_input, #viajes_turismo_publication_email_input, #empleos_publication_email_input{*/
+        .email-row{
+          overflow: hidden;
+          .left{
+            width: 83%; float: left;
+
+              #publication_email_input, .publication_email_input{
+               overflow: hidden;
+                label{float: left; width: 25%;}
+                .controls{
+                  float: left; width: 60%; text-align: left;
+                  input {width: 100%;}
+                  width: 45%;
+                } 
+              }
+            }
+            .right{
+              float:left; float: left; text-align: center; width: 17%;
+              img{width: 29px;}
+            }
+          }
 
         .urgent{
           overflow: hidden;
-          label{float: left; width: 30%;} 
-          #publication_urgent_input, #compra_venta_publication_urgent_input, #vehiculos_publication_urgent_input, #inmuebles_publication_urgent_input, #cursos_talleres_publication_urgent_input, #servicios_publication_urgent_input, #viajes_turismo_publication_urgent_input, #empleos_publication_urgent_input{
+          label{float: left; width: 25%;} 
+          /*#publication_urgent_input, #compra_venta_publication_urgent_input, #vehiculos_publication_urgent_input, #inmuebles_publication_urgent_input, #cursos_talleres_publication_urgent_input, #servicios_publication_urgent_input, #viajes_turismo_publication_urgent_input, #empleos_publication_urgent_input{*/
+          #publication_urgent_input, .publication_urgent_input{
             float: left;
             label.control-label{display: none;}
           }
@@ -124,9 +182,10 @@
         
         
 
-        #publication_i_am_input, #compra_venta_publication_i_am_input, #vehiculos_publication_i_am_input, #inmuebles_publication_i_am_input, #cursos_talleres_publication_i_am_input, #servicios_publication_i_am_input, #viajes_turismo_publication_i_am_input, #empleos_publication_i_am_input{
+        /*#publication_i_am_input, #compra_venta_publication_i_am_input, #vehiculos_publication_i_am_input, #inmuebles_publication_i_am_input, #cursos_talleres_publication_i_am_input, #servicios_publication_i_am_input, #viajes_turismo_publication_i_am_input, #empleos_publication_i_am_input{*/
+        #publication_i_am_input, .publication_i_am_input{
           overflow: hidden;
-          label{float: left; width: 30%;}
+          label{float: left; width: 21%;}
           .controls{
             float: left; text-align: left; 
             select{width: 100%;}
@@ -134,22 +193,31 @@
         }
         .description-rich{
           overflow: hidden;
-          label{float: left; width: 30%;}
+          .left{
+            width: 83%; float: left;
+            label{float: left; width: 25%;}
 
-          #publication_description_input, #compra_venta_publication_description_input, #vehiculos_publication_description_input, #inmuebles_publication_description_input, #cursos_talleres_publication_description_input, #servicios_publication_description_input, #viajes_turismo_publication_description_input, #empleos_publication_description_input{
-            float: left;                  
-            list-style: none outside none;
-            margin-bottom: 2%;
-            overflow: hidden;
-            width: 65%;
-            .controls{
-              .wysihtml5-sandbox{width: 97% !important; height: 225px !important;} /* no esta funcionando*/
+            /*#publication_description_input, #compra_venta_publication_description_input, #vehiculos_publication_description_input, #inmuebles_publication_description_input, #cursos_talleres_publication_description_input, #servicios_publication_description_input, #viajes_turismo_publication_description_input, #empleos_publication_description_input{*/
+            #publication_description_input, .publication_description_input{
+              float: left;                  
+              list-style: none outside none;
+              margin-bottom: 2%;
+              overflow: hidden;
+              width: 74%;
+              .controls{
+                .wysihtml5-sandbox{width: 97% !important; height: 225px !important;} /* no esta funcionando*/
+              }
             }
           }
+          .right{
+            float:left; float: left; text-align: center; width: 17%;
+            img{width: 29px;}
+          }          
+
         }
         #publication_sub_sub_category_id_input{
           overflow: hidden;
-          label{float: left; width: 30%;}
+          label{float: left; width: 25%;}
           .controls{
             float: left; text-align: left; 
             select{width: 100%;}
@@ -157,7 +225,7 @@
         }
         #publication_brand_input, #vehiculos_publication_brand_input{
           overflow: hidden;
-          label{float: left; width: 30%;}
+          label{float: left; width: 25%;}
           .controls{
             float: left; text-align: left; 
             select{width: 100%;}
@@ -165,7 +233,7 @@
         }
         #publication_model_input, #vehiculos_publication_model_input{
           overflow: hidden;
-          label{float: left; width: 30%;}
+          label{float: left; width: 25%;}
           .controls{
             float: left; width: 60%; text-align: left;
             input {width: 100%;}
@@ -174,7 +242,7 @@
         }
         #publication_year_input, #vehiculos_publication_year_input{
           overflow: hidden;
-          label{float: left; width: 30%;}
+          label{float: left; width: 25%;}
           .controls{
             float: left; text-align: left; 
             select{width: 100%;}
@@ -182,7 +250,7 @@
         }
         #publication_km_input, #vehiculos_publication_km_input{
           overflow: hidden;
-          label{float: left; width: 30%;}
+          label{float: left; width: 25%;}
           .controls{
             float: left; width: 60%; text-align: left;
             input {width: 100%;}
@@ -191,25 +259,37 @@
         }
         #publication_fuel_input, #vehiculos_publication_fuel_input{
           overflow: hidden;
-          label{float: left; width: 30%;}
+          label{float: left; width: 25%;}
           .controls{
             float: left; text-align: left; 
             select{width: 100%;}
           }    
         }
-        #publication_condition_input, #compra_venta_publication_condition_input, #vehiculos_publication_condition_input, #inmuebles_publication_condition_input, #cursos_talleres_publication_condition_input, #servicios_publication_condition_input, #viajes_turismo_publication_condition_input, #empleos_publication_condition_input{
+        /*#publication_condition_input, #compra_venta_publication_condition_input, #vehiculos_publication_condition_input, #inmuebles_publication_condition_input, #cursos_talleres_publication_condition_input, #servicios_publication_condition_input, #viajes_turismo_publication_condition_input, #empleos_publication_condition_input{*/
+        .condition-row{
           overflow: hidden;
-          label{float: left; width: 30%;}
-          .controls{
-            float: left; width: 60%; text-align: left;
-            label{margin-left: 6%; padding: 0;}
-            input {width: 100%;}
-            width: 45%;
+          .left{
+            width: 83%; float: left;
+            label{float: left; width: 25%;}
+              #publication_condition_input, .publication_condition_input{
+                overflow: hidden;
+                label{float: left; width: 25%;}
+                .controls{
+                  float: left; width: 60%; text-align: left;
+                  label{margin-left: 6%; padding: 0;}
+                  input {width: 100%;}
+                  width: 45%;
+               }
+             }
           }
+          .right{
+            float:left; float: left; text-align: center; width: 17%;
+            img{width: 29px;}
+          }             
         }
         #publication_color_input, #vehiculos_publication_color_input{
           overflow: hidden;
-          label{float: left; width: 30%;}
+          label{float: left; width: 25%;}
           .controls{
             float: left; width: 60%; text-align: left;
             input {width: 100%;}
