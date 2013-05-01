@@ -1,8 +1,11 @@
 class Publication < ActiveRecord::Base
   
+
+
+  #scope :quit_incomplete_publications, lambda{where("title <> ?", nil)}  
   
   attr_accessible :title, :description, :city_id, :sub_category_id, :price, :i_am, :currency, :email, :phone,
-     :brand, :model, :year, :condition, :km, :color, :fuel, :sold, :type, :status, :urgent, :sub_sub_category_id, :user_id
+     :brand, :model, :year, :condition, :km, :color, :fuel, :sold, :type, :status, :urgent, :sub_sub_category_id, :user_id, :has_title
 
   #validates_presence_of :title, :if => :active_or_details?
   #validates_presence_of :title
@@ -21,12 +24,12 @@ class Publication < ActiveRecord::Base
   #validates_presence_of :title, :description, :price, :i_am, :currency, :email, :condition
 
   define_index do
-    indexes title, :sortable => true
+    indexes title
     indexes description
     #indexes city_id
     #indexes sub_category_id
 
-    has city_id, sub_category_id
+    has city_id, sub_category_id, has_title, sold
     
     set_property :delta => true
   end  
@@ -57,13 +60,14 @@ class Publication < ActiveRecord::Base
     :sub_sub_category     => sub_sub_category,
   }
   end
+
     #:first_image          => self.images.first if self.images,
 
   ###############
   ############## make sure you have a database index on the type column
 
-  def self.last_publications
-    Publication.order("created_at DESC").limit(10)
+  def self.last_publications # Only articles with title and not sold are shown
+    Publication.where("has_title = ? AND sold = ?", true, false).order("created_at DESC").limit(10)
   end
 
   def has_subcategory?

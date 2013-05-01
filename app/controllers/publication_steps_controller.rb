@@ -51,16 +51,17 @@ class PublicationStepsController < ApplicationController
         when "viajes_y_turismo" then "ViajesTurismoPublication"
         when "cursos_y_talleres" then "CursosTalleresPublication"
         when "servicios" then "ServiciosPublication"
-        end      
+        end
     end
     params[:publication][:status] = step
     params[:publication][:status] = 'active' if step == steps.last
 
-    if step == "details".to_sym
+    if step == "details".to_sym # enters here only when button Finalizar is clicked
+      params[:publication][:has_title] = true #set the product searchable, and avoid to brake the page when searching
       params[:publication][:type] = session[:publication_type]
     end
     
-       
+
     @publication.attributes = params[:publication]
     render_wizard @publication
   end    
