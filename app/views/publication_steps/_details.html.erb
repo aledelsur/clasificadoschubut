@@ -62,7 +62,7 @@
 
       <div class="phone-row">
         <div class="left">
-          <%= f.input :phone, :label=>"Teléfono" %>
+          <%= f.input :phone, :label=>"Teléfono", :input_html => { :value => @user.phone } %>
         </div>
       </div>
 

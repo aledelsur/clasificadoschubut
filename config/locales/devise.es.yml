@@ -21,7 +21,7 @@ en:
       locked: "Your account is locked."
       not_found_in_database: "Email o contraseña son inválidos."
       timeout: "Your session expired, please sign in again to continue."
-      unauthenticated: "Para publicar un clasificado gratis necesitas registrarte e iniciar sesión."
+      unauthenticated: "Para publicar un clasificado gratis necesitás <a href='/users/sign_up'> registrarte </a>e iniciar sesión."
       unconfirmed: "You have to confirm your account before continuing."
     mailer:
       confirmation_instructions:

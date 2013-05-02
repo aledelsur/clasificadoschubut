@@ -54,8 +54,8 @@ class Publication < ActiveRecord::Base
     :type                 => self.type,
     :i_am                 => self.i_am,
     :condition            => self.condition,
-    :user_name            => user_name,
-    :user_email           => user_email,
+    :user_name            => self.user.name,
+    :user_email           => self.user.email,
     :phone                => self.phone,
     :sub_category         => subcategory,    
     :sub_sub_category     => sub_sub_category,
@@ -83,13 +83,13 @@ class Publication < ActiveRecord::Base
     end
   end
 
-  def user_name
-    user.name if user
-  end
+  # def user_name
+  #   user.name if user
+  # end
 
-  def user_email
-    user.email if user
-  end
+  # def user_email
+  #   user.email if user
+  # end
 
   def subcategory
     sub_category.name if sub_category
