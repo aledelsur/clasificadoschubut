@@ -1,5 +1,35 @@
-  <%= form.input :model, :label=>"Modelo" %>
-  <%= form.input :year, :label=>"Año", :as => :select, :collection=>years %>
-  <%= form.input :color, :label=>"Color" %>
-  <%= form.input :km, :label=>"Km" %>
-  <%= form.input :fuel, :label=>"Combustible", :as => :select, :collection=>[["Nafta","nafta"],["Diesel","diesel"],["Nafta/GNC","nafta_gnc"],["Eléctrico/Híbrido","hibrido_electrico"]] %>
+  <div class="model-row">
+    <div class="left">
+      <%= form.input :model, :label=>"Modelo", :input_html => { :class=>"model-input-field" } %>
+    </div>
+    <div class="right ok-field-model"><%= image_tag "ok-field2.png" %></div>
+    <div class="right wrong-field-model">Campo requerido.</div>
+  </div>
+
+  <div class="year-row">
+    <div class="left">
+      <%= form.input :year, :label=>"Año", :as => :select, :collection=>years, :include_blank => false, :input_html => { :class=>"year-input-field" } %>
+    </div>
+    <div class="right ok-field-year"><%= image_tag "ok-field2.png" %></div>
+  </div>
+
+  <div class="color-row">
+    <div class="left">
+      <%= form.input :color, :label=>"Color", :input_html => { :class=>"color-input-field" } %>
+    </div>
+  </div>
+
+  <div class="km-row">
+    <div class="left">
+      <%= form.input :km, :label=>"Km", :input_html => { :class=>"km-input-field" } %>
+    </div>
+  </div>
+
+  <div class="fuel-row">
+    <div class="left">
+      <%= form.input :fuel, :label=>"Combustible", :as => :select, :collection=>[["Nafta","nafta"],["Diesel","diesel"],["Nafta/GNC","nafta_gnc"],["Eléctrico/Híbrido","hibrido_electrico"]], :include_blank => false, :input_html => { :class=>"fuel-input-field" } %>
+    </div>
+    <div class="right ok-field-fuel"><%= image_tag "ok-field2.png" %></div>
+  </div>
+
+  

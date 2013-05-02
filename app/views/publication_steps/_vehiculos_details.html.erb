@@ -1,9 +1,47 @@
 <% if sub_category_key == "autos_y_camionetas" || sub_category_key == "camiones_y_colectivos" || sub_category_key == "motos_y_cuatriciclos" %>
-  <%= form.input :brand, :label=>"Marca", :as => :select, :collection=>brands, :prompt => "- Seleccione -" %>
+
+  <div class="brand-row">
+    <div class="left">
+      <%= form.input :brand, :label=>"Marca", :as => :select, :collection=>options_from_collection_for_select(brands, "key", "name"), :include_blank => false, :input_html => { :class=>"brand-input-field" } %>
+      <div class="manual-brand">
+        <input type="text" class="complete-manual-brand" placeholder="¿Qué marca es?" name="publication[brand]">
+      </div>
+    </div>
+    <div class="right ok-field-brand"><%= image_tag "ok-field2.png" %></div>
+    <div class="right wrong-field-brand">Campo requerido.</div>
+  </div>
+
+  
 <% elsif sub_category_key == "nautica" %>
-  <%= form.input :sub_sub_category_id, :label=>"Categoría", :as => :select, :collection =>nautica_sub_categories, :prompt => "- Seleccione -" %>
-  <%= form.input :brand, :label=>"Marca" %>
+
+  <div class="sub-subcategory-row">
+    <div class="left">
+      <%= form.input :sub_sub_category_id, :label=>"Categoría", :as => :select, :collection =>nautica_sub_categories, :include_blank => false %>
+    </div>
+    <div class="right ok-field-sub-subcategory"><%= image_tag "ok-field2.png" %></div>
+  </div>
+
+  
+
+  <div class="brand-row">
+    <div class="left">
+      <%= form.input :brand, :label=>"Marca" %>
+      <%#= form.input :brand, :label=>"Marca", :as => :select, :collection=>brands, :include_blank => false, :input_html => { :class=>"brand-input-field" } %>
+    </div>
+    <div class="right ok-field-brand"><%= image_tag "ok-field2.png" %></div>
+    <div class="right wrong-field-brand">Campo requerido.</div>
+  </div>
+
+  
 <% else %> <!-- Casillas y casas rodantes O Aviones y avionetas O Otras categorías-->
-  <%= form.input :brand, :label=>"Marca" %>
+  <div class="brand-row">
+    <div class="left">
+      <%= form.input :brand, :label=>"Marca" %>
+      <%#= form.input :brand, :label=>"Marca", :as => :select, :collection=>brands, :include_blank => false, :input_html => { :class=>"brand-input-field" } %>
+    </div>
+    <div class="right ok-field-brand"><%= image_tag "ok-field2.png" %></div>
+    <div class="right wrong-field-brand">Campo requerido.</div>
+  </div>
+  
 <% end %>
 <%= render :partial => "publication_steps/vehiculos_common_details", :locals=>{:form=>form, :years => years} %>

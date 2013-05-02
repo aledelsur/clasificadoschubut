@@ -183,6 +183,7 @@
         
 
         /*#publication_i_am_input, #compra_venta_publication_i_am_input, #vehiculos_publication_i_am_input, #inmuebles_publication_i_am_input, #cursos_talleres_publication_i_am_input, #servicios_publication_i_am_input, #viajes_turismo_publication_i_am_input, #empleos_publication_i_am_input{*/
+                
         #publication_i_am_input, .publication_i_am_input{
           overflow: hidden;
           label{float: left; width: 21%;}
@@ -215,56 +216,128 @@
           }          
 
         }
-        #publication_sub_sub_category_id_input{
+
+        .sub-subcategory-row{
           overflow: hidden;
-          label{float: left; width: 25%;}
-          .controls{
-            float: left; text-align: left; 
-            select{width: 100%;}
-          }    
-        }
-        #publication_brand_input, #vehiculos_publication_brand_input{
-          overflow: hidden;
-          label{float: left; width: 25%;}
-          .controls{
-            float: left; text-align: left; 
-            select{width: 100%;}
-          }    
-        }
-        #publication_model_input, #vehiculos_publication_model_input{
-          overflow: hidden;
-          label{float: left; width: 25%;}
-          .controls{
-            float: left; width: 60%; text-align: left;
-            input {width: 100%;}
-            width: 45%;
+          .left{
+            width: 83%; float: left;
+              #publication_sub_sub_category_id_input, .publication_sub_sub_category_id_input{
+                overflow: hidden;
+                label{float: left; width: 25%;}
+                .controls{
+                  float: left; text-align: left; 
+                  select{width: 100%;}
+                }    
+              }
+          }
+          .right{
+            float:left; float: left; text-align: center; width: 17%;
+            img{width: 29px;}
           }
         }
-        #publication_year_input, #vehiculos_publication_year_input{
+
+        .brand-row{
           overflow: hidden;
-          label{float: left; width: 25%;}
-          .controls{
-            float: left; text-align: left; 
-            select{width: 100%;}
-          }    
-        }
-        #publication_km_input, #vehiculos_publication_km_input{
-          overflow: hidden;
-          label{float: left; width: 25%;}
-          .controls{
-            float: left; width: 60%; text-align: left;
-            input {width: 100%;}
-            width: 45%;
+          .left{
+            width: 83%; float: left;
+            .manual-brand{
+              margin-left: 25%; text-align: left; width: 83%;
+              input.complete-manual-brand{width: 54%;}
+            }
+            .complete-manual-brand{display: none;}
+              #publication_brand_input, .publication_brand_input{
+                margin-bottom: 0;
+                overflow: hidden;
+                label{float: left; width: 25%;}
+                .controls{
+                  float: left; text-align: left; 
+                  select{width: 100%;}
+                }    
+              }
+          }
+          .right{
+            float:left; float: left; text-align: center; width: 17%;
+            img{width: 29px;}
           }
         }
-        #publication_fuel_input, #vehiculos_publication_fuel_input{
+
+        .model-row{
           overflow: hidden;
-          label{float: left; width: 25%;}
-          .controls{
-            float: left; text-align: left; 
-            select{width: 100%;}
-          }    
+          .left{
+            width: 83%; float: left;
+              #publication_model_input, .publication_model_input{
+                overflow: hidden;
+                label{float: left; width: 25%;}
+                .controls{
+                  float: left; width: 60%; text-align: left;
+                  input {width: 100%;}
+                  width: 45%;
+                }
+              }
+          }
+          .right{
+            float:left; float: left; text-align: center; width: 17%;
+            img{width: 29px;}
+          }
         }
+
+        .year-row{
+          overflow: hidden;
+          .left{
+            width: 83%; float: left;
+              #publication_year_input, .publication_year_input{
+                overflow: hidden;
+                label{float: left; width: 25%;}
+                .controls{
+                  float: left; text-align: left; 
+                  select{width: 100%;}
+                }    
+              }
+          }
+          .right{
+            float:left; float: left; text-align: center; width: 17%;
+            img{width: 29px;}
+          }
+        }
+
+        .km-row{
+          overflow: hidden;
+          .left{
+            width: 83%; float: left;
+              #publication_km_input, .publication_km_input{
+                overflow: hidden;
+                label{float: left; width: 25%;}
+                .controls{
+                  float: left; width: 60%; text-align: left;
+                  input {width: 100%;}
+                  width: 45%;
+                }
+              }
+          }
+          .right{
+            float:left; float: left; text-align: center; width: 17%;
+            img{width: 29px;}
+          }
+        }      
+
+        .fuel-row{
+          overflow: hidden;
+          .left{
+            width: 83%; float: left;
+              #publication_fuel_input, .publication_fuel_input{
+                overflow: hidden;
+                label{float: left; width: 25%;}
+                .controls{
+                  float: left; text-align: left; 
+                  select{width: 100%;}
+                }    
+              }
+            }
+          .right{
+            float:left; float: left; text-align: center; width: 17%;
+            img{width: 29px;}
+          }
+        } 
         /*#publication_condition_input, #compra_venta_publication_condition_input, #vehiculos_publication_condition_input, #inmuebles_publication_condition_input, #cursos_talleres_publication_condition_input, #servicios_publication_condition_input, #viajes_turismo_publication_condition_input, #empleos_publication_condition_input{*/
         .condition-row{
           overflow: hidden;
@@ -287,15 +360,26 @@
             img{width: 29px;}
           }             
         }
-        #publication_color_input, #vehiculos_publication_color_input{
+
+        .color-row{
           overflow: hidden;
-          label{float: left; width: 25%;}
-          .controls{
-            float: left; width: 60%; text-align: left;
-            input {width: 100%;}
-            width: 45%;
+          .left{
+            width: 83%; float: left;
+              #publication_color_input, .publication_color_input{
+                overflow: hidden;
+                label{float: left; width: 25%;}
+                .controls{
+                  float: left; width: 60%; text-align: left;
+                  input {width: 100%;}
+                  width: 45%;
+                }
+              }
           }
-        }
+          .right{
+            float:left; float: left; text-align: center; width: 17%;
+            img{width: 29px;}
+          }
+        }           
       }
     }
   }

@@ -7,6 +7,7 @@ $(document).ready(function() {
 /////////////////////////////////////
 /////////////////////////////////////
 
+
   $('.description_area').wysihtml5({
     "font-styles": false,
     "link": false,
@@ -34,6 +35,14 @@ $(document).ready(function() {
     var ok_price_field = true;
   }
 
+  var ok_brand_field = true; // it changes automatically the value when change the option.
+
+  if ($(".model-input-field").val() == ""){ //sometimes there is an email set in the input
+    var ok_model_field = false;
+  }else{
+    var ok_model_field = true;
+  }
+
   if (editor.getValue() == ""){ //sometimes there is an email set in the input
     var ok_description_field = false;
   }else{
@@ -54,6 +63,9 @@ $(document).ready(function() {
     var ok_condition_field = false;
   }
 
+  /////////////// ////////////////// //////////////////
+  /////////////// FOCUSOUT FUNCTIONS //////////////////
+  /////////////// ////////////////// //////////////////
 
   $(".title-input-field").focusout(function(){
     if ($(".title-input-field").val() == ""){
@@ -71,6 +83,40 @@ $(document).ready(function() {
     }
   });
 
+  $(".model-input-field").focusout(function(){
+    if ($(".model-input-field").val() == ""){
+      wrong_model();
+    }else{
+      ok_model();
+    }
+  });  
+
+  $(".brand-input-field").change(function(){
+    var value = $(".brand-input-field").val();
+    if (value == "otras_marcas"){
+      ok_brand_field = false;
+      $(".complete-manual-brand").show();
+    }else{
+      ok_brand_field = true;
+      $(".complete-manual-brand").hide();
+      $(".brand-row").removeClass("required-field");
+      $(".ok-field-brand").show();
+      $(".wrong-field-brand").hide();      
+    }
+
+  });  
+
+  $(".complete-manual-brand").focusout(function(){
+    if ($(".complete-manual-brand").val() == ""){
+      wrong_brand();
+    }else{
+      ok_brand();
+    }
+  });  
+
+  
+
+
   $(".email-input-field").focusout(function(){
     var value = $(".email-input-field").val();
     if (value == ""){
@@ -84,7 +130,8 @@ $(document).ready(function() {
 
   $(".condition-input-field").click(function(){
     ok_condition();
-  });  
+  });
+
 
 
 $(".submit-form").click(function(){
@@ -101,6 +148,21 @@ $(".submit-form").click(function(){
     ok_price();
     count++;
   }
+
+  if (ok_brand_field == false){
+    wrong_brand();
+  }else{
+    ok_brand();
+    count++;
+  }
+
+  if (ok_model_field == false){
+    wrong_model();
+  }else{
+    ok_model();
+    count++;
+  }
+
   if (ok_description_field == false){
     wrong_description();
   }else{
@@ -125,7 +187,7 @@ $(".submit-form").click(function(){
     count++;
   }
 
-  if (count == 5){ // the five validations are ok
+  if (count == 7){ // the seven validations are ok
     $(".not-all-fields-completed").hide();
     $("form").submit();
   }else{
@@ -166,6 +228,36 @@ function ok_price(){
   $(".ok-field-price-currency").show();
   $(".wrong-field-price-currency").hide();
 }
+
+function wrong_brand(){
+  ok_brand_field = false;
+  $(".brand-row").addClass("required-field");
+  $(".ok-field-brand").hide();
+  $(".wrong-field-brand").show();
+}
+
+function ok_brand(){
+  ok_brand_field = true;
+  $(".brand-row").removeClass("required-field");
+  $(".ok-field-brand").show();
+  $(".wrong-field-brand").hide();
+
+}
+
+function wrong_model(){
+  ok_model_field = false;
+  $(".model-row").addClass("required-field");
+  $(".ok-field-model").hide();
+  $(".wrong-field-model").show();
+}
+
+function ok_model(){
+  ok_model_field = true;
+  $(".model-row").removeClass("required-field");
+  $(".ok-field-model").show();
+  $(".wrong-field-model").hide();
+}
+
 
 function wrong_description(){
   ok_description_field = false;

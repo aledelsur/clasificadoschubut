@@ -80,5 +80,63 @@ $(document).ready(function() {
   $('#viajes_turismo_publication_urgent_input').addClass("publication_urgent_input");
   $('#empleos_publication_urgent_input').addClass("publication_urgent_input");    
 
+  //////////////////////////////////////////////////////////////////////////////////////////
+                              // FOR VEHICULOS PUBLICATIONS: //
+  //////////////////////////////////////////////////////////////////////////////////////////
+
+  $('#compra_venta_publication_brand_input').addClass("publication_brand_input");
+  $('#vehiculos_publication_brand_input').addClass("publication_brand_input");
+  $('#inmuebles_publication_brand_input').addClass("publication_brand_input");
+  $('#servicios_publication_brand_input').addClass("publication_brand_input");
+  $('#cursos_talleres_publication_brand_input').addClass("publication_brand_input");
+  $('#viajes_turismo_publication_brand_input').addClass("publication_brand_input");
+  $('#empleos_publication_brand_input').addClass("publication_brand_input");    
+
+  $('#compra_venta_publication_model_input').addClass("publication_model_input");
+  $('#vehiculos_publication_model_input').addClass("publication_model_input");
+  $('#inmuebles_publication_model_input').addClass("publication_model_input");
+  $('#servicios_publication_model_input').addClass("publication_model_input");
+  $('#cursos_talleres_publication_model_input').addClass("publication_model_input");
+  $('#viajes_turismo_publication_model_input').addClass("publication_model_input");
+  $('#empleos_publication_model_input').addClass("publication_model_input");
+
+  $('#compra_venta_publication_year_input').addClass("publication_year_input");
+  $('#vehiculos_publication_year_input').addClass("publication_year_input");
+  $('#inmuebles_publication_year_input').addClass("publication_year_input");
+  $('#servicios_publication_year_input').addClass("publication_year_input");
+  $('#cursos_talleres_publication_year_input').addClass("publication_year_input");
+  $('#viajes_turismo_publication_year_input').addClass("publication_year_input");
+  $('#empleos_publication_year_input').addClass("publication_year_input");    
+
+  $('#compra_venta_publication_color_input').addClass("publication_color_input");
+  $('#vehiculos_publication_color_input').addClass("publication_color_input");
+  $('#inmuebles_publication_color_input').addClass("publication_color_input");
+  $('#servicios_publication_color_input').addClass("publication_color_input");
+  $('#cursos_talleres_publication_color_input').addClass("publication_color_input");
+  $('#viajes_turismo_publication_color_input').addClass("publication_color_input");
+  $('#empleos_publication_color_input').addClass("publication_color_input");    
+
+  $('#compra_venta_publication_km_input').addClass("publication_km_input");
+  $('#vehiculos_publication_km_input').addClass("publication_km_input");
+  $('#inmuebles_publication_km_input').addClass("publication_km_input");
+  $('#servicios_publication_km_input').addClass("publication_km_input");
+  $('#cursos_talleres_publication_km_input').addClass("publication_km_input");
+  $('#viajes_turismo_publication_km_input').addClass("publication_km_input");
+  $('#empleos_publication_km_input').addClass("publication_km_input");    
+
+  $('#compra_venta_publication_fuel_input').addClass("publication_fuel_input");
+  $('#vehiculos_publication_fuel_input').addClass("publication_fuel_input");
+  $('#inmuebles_publication_fuel_input').addClass("publication_fuel_input");
+  $('#servicios_publication_fuel_input').addClass("publication_fuel_input");
+  $('#cursos_talleres_publication_fuel_input').addClass("publication_fuel_input");
+  $('#viajes_turismo_publication_fuel_input').addClass("publication_fuel_input");
+  $('#empleos_publication_fuel_input').addClass("publication_fuel_input");    
+
+
+
+
+
+
+
 
 });
