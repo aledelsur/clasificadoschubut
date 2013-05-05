@@ -1,3 +1,10 @@
+<%= content_for :left_column do %>
+  <% if @last_publications.any? %> 
+    <%= render :partial => 'shared/last_publications_left', :locals => { :last_publications => @last_publications} %> 
+  <% end %>
+
+<% end %>
+
 <div class="row well contact">
   <h3>Contactate con nosotros!</h3>
   <p>Envianos tu consulta.</p>
@@ -5,20 +12,20 @@
   <%= form_tag contact_email_path(:to=>"chubut_clasificados") do %>
     <div class="field">
       <label>Nombre</label>
-      <%= text_field_tag :name %>
+      <%= text_field_tag :name, nil, :class=>'input-name-field' %>
     </div>
     <div class="field">
       <label>Email</label>
-      <%= text_field_tag :email %>
+      <%= text_field_tag :email, nil, :class=>'input-email-field' %>
     </div>
     <div class="field">
       <label>Tu consulta</label>
-      <%= text_area_tag :question %>
+      <%= text_area_tag :question, nil, :class=>'input-question-field' %>
     </div>
     <div class="actions">
-      <%= submit_tag "Enviar", :class=>"btn btn-primary" %>
+      <%= submit_tag "Enviar", :class=>"btn btn-primary submit-contact-email" %>
     </div>
   <% end %>
-
+  <div class="not-all-fields-completed">Todos los campos son obligatorios.</div>
 
 </div>

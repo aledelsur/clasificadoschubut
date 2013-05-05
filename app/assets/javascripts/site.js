@@ -43,5 +43,18 @@ $(document).ready(function() {
     return false;
   })
 
+  $('.submit-contact-email').click(function(){ // This button is either for contact us and for contact seller
+    var name = $('.input-name-field').val();
+    var email = $('.input-email-field').val();
+    var question = $('.input-question-field').val();
+
+    if (name == "" || email == "" || question == ""){
+      $('.not-all-fields-completed').show();
+      return false;
+    }else{
+      $("form").submit();
+    }
+  });
+
 });
 

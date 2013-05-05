@@ -1,4 +1,5 @@
 module PublicationsHelper
+  # -*- coding: utf-8 -*-
 
   def set_phone(publication)
     if publication.phone == "" || publication.phone.nil?
@@ -18,6 +19,14 @@ module PublicationsHelper
     else
       publication.user.name
     end
+  end
+
+  def set_km(km)
+    km == "" ? "-----" : km
+  end
+
+  def set_color(color)
+    color == "" ? "-----" : color
   end
 
 end

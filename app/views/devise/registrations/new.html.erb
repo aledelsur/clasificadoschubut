@@ -1,3 +1,9 @@
+<%= content_for :left_column do %>
+  <% if @last_publications.any? %> 
+    <%= render :partial => 'shared/last_publications_left', :locals => { :last_publications => @last_publications} %> 
+  <% end %>
+<% end %>
+
 <div class="row well sign-up">
 
   <div class="span5">

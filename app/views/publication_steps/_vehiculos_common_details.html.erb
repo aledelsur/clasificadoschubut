@@ -27,7 +27,7 @@
 
   <div class="fuel-row">
     <div class="left">
-      <%= form.input :fuel, :label=>"Combustible", :as => :select, :collection=>[["Nafta","nafta"],["Diesel","diesel"],["Nafta/GNC","nafta_gnc"],["Eléctrico/Híbrido","hibrido_electrico"]], :include_blank => false, :input_html => { :class=>"fuel-input-field" } %>
+      <%= form.input :fuel, :label=>"Combustible", :as => :select, :collection=>["Nafta","Diesel","Nafta/GNC","Eléctrico/Híbrido"], :include_blank => false, :input_html => { :class=>"fuel-input-field" } %>
     </div>
     <div class="right ok-field-fuel"><%= image_tag "ok-field2.png" %></div>
   </div>

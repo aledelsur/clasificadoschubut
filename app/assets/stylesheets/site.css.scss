@@ -203,10 +203,12 @@
           overflow: hidden;
           .by-phone{
             float: left; margin: 2% 1% 1% 2%; padding: 10px; width: 42%;
-            .content{margin-bottom: 46%; margin-top: 30%;}
+            .image{ margin: auto; width: 25%; }
+            .content{margin-bottom: 44%; margin-top: 30%;}
           }
           .by-email{
             float: left; margin: 2% 2% 2% 1%; width: 48%;
+            .image{ margin: auto; width: 25%; }
             .contact-seller-form.well{padding: 10px;}
             .contact-seller-form{
               .field{
@@ -296,6 +298,7 @@
 
   .contact{
     text-align: center;
+    margin-left: 0;
     form{
       .field{
         textarea{height: 120px; width: 55%;}
@@ -311,6 +314,7 @@
 .alert{width: 70%; float: right;}
 
 .sign-up{
+  margin-left: 0;
   h2{margin-bottom: 7%; text-align: center;}
   label{float: left; width: 35%;}
   .span5{border-right: 1px solid #E5E3E3;}
@@ -318,6 +322,7 @@
 }
 
 .sign-in{
+  margin-left: 0;
   h2{margin-bottom: 7%; text-align: center;}
   label{float: left; width: 35%;}
   .span5{border-right: 1px solid #E5E3E3;}
@@ -336,4 +341,4 @@ footer{
 }
 
 .welcome{ padding: 1% 0; text-align: center; }
-
+.not-all-fields-completed{ display: none; color: #C94028; }

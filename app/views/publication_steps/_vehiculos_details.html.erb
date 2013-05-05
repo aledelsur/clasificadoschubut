@@ -2,9 +2,16 @@
 
   <div class="brand-row">
     <div class="left">
-      <%= form.input :brand, :label=>"Marca", :as => :select, :collection=>options_from_collection_for_select(brands, "key", "name"), :include_blank => false, :input_html => { :class=>"brand-input-field" } %>
+      <% if sub_category_key == "autos_y_camionetas" %>
+        <%= form.input :car_brand, :label=>"Marca", :as => :select, :collection=>brands, :include_blank => false, :input_html => { :class=>"brand-input-field" } %>
+      <% elsif sub_category_key == "camiones_y_colectivos" %>
+        <%= form.input :truck_brand, :label=>"Marca", :as => :select, :collection=>brands, :include_blank => false, :input_html => { :class=>"brand-input-field" } %>
+      <% elsif sub_category_key == "motos_y_cuatriciclos" %>
+        <%= form.input :moto_brand, :label=>"Marca", :as => :select, :collection=>brands, :include_blank => false, :input_html => { :class=>"brand-input-field" } %>
+      <% end %>
       <div class="manual-brand">
-        <input type="text" class="complete-manual-brand" placeholder="¿Qué marca es?" name="publication[brand]">
+        <!--<input type="text" class="complete-manual-brand" placeholder="¿Qué marca es?" name="publication[brand]">-->
+        <%= form.input :brand, :label=>false, :placeholder => "¿Qué marca es?", :input_html => { :class=>"complete-manual-brand" } %>
       </div>
     </div>
     <div class="right ok-field-brand"><%= image_tag "ok-field2.png" %></div>
@@ -16,17 +23,21 @@
 
   <div class="sub-subcategory-row">
     <div class="left">
-      <%= form.input :sub_sub_category_id, :label=>"Categoría", :as => :select, :collection =>nautica_sub_categories, :include_blank => false %>
+      <%= form.input :sub_sub_category_id, :label=>"Categoría", :as => :select, :collection =>nautica_sub_categories, :include_blank => false, :input_html => { :class=>"sub-subcategory-input-field" } %>
+      <div class="manual-sub-subcategory">
+        <%= form.input :sub_subcategory_manual, :label=>false, :placeholder => "¿Qué categoría es?", :input_html => { :class=>"complete-manual-sub-subcategory" } %>
+      </div>
     </div>
     <div class="right ok-field-sub-subcategory"><%= image_tag "ok-field2.png" %></div>
+    <div class="right wrong-field-sub-subcategory">Campo requerido.</div>
+
   </div>
 
   
 
   <div class="brand-row">
     <div class="left">
-      <%= form.input :brand, :label=>"Marca" %>
-      <%#= form.input :brand, :label=>"Marca", :as => :select, :collection=>brands, :include_blank => false, :input_html => { :class=>"brand-input-field" } %>
+      <%= form.input :brand, :label=>"Marca", :input_html => { :class=>"complete-manual-brand ever" } %>
     </div>
     <div class="right ok-field-brand"><%= image_tag "ok-field2.png" %></div>
     <div class="right wrong-field-brand">Campo requerido.</div>
@@ -36,8 +47,7 @@
 <% else %> <!-- Casillas y casas rodantes O Aviones y avionetas O Otras categorías-->
   <div class="brand-row">
     <div class="left">
-      <%= form.input :brand, :label=>"Marca" %>
-      <%#= form.input :brand, :label=>"Marca", :as => :select, :collection=>brands, :include_blank => false, :input_html => { :class=>"brand-input-field" } %>
+      <%= form.input :brand, :label=>"Marca", :input_html => { :class=>"complete-manual-brand ever" } %>
     </div>
     <div class="right ok-field-brand"><%= image_tag "ok-field2.png" %></div>
     <div class="right wrong-field-brand">Campo requerido.</div>

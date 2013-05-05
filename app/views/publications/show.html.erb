@@ -55,7 +55,8 @@
     <%= link_to "Contactar al vendedor", "#", :class=>"btn btn-primary contact-seller-btn" %>
     <div class="contact-seller-options">
       <div class="by-phone well">
-        <h3>Por teléfono</h3>
+        <!--<h3>Por teléfono</h3>-->
+        <div class="image"><%= image_tag "contact-by-phone.png" %></div>
         <div class="content">
           <p><b><%= set_name_or_email(@publication) %></b></p>
           <h3><%= set_phone(@publication)%></h3>
@@ -63,26 +64,27 @@
       </div>
       <div class="by-email">
         <div class="contact-seller-form well">
-        <h3>Por email</h3>
-        
+        <!--<h3>Por email</h3>-->
+        <div class="image"><%= image_tag "contact-by-email.png" %></div>
           </br>
-          <%= form_tag contact_email_path(:to=>"seller") do %>
+          <%= form_tag contact_email_path(:to=>"seller", :publication_id=>@publication.id) do %>
             <div class="field">
-              <label>Tu nombre</label>
-              <%= text_field_tag :name %>
+              <label>Tu nombre*</label>
+              <%= text_field_tag :name, nil, :class=>'input-name-field' %>
             </div>
             <div class="field">
-              <label>Tu email</label>
-              <%= text_field_tag :email %>
+              <label>Tu email*</label>
+              <%= text_field_tag :email, nil, :class=>'input-email-field' %>
             </div>
             <div class="field">
-              <label>Consulta</label>
-              <%= text_area_tag :question %>
+              <label>Consulta*</label>
+              <%= text_area_tag :question, nil, :class=>'input-question-field' %>
             </div>
             <div class="actions">
-              <%= submit_tag "Enviar", :class=>"btn btn-primary" %>
+              <%= submit_tag "Enviar", :class=>"btn btn-primary submit-contact-email" %>
             </div>
           <% end %>
+          <div class="not-all-fields-completed">Todos los campos son obligatorios.</div>
 
 
         </div>
@@ -115,14 +117,15 @@
 
     <div class="vehiculos-details">
       <% if @publication.has_subcategory? %>
-        <p><label>Categoría: </label><b><%= @publication.info[:sub_sub_category] %></b></p>
+        <%# raise @publication.info[:sub_sub_category].inspect %>
+        <p><label>Categoría: </label><b><%= @publication.info[:sub_subcategory] %></b></p>
       <% end %>
       <p><label>Marca: </label><b><%= @publication.info[:brand] %></b></p>
       <p><label>Modelo: </label><b><%= @publication.info[:model] %></b></p>
       <p><label>Año: </label><b><%= @publication.info[:year] %></b></p>
-      <p><label>Km: </label><b><%= @publication.info[:km] %></b></p>
+      <p><label>Km: </label><b><%= set_km(@publication.info[:km])  %></b></p>
       <p><label>Combustible: </label><b><%= @publication.info[:fuel] %></b></p>
-      <p><label>Color: </label><b><%= @publication.info[:color] %></b></p>
+      <p><label>Color: </label><b><%= set_color(@publication.info[:color]) %></b></p>
     </div>
   <% end %>
 </div>

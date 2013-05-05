@@ -83,7 +83,7 @@ $(document).ready(function() {
   //////////////////////////////////////////////////////////////////////////////////////////
                               // FOR VEHICULOS PUBLICATIONS: //
   //////////////////////////////////////////////////////////////////////////////////////////
-
+  //BOORRAR  
   $('#compra_venta_publication_brand_input').addClass("publication_brand_input");
   $('#vehiculos_publication_brand_input').addClass("publication_brand_input");
   $('#inmuebles_publication_brand_input').addClass("publication_brand_input");
@@ -91,6 +91,25 @@ $(document).ready(function() {
   $('#cursos_talleres_publication_brand_input').addClass("publication_brand_input");
   $('#viajes_turismo_publication_brand_input').addClass("publication_brand_input");
   $('#empleos_publication_brand_input').addClass("publication_brand_input");    
+  //BOORRAR
+
+
+  $('#vehiculos_publication_brand_input').addClass("publication_brand_input");
+  $('#vehiculos_publication_car_brand_input').addClass("publication_brand_input");
+  $('#vehiculos_publication_moto_brand_input').addClass("publication_brand_input");
+  $('#vehiculos_publication_truck_brand_input').addClass("publication_brand_input");
+
+
+
+
+
+
+
+
+
+
+
+
 
   $('#compra_venta_publication_model_input').addClass("publication_model_input");
   $('#vehiculos_publication_model_input').addClass("publication_model_input");
@@ -133,7 +152,7 @@ $(document).ready(function() {
   $('#empleos_publication_fuel_input').addClass("publication_fuel_input");    
 
 
-
+  $('#vehiculos_publication_sub_sub_category_id_input').addClass("publication_sub_sub_category_id_input");
 
 
 

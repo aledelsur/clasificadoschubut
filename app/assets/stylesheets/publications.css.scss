@@ -108,7 +108,7 @@
               width: 17%; float: left;
               .controls{
                 float: left; text-align: left;
-                select{width: 100%;}
+                select{width: 125%;}
               }
             }
           }
@@ -221,6 +221,10 @@
           overflow: hidden;
           .left{
             width: 83%; float: left;
+            .manual-sub-subcategory{
+              margin-left: 25%; text-align: left; width: 83%;
+              input.complete-manual-sub-subcategory{width: 31%; display: none;}
+            }
               #publication_sub_sub_category_id_input, .publication_sub_sub_category_id_input{
                 overflow: hidden;
                 label{float: left; width: 25%;}
@@ -242,16 +246,17 @@
             width: 83%; float: left;
             .manual-brand{
               margin-left: 25%; text-align: left; width: 83%;
-              input.complete-manual-brand{width: 54%;}
+              input.complete-manual-brand{width: 90%;}
             }
+            .complete-manual-brand.ever{display: block; width: 153%;}
             .complete-manual-brand{display: none;}
-              #publication_brand_input, .publication_brand_input{
+              #publication_car_brand_input, #publication_moto_brand_input, #publication_truck_brand_input, #publication_brand_input, .publication_brand_input{
                 margin-bottom: 0;
                 overflow: hidden;
                 label{float: left; width: 25%;}
                 .controls{
                   float: left; text-align: left; 
-                  select{width: 100%;}
+                  select{width: 180px;}
                 }    
               }
           }

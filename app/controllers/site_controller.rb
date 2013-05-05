@@ -1,5 +1,5 @@
 class SiteController < ApplicationController
-  before_filter :authenticate_user!, :except => [:index, :search, :order, :show_one_publication]
+  before_filter :authenticate_user!, :except => [:index, :search, :order, :show_one_publication, :contact, :send_contact_email]
   before_filter :site_values
 
   def index
@@ -105,22 +105,17 @@ class SiteController < ApplicationController
 
   def send_contact_email
     if params[:to] == "seller"
-      params[:owner_product_email] = @user.email
+      publication = Publication.find params[:publication_id]
+      params[:owner_product_email] = publication.email
       ClasificadosMailer.contact_seller(params).deliver
       flash[:notice] = "Tu consulta fu&eacute; enviada correctamente."
-      redirect_to root_path
+      redirect_to publication_path(publication)
     else
       ClasificadosMailer.contact(params).deliver
       flash[:notice] = "Gracias por tu consulta! Te responderemos a la brevedad."
       redirect_to root_path
     end
   end
-
-  # def send_contact_email
-  #   ClasificadosMailer.contact(params).deliver
-  #   flash[:notice] = "Gracias por tu consulta! Te responderemos a la brevedad."
-  #   redirect_to root_path
-  # end  
 
   def oauth_failure
     #THIS ACTIONS IS DOING NOTHING. NEVER ENTERS HERE. I could delete it, but I won't do it because

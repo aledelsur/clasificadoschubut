@@ -49,7 +49,13 @@ $('.back-to-category').click(function(){
     var ok_price_field = true;
   }
 
-  var ok_brand_field = true; // it changes automatically the value when change the option.
+  var ok_sub_subcategory_field = true;
+
+  if ($(".complete-manual-brand.ever").length){
+    var ok_brand_field = false; 
+  }else{
+    var ok_brand_field = true; // it changes automatically the value when change the option.
+  }
 
   if ($(".model-input-field").val() == ""){ //sometimes there is an email set in the input
     var ok_model_field = false;
@@ -105,17 +111,51 @@ $('.back-to-category').click(function(){
     }
   });  
 
+  // ONLY EXECUTED FOR EDIT PUBLICATION
+  // If has manual brand set, display the manual brand and set selectbox in Otras Marcas
+  if ($(".complete-manual-brand").val() != ""){
+    $(".brand-input-field option:selected").html("Otras Marcas");
+    $(".complete-manual-brand").show();
+  }
+
+  
+
+  $(".sub-subcategory-input-field").change(function(){
+    var value = $(".sub-subcategory-input-field option:selected").html();
+    if (value == "Otra categoría"){
+      ok_sub_subcategory_field = false;
+      $(".complete-manual-sub-subcategory").show();
+    }else{
+      ok_sub_subcategory_field = true;
+      $(".complete-manual-sub-subcategory").hide();
+      $(".complete-manual-sub-subcategory").val("");
+      $(".sub-subcategory-row").removeClass("required-field");
+      $(".ok-field-sub-subcategory").show();
+      $(".wrong-field-sub-subcategory").hide();
+    }
+
+  });
+
+  $(".complete-manual-sub-subcategory").focusout(function(){
+    if ($(".complete-manual-sub-subcategory").val() == ""){
+      wrong_sub_subcategory();
+    }else{
+      ok_sub_subcategory();
+    }
+  });   
+
   $(".brand-input-field").change(function(){
-    var value = $(".brand-input-field").val();
-    if (value == "otras_marcas"){
+    var value = $(".brand-input-field option:selected").html();
+    if (value == "Otras Marcas"){
       ok_brand_field = false;
       $(".complete-manual-brand").show();
     }else{
       ok_brand_field = true;
       $(".complete-manual-brand").hide();
+      $(".complete-manual-brand").val("");
       $(".brand-row").removeClass("required-field");
       $(".ok-field-brand").show();
-      $(".wrong-field-brand").hide();      
+      $(".wrong-field-brand").hide();
     }
 
   });  
@@ -170,6 +210,13 @@ $(".submit-form").click(function(){
     count++;
   }
 
+  if (ok_sub_subcategory_field == false){
+    wrong_sub_subcategory();
+  }else{
+    ok_sub_subcategory();
+    count++;
+  }
+
   if (ok_model_field == false){
     wrong_model();
   }else{
@@ -201,7 +248,7 @@ $(".submit-form").click(function(){
     count++;
   }
 
-  if (count == 7){ // the seven validations are ok
+  if (count == 8){ // the eigth validations are ok
     $(".not-all-fields-completed").hide();
     $("form").submit();
   }else{
@@ -241,6 +288,20 @@ function ok_price(){
   $(".price-and-currency").removeClass("required-field");
   $(".ok-field-price-currency").show();
   $(".wrong-field-price-currency").hide();
+}
+
+function wrong_sub_subcategory(){
+  ok_sub_subcategory_field = false;
+  $(".sub-subcategory-row").addClass("required-field");
+  $(".ok-field-sub-subcategory").hide();
+  $(".wrong-field-sub-subcategory").show();
+}
+
+function ok_sub_subcategory(){
+  ok_sub_subcategory_field = true;
+  $(".sub-subcategory-row").removeClass("required-field");
+  $(".ok-field-sub-subcategory").show();
+  $(".wrong-field-sub-subcategory").hide();
 }
 
 function wrong_brand(){
@@ -323,6 +384,7 @@ function ok_condition(){
   $(".condition-row").removeClass("required-field");
   $(".wrong-field-condition").hide();
 }
+
 
 
 
