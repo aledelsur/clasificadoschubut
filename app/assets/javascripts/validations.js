@@ -105,7 +105,7 @@ $(document).ready(function() {
   }
 
   if ($(".complete-manual-sub-subcategory").val() != ""){
-    $(".brand-input-field option:selected").html("Otra categoría");
+    $(".sub-subcategory-input-field option:selected").html("Otra categoría");
     $(".complete-manual-sub-subcategory").show();
   }
   
