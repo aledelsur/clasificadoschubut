@@ -118,6 +118,10 @@ $('.back-to-category').click(function(){
     $(".complete-manual-brand").show();
   }
 
+  if ($(".complete-manual-sub-subcategory").val() != ""){
+    $(".sub-subcategory-input-field option:selected").html("Otra categoría");
+    $(".complete-manual-sub-subcategory").show();
+  }
   
 
   $(".sub-subcategory-input-field").change(function(){
