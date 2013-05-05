@@ -37,7 +37,7 @@ $(document).ready(function() {
 
   var ok_sub_subcategory_field = true;
 
-  if ($(".complete-manual-brand.ever").length){
+  if ($(".complete-manual-brand.ever").length && $(".complete-manual-brand.ever").val() == "" ){
     var ok_brand_field = false; 
   }else{
     var ok_brand_field = true; // it changes automatically the value when change the option.

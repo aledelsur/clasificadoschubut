@@ -48,16 +48,16 @@ class SiteController < ApplicationController
         publications = Publication.search @keyword_search, :with => {:city_id => @city.id}, :without=> {:has_title => 0, :sold => 1} #don't give if product is sold
         session[:city_id] = @city.id
         @in_city = true
+        #session[:search_made] = {@keyword_search}
       elsif sub_category # When first select a sub category in the index page, and then change the city on the left
         publications = Publication.search :with => {:city_id => @city.id, :sub_category_id => sub_category.id}, :without=> {:has_title => 0, :sold => 1} #don't give if product is sold
         session[:city_id] = @city.id
         session[:subcategory_id] = sub_category.id
+        session[:search_made] = {:city_id => @city.id, :sub_category_id => sub_category.id}
       else # When first select a city in the index page
         publications = Publication.search :with => {:city_id => @city.id}, :without=> {:has_title => 0, :sold => 1} #don't give if product is sold)
-        #publications = Publication.search(:conditions => {:title => "IS NOT NULL"})
-        #publications = Publication.quit_incomplete_publications
-        ## http://stackoverflow.com/questions/9473808/cookie-overflow-in-rails-application
         session[:city_id] = @city.id
+        session[:search_made] = {:city_id => @city.id}
       end
 
     elsif @event == "search_by_subcategory"
@@ -67,8 +67,10 @@ class SiteController < ApplicationController
 
       if @city # When first select a city in the index page, and then change the categories on the left
         publications = Publication.search :with => {:sub_category_id => params[:id], :city_id => @city.id}, :without=> {:has_title => 0, :sold => 1} #don't give if product is sold
+        session[:search_made] = {:city_id => @city.id, :sub_category_id => params[:id]}
       else # When first select a sub category in the index page
         publications = Publication.search :with => {:sub_category_id => params[:id]}, :without=> {:has_title => 0, :sold => 1} #don't give if product is sold
+        session[:search_made] = {:sub_category_id => params[:id]}
       end
 
       session[:subcategory_visited] = sub_category.id
@@ -79,25 +81,47 @@ class SiteController < ApplicationController
       add_breadcrumb sub_category.category.name, "#"
       add_breadcrumb sub_category.name, "#"
     end
+    #### Session params for order later
+    session[:event] = @event
+    session[:index] = params[:index]
+    ####
+
+
     session[:search] = publications
-    @publications = publications.page(params[:page]).per(5)
+    @publications = publications.page(params[:page]).per(2)
     flash[:warning] = "Te recordamos que Chubut Clasificados es una p&aacute;gina nueva. Pronto encontrar&aacute;s lo que est&aacute;s buscando!" if @publications.empty?
     render "show_publications"
   end
 
   def order
+    #Se pierde el breadcrumb: - cuando entro por ciudad y al toque cambio el orden.
+
     if params[:sort] == "less-price"
-      publications = session[:search].sort {|a, b| a.price <=> b.price}
+      publications = Publication.where(session[:search_made]).sort {|a, b| a.price <=> b.price}
     elsif params[:sort] == "high-price"
-      publications = session[:search].sort {|a, b| b.price <=> a.price}
+      publications = Publication.where(session[:search_made]).sort {|a, b| b.price <=> a.price}
     elsif params[:sort] == "date"
-      publications = session[:search].sort {|a, b| b.created_at <=> a.created_at}
+      publications = Publication.where(session[:search_made]).sort {|a, b| b.created_at <=> a.created_at}
     end
-    
-    @publications = Kaminari.paginate_array(publications).page(1).per(2)
-    respond_to do |format|
-      format.js {}
-    end
+
+    #### Load default variables
+    @categories = Category.all #must be here because it is used in both events
+    @all_cities = City.all #must be here because it is used in both events
+    @event = session[:event]
+    params[:index] = session[:index]
+    ####
+
+    #### breadcrumbs
+    # if @event == "search_by_city"
+    #   add_breadcrumb @city.name, search_path(:event => "search_by_city", :city => @city.key, :index=>true)
+    #   if 
+    # else
+
+    # end
+
+    @publications = Kaminari.paginate_array(publications).page(params[:page]).per(2)
+    render "show_publications"
+
   end
 
   def contact

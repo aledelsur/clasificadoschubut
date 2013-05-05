@@ -21,11 +21,11 @@
     <div class="sort-options">
       <div class="span9">
         Ordenar por:
-        <%= link_to "Menor precio", "#", :class=>"sort", :type=>"less-price" %>
+        <%= link_to "Menor precio", order_path(:sort=>"less-price") %>
         |
-        <%= link_to "Mayor precio", "#", :class=>"sort", :type=>"high-price"  %>
+        <%= link_to "Mayor precio", order_path(:sort=>"high-price") %>
         |
-        <%= link_to "Más reciente", "#", :class=>"sort", :type=>"date"  %>
+        <%= link_to "Más reciente", order_path(:sort=>"date")  %>
       </div>
     </div>
   <% end%>

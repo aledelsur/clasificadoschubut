@@ -30,9 +30,10 @@ class PublicationsController < ApplicationController
   def update
     # si se cambia la marca por Otras Marcas, poner los atributos truck_brand_id, etc en nil
     # si ya habia Otras Marcas seleccionada y se cambia por una del combo, poner el atributo brand en nil
-    raise "Params: publications_controller "+params.inspect
+    #raise "Params: publications_controller "+params.inspect
     publication = Publication.find(params[:id])
-    publication.update_attributes(params[:publication])
+    #raise params.inspect
+    publication.update_attributes(params[:vehiculos_publication])
     if publication.save
       flash[:notice] = "Los datos fueron actualizados correctamente."
       redirect_to publications_path

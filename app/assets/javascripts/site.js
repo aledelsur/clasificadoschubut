@@ -19,11 +19,11 @@ $(document).ready(function() {
   });
 
 
-  $('.sort').click(function(){
-    var type = $(this).attr("type");
-    $.post("/order/"+type);
-    return false;
-  });
+  // $('.sort').click(function(){
+  //   var type = $(this).attr("type");
+  //   $.post("/order/"+type);
+  //   return false;
+  // });
 
 
   $('.other-image').mouseover(function() {
