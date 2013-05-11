@@ -2,9 +2,9 @@
   <div class="row results-for-keyword">
     Resultados para "
     <% if @in_city %>
-      <span><%= @keyword_search %></span> " en <span><%= @city.name %></span>: <span>(<%= @publications.size %>)</span>
+      <span><%= @keyword_search %></span> " en <span><%= @city.name %></span>: <span>(<%= @size_res %>)</span>
     <% else %>
-      <span><%= @keyword_search %></span> ": <span>(<%= @publications.size %>)</span>
+      <span><%= @keyword_search %></span> ": <span>(<%= @size_res %>)</span>
     <% end %>
   </div>
 <% else %>
@@ -21,11 +21,11 @@
     <div class="sort-options">
       <div class="span9">
         Ordenar por:
-        <%= link_to "Menor precio", order_path(:sort=>"less-price") %>
+        <%= link_to "Menor precio", order_path(:sort=>"less-price"), :class=>"#{'selected-order' if @less_price}" %>
         |
-        <%= link_to "Mayor precio", order_path(:sort=>"high-price") %>
+        <%= link_to "Mayor precio", order_path(:sort=>"high-price"), :class=>"#{'selected-order' if @high_price}" %>
         |
-        <%= link_to "Más reciente", order_path(:sort=>"date")  %>
+        <%= link_to "Más reciente", order_path(:sort=>"date"), :class=>"#{'selected-order' if @date}"  %>
       </div>
     </div>
   <% end%>

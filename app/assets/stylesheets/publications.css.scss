@@ -26,6 +26,9 @@
       .price-column{
         float: right; margin-top: 4%; text-align: right; width: 18%;
         .price{font-size: 23px; color: #3E78FD; margin-bottom: 4%;}
+        .urgent{
+          margin-bottom: 3%;
+        }
       }
     }
     .pagination{text-align: center;}
