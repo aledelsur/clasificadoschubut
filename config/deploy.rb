@@ -44,9 +44,16 @@ namespace :assets do
   end
 end
 
+namespace :nginx do
+  task :restart, :roles => :app do
+    run "sudo /etc/init.d/nginx restart"
+  end
+end
+
 before "assets:reprecompile", "bundle:install"
 after "deploy:finalize_update", "customs:config"
 after "deploy", "deploy:cleanup"
+after "deploy", "nginx:restart"
 
 #role :web, "50.116.46.119"                          # Your HTTP server, Apache/etc
 #role :app, "clasificadoschubut.com"                          # This may be the same as your `Web` server
