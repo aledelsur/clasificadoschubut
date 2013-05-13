@@ -8,7 +8,7 @@ set :scm, :git # You can set :scm explicitly or Capistrano will make an intellig
 set :user, "root"
 
 set :deploy_to, "/root/apps/#{application}"
-
+ set :rvm_ruby_string, 'ruby-1.9.3-p392@cc'
 
 ssh_options[:forward_agent] = true
 default_run_options[:pty] = true
@@ -21,9 +21,21 @@ namespace(:customs) do
     run <<-CMD
       ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml
     CMD
+    run <<-CMD
+      chmod -R 777 #{release_path}
+    CMD
+    
   end
 end
 
+namespace :bundle do
+
+  desc "run bundle install and ensure all gem requirements are met"
+  task :install do
+    run "cd #{current_path} && bundle install  --without=test"
+  end
+
+end
 
 namespace :assets do
   desc "runs rake assets:precompile"
@@ -32,6 +44,7 @@ namespace :assets do
   end
 end
 
+before "assets:reprecompile", "bundle:install"
 after "deploy:finalize_update", "customs:config"
 after "deploy", "deploy:cleanup"
 
