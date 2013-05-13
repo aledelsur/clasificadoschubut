@@ -24,6 +24,7 @@ gem 'kaminari-bootstrap'
 gem 'mime-types', :require => 'mime/types'
 gem 'friendly_id'
 gem 'capistrano'
+gem 'passenger'
 
 
 
