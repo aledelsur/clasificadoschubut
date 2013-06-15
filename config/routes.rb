@@ -34,6 +34,8 @@ Clasificadoschubut::Application.routes.draw do
 
   match '/:event', to: "site#index", as: "index"
 
+  match '/search-words/keypress', to: "site#autocomplete", as: "autocomplete"
+
   #match '/update_password/:id', to: "users#update_password", as: "update_password"
 
 end

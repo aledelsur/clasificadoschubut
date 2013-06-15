@@ -33,6 +33,9 @@ class Publication < ActiveRecord::Base
     has city_id, sub_category_id, has_title, sold
     
     set_property :delta => true
+    set_property :enable_star => 1
+    set_property :min_infix_len => 4
+    #http://blog.wyeworks.com/2009/4/20/wildcard-search-with-thinking-sphinx/
   end  
 
   def info

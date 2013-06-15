@@ -1,5 +1,5 @@
 class SiteController < ApplicationController
-  before_filter :authenticate_user!, :except => [:index, :search, :order, :show_one_publication, :contact, :send_contact_email]
+  before_filter :authenticate_user!, :except => [:index, :search, :order, :show_one_publication, :contact, :send_contact_email, :autocomplete]
   before_filter :site_values
 
   def index
@@ -173,6 +173,10 @@ class SiteController < ApplicationController
     @publications = Kaminari.paginate_array(publications).page(params[:page]).per(2)
     render "show_publications"
 
+  end
+
+  def autocomplete
+    @publications = Publication.search "*"+params[:str]+"*"
   end
 
   def contact

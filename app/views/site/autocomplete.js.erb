@@ -1,0 +1,14 @@
+var availableTags = [];
+
+<% @publications.each do |publication| %>
+  availableTags.push("<%= publication.title %>");
+<% end %>
+
+
+$("#auto_complete").autocomplete({
+  source: availableTags,
+  select: function( event, ui ) {
+    $("#auto_complete").val(ui.item.value);
+    $("form#search_word").submit();
+  }
+});
